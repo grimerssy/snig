@@ -43,15 +43,20 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
 
-  use({
+  use ({
     'nvim-telescope/telescope.nvim',
     config = getConfig('telescope'),
   })
 
-  use({
+  use ({
     'nvim-treesitter/nvim-treesitter',
     config = getConfig('treesitter'),
     run = ':TSUpdate',
+  })
+
+  use ({
+    'windwp/nvim-autopairs',
+    config = getConfig('autopairs')
   })
 
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }

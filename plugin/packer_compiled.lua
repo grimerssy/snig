@@ -109,13 +109,17 @@ _G.packer_plugins = {
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
-    config = { 'require("configs.lsp")' },
     loaded = true,
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
@@ -131,7 +135,6 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["onedarkpro.nvim"] = {
-    config = { 'require("configs.onedarkpro")' },
     loaded = true,
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
     url = "https://github.com/olimorris/onedarkpro.nvim"
@@ -147,7 +150,6 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope.nvim"] = {
-    config = { 'require("configs.telescope")' },
     loaded = true,
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -155,18 +157,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-require("configs.lsp")
-time([[Config for nvim-lsp-installer]], false)
--- Config for: onedarkpro.nvim
-time([[Config for onedarkpro.nvim]], true)
-require("configs.onedarkpro")
-time([[Config for onedarkpro.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("configs.telescope")
-time([[Config for telescope.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
