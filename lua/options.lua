@@ -13,7 +13,6 @@ local options = {
 
   fileencoding = 'utf-8',
   clipboard = 'unnamedplus',
-  mouse = 'a',
   colorcolumn = '80',
   cursorline = true,
   conceallevel = 0,
@@ -30,8 +29,8 @@ local options = {
   splitbelow = true,
   splitright = true,
 
-  timeoutlen = 300,
-  updatetime = 300,
+  timeoutlen = 250,
+  updatetime = 250,
 }
 
 for k, v in pairs(options) do
