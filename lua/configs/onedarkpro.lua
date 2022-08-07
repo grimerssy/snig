@@ -1,4 +1,4 @@
-local onedarkpro = require('onedarkpro')
+local onedarkpro = require 'onedarkpro'
 
 local colors = {
   bg = '#272C35',
