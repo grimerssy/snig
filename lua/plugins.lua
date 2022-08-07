@@ -73,8 +73,15 @@ return packer.startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     config = getConfig('nvim-tree'),
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
-  use 'kyazdani42/nvim-web-devicons'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = getConfig('lualine'),
+    event = 'VimEnter',
+    requires = 'SmiteshP/nvim-navic',
+  }
 
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
