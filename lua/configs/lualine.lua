@@ -18,8 +18,9 @@ require('lualine').setup({
     icons_enabled = true,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    disabled_filetypes = {},
     always_divide_middle = false,
+    globalstatus = true,
+    disabled_filetypes = {},
   },
   sections = {
     lualine_a = { { 'b:gitsigns_head', icon = '' }, { 'diff', source = diff_source } },
