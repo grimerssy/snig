@@ -2,14 +2,13 @@ local n = require('keymap').nnoremap
 local i = require('keymap').inoremap
 local v = require('keymap').vnoremap
 
-n('sw', '<CMD>Ex<CR>')
 n('<C-r', '<CMD>redo<CR>')
 n('<C-h>', '<C-w>h')
 n('<C-j>', '<C-w>j')
 n('<C-k>', '<C-w>k')
 n('<C-l>', '<C-w>l')
-n('<C-j>', ':m .+1<CR>==')
-n('<S-j>', ':m .-2<CR>==')
+n('<leader>e', ':NvimTreeFocus<CR>')
+n('<leader>h', ':NvimTreeToggle<CR>')
 
 i('jk', '<ESC>')
 

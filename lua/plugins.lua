@@ -64,6 +64,12 @@ return packer.startup(function(use)
     config = getConfig('gitsigns'),
   })
 
+  use({
+    'kyazdani42/nvim-tree.lua',
+    config = getConfig('nvim-tree'),
+  })
+  use 'kyazdani42/nvim-web-devicons'
+
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 end)
