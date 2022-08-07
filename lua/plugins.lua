@@ -54,6 +54,12 @@ return packer.startup(function(use)
     run = ':TSUpdate',
   }
 
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use {
+    'numToStr/Comment.nvim',
+   config = getConfig('comment'),
+  }
+
   use {
     'windwp/nvim-autopairs',
     config = getConfig('autopairs'),
