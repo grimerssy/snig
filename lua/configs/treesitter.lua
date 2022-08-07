@@ -1,7 +1,7 @@
 local configs = require 'nvim-treesitter.configs'
 
 configs.setup {
-  ensure_installed = { 'go', 'gomod', 'lua', 'json' },
+  ensure_installed = { 'go', 'gomod', 'lua', 'json', 'proto' },
   sync_install = false,
   ignore_install = { '' },
   highlight = {

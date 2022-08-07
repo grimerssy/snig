@@ -25,8 +25,7 @@ nvim_tree.setup {
     signcolumn = 'yes',
     mappings = {
       custom_only = false,
-      list = {
-      },
+      list = {},
     },
   },
   renderer = {
