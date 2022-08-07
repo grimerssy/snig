@@ -56,7 +56,12 @@ return packer.startup(function(use)
 
   use ({
     'windwp/nvim-autopairs',
-    config = getConfig('autopairs')
+    config = getConfig('autopairs'),
+  })
+
+  use ({
+    'lewis6991/gitsigns.nvim',
+    config = getConfig('gitsigns'),
   })
 
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
