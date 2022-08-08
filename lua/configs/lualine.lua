@@ -1,4 +1,4 @@
-local theme = require 'lualine.themes.onedarkpro'
+local onedarkpro = require 'lualine.themes.onedarkpro'
 
 local navic = require('nvim-navic')
 local function diff_source()
@@ -12,9 +12,11 @@ local function diff_source()
   end
 end
 
-require('lualine').setup({
+local lualine = require 'lualine'
+
+lualine.setup({
   options = {
-    theme = theme,
+    theme = onedarkpro,
     icons_enabled = true,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
@@ -41,7 +43,7 @@ require('lualine').setup({
         file_status = true,
         path = 1,
         shorting_target = 40,
-        symbols = { modified = '[]', readonly = ' ' },
+        symbols = { modified = ' ', readonly = ' ' },
       },
       { navic.get_location, cond = navic.is_available },
     },
@@ -50,7 +52,7 @@ require('lualine').setup({
       'fileformat',
       'filesize',
     },
-    lualine_y = { 'progress' },
+    lualine_y = {},
     lualine_z = { 'location' },
   },
   inactive_sections = {

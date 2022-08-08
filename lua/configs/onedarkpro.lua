@@ -1,7 +1,7 @@
 local onedarkpro = require 'onedarkpro'
 
 local colors = {
-  bg = '#272C35',
+  bg = '#282C34',
   fg = '#A9B2C0',
   red = '#F16372',
   orange = '#DB975C',
@@ -11,7 +11,7 @@ local colors = {
   cyan = '#00AEBA',
   purple = '#E36FEA',
   white = '#A9B2C0',
-  black = '#272C35',
+  black = '#23272E',
   gray = '#576270',
   highlight = '#2B323D',
   none = 'NONE',
@@ -54,6 +54,11 @@ onedarkpro.setup({
     TSVariableBuiltin = { fg = colors.orange },
     TSParameter = { fg = colors.orange },
     TSParameterReference = { fg = colors.orange },
+    NvimTreeNormal = { bg = colors.black },
+    NvimTreeWinSeparator = { fg = colors.blue, bg = colors.none },
+    BufferCurrent = { fg = colors.blue, bg = colors.highlight },
+    BufferCurrentMod = { fg = colors.blue, bg = colors.highlight },
+    BufferVisible = { fg = colors.black },
   },
   filetype_hlgroups = {},
   plugins = {
@@ -61,12 +66,13 @@ onedarkpro.setup({
     packer = true,
     telescope = true,
     treesitter = true,
+    barbar = true,
   },
   styles = {
     strings = 'NONE',
     comments = 'NONE',
-    keywords = 'italic',
-    functions = 'italic',
+    keywords = 'NONE',
+    functions = 'NONE',
     variables = 'NONE',
     virtual_text = 'NONE',
   },
@@ -76,8 +82,8 @@ onedarkpro.setup({
     underline = false,
     undercurl = false,
     cursorline = true,
-    transparency = false,
-    terminal_colors = false,
+    transparency = true,
+    terminal_colors = true,
     window_unfocussed_color = false,
   }
 })

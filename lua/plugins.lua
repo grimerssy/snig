@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use {
     'numToStr/Comment.nvim',
-   config = getConfig('comment'),
+    config = getConfig('comment'),
   }
 
   use {
@@ -79,11 +79,13 @@ return packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     config = getConfig('lualine'),
-    event = 'VimEnter',
     requires = 'SmiteshP/nvim-navic',
   }
 
-  vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+  use {
+    'romgrk/barbar.nvim',
+    config = getConfig('barbar'),
+  }
 
 end)
 

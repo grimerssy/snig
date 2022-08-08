@@ -4,6 +4,8 @@ local options = {
   nu = true,
   relativenumber = true,
 
+  termguicolors = true,
+
   cmdheight = 2,
   swapfile = false,
   wrap = false,
@@ -17,9 +19,6 @@ local options = {
   cursorline = true,
   conceallevel = 0,
 
-  tabstop = 4,
-  softtabstop = 4,
-  shiftwidth = 4,
   expandtab = true,
   hlsearch = false,
   incsearch = true,
