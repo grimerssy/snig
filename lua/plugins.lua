@@ -23,12 +23,6 @@ return packer.startup(function(use)
     config = getConfig('onedarkpro'),
   }
 
-  use 'neovim/nvim-lspconfig'
-  use {
-    'williamboman/nvim-lsp-installer',
-    config = getConfig('lsp'),
-  }
-
   use {
     'hrsh7th/nvim-cmp',
     config = getConfig('cmp'),
@@ -42,6 +36,16 @@ return packer.startup(function(use)
 
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
+
+  use 'neovim/nvim-lspconfig'
+  use {
+    'williamboman/nvim-lsp-installer',
+    config = getConfig('lsp'),
+  }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = getConfig('null-ls'),
+  }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -88,4 +92,3 @@ return packer.startup(function(use)
   }
 
 end)
-

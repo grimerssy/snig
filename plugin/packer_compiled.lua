@@ -129,6 +129,12 @@ _G.packer_plugins = {
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["null-ls.nvim"] = {
+    config = { "" },
+    loaded = true,
+    path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -197,6 +203,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+
+time([[Config for null-ls.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
