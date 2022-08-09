@@ -3,9 +3,9 @@ local n = require('keymap').nnoremap
 n('<leader>e', ':NvimTreeFocus<CR>')
 n('<leader>h', ':NvimTreeToggle<CR>')
 
-local nvim_tree = require 'nvim-tree'
+local nvim_tree = require('nvim-tree')
 
-nvim_tree.setup {
+nvim_tree.setup({
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -158,5 +158,4 @@ nvim_tree.setup {
       profile = false,
     },
   },
-}
-
+})

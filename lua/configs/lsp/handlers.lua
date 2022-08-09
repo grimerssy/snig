@@ -50,7 +50,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]] ,
+    ]],
       false
     )
   end
@@ -77,7 +77,7 @@ local function lsp_keymaps(bufnr)
   )
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<CMD>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>q', '<CMD>lua vim.diagnostic.setloclist()<CR>', opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
 M.on_attach = function(client, bufnr)
@@ -86,19 +86,19 @@ M.on_attach = function(client, bufnr)
     'sumneko_lua',
     'jsonls',
   }
- for _, srv in ipairs(ignore) do
-  if srv == client.name then
+  for _, srv in ipairs(ignore) do
+    if srv == client.name then
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
+    end
   end
- end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local cmp_nvim_lsp = require 'cmp_nvim_lsp'
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 

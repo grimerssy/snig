@@ -4,9 +4,9 @@ n('sw', ':BufferClose!<CR>')
 n('<S-h>', ':BufferPrevious<CR>')
 n('<S-l>', ':BufferNext<CR>')
 
-local barbar = require 'bufferline'
+local barbar = require('bufferline')
 
-barbar.setup {
+barbar.setup({
   animation = true,
   auto_hide = false,
   tabpages = false,
@@ -28,7 +28,7 @@ barbar.setup {
   semantic_letters = true,
   letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
   no_name_title = nil,
-}
+})
 
 local nvim_tree_events = require('nvim-tree.events')
 local barbar_state = require('bufferline.state')
@@ -44,4 +44,3 @@ end)
 nvim_tree_events.on_tree_close(function()
   barbar_state.set_offset(0)
 end)
-

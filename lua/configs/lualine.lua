@@ -1,4 +1,4 @@
-local onedarkpro = require 'lualine.themes.onedarkpro'
+local onedarkpro = require('lualine.themes.onedarkpro')
 
 local navic = require('nvim-navic')
 local function diff_source()
@@ -12,7 +12,7 @@ local function diff_source()
   end
 end
 
-local lualine = require 'lualine'
+local lualine = require('lualine')
 
 lualine.setup({
   options = {
@@ -66,4 +66,3 @@ lualine.setup({
   tabline = {},
   extensions = { 'nvim-tree', 'toggleterm', 'quickfix', 'symbols-outline' },
 })
-

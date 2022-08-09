@@ -1,22 +1,25 @@
 local n = require('keymap').nnoremap
 
-n('<leader>f', '<CMD>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false }))<CR>')
+n(
+  '<leader>f',
+  '<CMD>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false }))<CR>'
+)
 n('<leader>t', '<CMD>Telescope live_grep theme=dropdown<CR>')
 
-local telescope = require 'telescope'
+local telescope = require('telescope')
 
-local actions = require 'telescope.actions'
+local actions = require('telescope.actions')
 
-telescope.setup {
+telescope.setup({
   defaults = {
 
     prompt_prefix = ' ',
     selection_caret = ' ',
     path_display = { 'smart' },
     file_ignore_patterns = {
-      ".git/",
-      "target/",
-      "vendor/*",
+      '.git/',
+      'target/',
+      'vendor/*',
       '%.lock',
       '%.sqlite3',
       'node_modules/*',
@@ -128,5 +131,4 @@ telescope.setup {
   },
   pickers = {},
   extensions = {},
-}
-
+})

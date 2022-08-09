@@ -1,7 +1,14 @@
-local configs = require 'nvim-treesitter.configs'
+local configs = require('nvim-treesitter.configs')
 
-configs.setup {
-  ensure_installed = { 'go', 'gomod', 'lua', 'json', 'proto' },
+configs.setup({
+  ensure_installed = {
+    'go',
+    'gomod',
+    'lua',
+    'json',
+    'proto',
+    'sql',
+  },
   sync_install = false,
   ignore_install = { '' },
   highlight = {
@@ -10,4 +17,4 @@ configs.setup {
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { 'yaml' } },
-}
+})

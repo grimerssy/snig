@@ -1,4 +1,4 @@
-local onedarkpro = require 'onedarkpro'
+local onedarkpro = require('onedarkpro')
 
 local colors = {
   bg = '#282C34',
@@ -85,6 +85,5 @@ onedarkpro.setup({
     transparency = true,
     terminal_colors = true,
     window_unfocussed_color = false,
-  }
+  },
 })
-
