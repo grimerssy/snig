@@ -1,3 +1,8 @@
+local n = require('keymap').nnoremap
+
+n('<leader>e', ':NvimTreeFocus<CR>')
+n('<leader>h', ':NvimTreeToggle<CR>')
+
 local nvim_tree = require 'nvim-tree'
 
 nvim_tree.setup {
@@ -95,7 +100,7 @@ nvim_tree.setup {
   },
   diagnostics = {
     enable = true,
-    show_on_dirs = true,
+    show_on_dirs = false,
     icons = {
       hint = '',
       info = '',

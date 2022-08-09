@@ -1,3 +1,9 @@
+local n = require('keymap').nnoremap
+
+n('sw', ':BufferClose!<CR>')
+n('<S-h>', ':BufferPrevious<CR>')
+n('<S-l>', ':BufferNext<CR>')
+
 local barbar = require 'bufferline'
 
 barbar.setup {

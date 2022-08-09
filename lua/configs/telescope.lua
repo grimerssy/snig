@@ -1,3 +1,8 @@
+local n = require('keymap').nnoremap
+
+n('<leader>f', '<CMD>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false }))<CR>')
+n('<leader>t', '<CMD>Telescope live_grep theme=dropdown<CR>')
+
 local telescope = require 'telescope'
 
 local actions = require 'telescope.actions'
@@ -43,6 +48,7 @@ telescope.setup {
 
       n = {
         ['<ESC>'] = actions.close,
+        ['jk'] = actions.close,
         ['<CR>'] = actions.select_default,
         ['<C-x>'] = actions.select_horizontal,
         ['<C-v>'] = actions.select_vertical,
@@ -74,5 +80,7 @@ telescope.setup {
       },
     },
   },
+  pickers = {},
+  extensions = {},
 }
 
