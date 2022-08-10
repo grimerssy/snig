@@ -42,6 +42,13 @@ onedarkpro.setup({
     none = colors.none,
   },
   hlgroups = {
+    CmpItemKindField = { fg = colors.orange },
+    CmpItemKindInterface = { fg = colors.green },
+    CmpItemKindModule = { fg = colors.cyan },
+    CmpItemKindProperty = { fg = colors.orange },
+    CmpItemKindSnippet = { fg = colors.white },
+    CmpItemKindEnumMember = { fg = colors.orange },
+    CmpItemKindConstant = { fg = colors.orange },
     TSPunctBracket = { fg = colors.fg },
     TSOperator = { fg = colors.blue },
     TSFuncBuiltin = { fg = colors.blue },
@@ -64,6 +71,7 @@ onedarkpro.setup({
   plugins = {
     all = false,
     packer = true,
+    nvim_cmp = true,
     telescope = true,
     treesitter = true,
     barbar = true,
