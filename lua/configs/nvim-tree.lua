@@ -6,6 +6,13 @@ n('<leader>h', ':NvimTreeToggle<CR>')
 local nvim_tree = require('nvim-tree')
 
 nvim_tree.setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+    ignore_list = {},
+  },
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -17,7 +24,6 @@ nvim_tree.setup({
   open_on_tab = true,
   sort_by = 'name',
   reload_on_bufenter = false,
-  respect_buf_cwd = false,
   update_cwd = true,
   view = {
     width = 35,
@@ -36,7 +42,7 @@ nvim_tree.setup({
   renderer = {
     add_trailing = false,
     group_empty = false,
-    highlight_git = false,
+    highlight_git = true,
     highlight_opened_files = 'none',
     root_folder_modifier = ':~',
     indent_markers = {
@@ -49,14 +55,14 @@ nvim_tree.setup({
     },
     icons = {
       webdev_colors = true,
-      git_placement = 'before',
+      git_placement = 'signcolumn',
       padding = ' ',
       symlink_arrow = ' ➛ ',
       show = {
         file = true,
         folder = true,
         folder_arrow = true,
-        git = true,
+        git = false,
       },
       glyphs = {
         default = '',
@@ -88,11 +94,6 @@ nvim_tree.setup({
     enable = true,
     auto_open = true,
   },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
   ignore_ft_on_setup = {},
   system_open = {
     cmd = '',
@@ -116,6 +117,7 @@ nvim_tree.setup({
   git = {
     enable = true,
     ignore = true,
+    show_on_dirs = false,
     timeout = 400,
   },
   actions = {

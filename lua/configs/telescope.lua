@@ -1,18 +1,14 @@
 local n = require('keymap').nnoremap
 
-n(
-  '<leader>f',
-  '<CMD>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false }))<CR>'
-)
-n('<leader>t', '<CMD>Telescope live_grep theme=dropdown<CR>')
+n('<leader>f', '<CMD>Telescope find_files<CR>')
+n('<leader>t', '<CMD>Telescope live_grep<CR>')
+n('<leader>p', '<CMD>Telescope projects theme=dropdown previewer=false<CR>')
 
 local telescope = require('telescope')
-
 local actions = require('telescope.actions')
 
 telescope.setup({
   defaults = {
-
     prompt_prefix = ' ',
     selection_caret = ' ',
     path_display = { 'smart' },
@@ -128,6 +124,33 @@ telescope.setup({
       },
     },
   },
-  pickers = {},
+  pickers = {
+    find_files = {
+      theme = 'dropdown',
+      previewer = false,
+    },
+    live_grep = {
+      theme = 'dropdown',
+    },
+  },
   extensions = {},
 })
+
+local project = require('project_nvim')
+
+project.setup({
+  patterns = {
+    '.git',
+    'go.mod',
+    'package.json',
+  },
+  detection_methods = {
+    -- 'lsp',
+    'pattern',
+  },
+  exclude_dirs = {
+    '/Users/grimerssy',
+  },
+})
+
+telescope.load_extension('projects')

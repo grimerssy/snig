@@ -50,6 +50,13 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     config = getConfig('telescope'),
   })
+  use({
+    'ahmedkhalf/project.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-tree.lua',
+    },
+  })
 
   use({
     'nvim-treesitter/nvim-treesitter',
