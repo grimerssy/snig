@@ -26,7 +26,6 @@ null_ls.setup({
         '--jsx-single-quote',
       },
     }),
-    formatting.latexindent,
     formatting.jq,
     formatting.goimports,
     formatting.gofumpt,
@@ -39,7 +38,6 @@ null_ls.setup({
     }),
     formatting.trim_whitespace,
     diagnostics.eslint,
-    diagnostics.vale,
     diagnostics.codespell,
     diagnostics.staticcheck,
     diagnostics.sqlfluff.with({

@@ -1,14 +1,14 @@
 return {
   settings = {
     gopls = {
-      allExperiments = true,
       analyses = {
         unusedparams = true,
         shadow = true,
         unusedvariable = true,
       },
-      gofumpt = true,
-      staticcheck = true,
+      buildFlags = {
+        '-tags=wireinject',
+      },
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
