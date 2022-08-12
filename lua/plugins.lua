@@ -8,8 +8,24 @@ packer.init({
   },
 })
 
-local function getConfig(name)
-  require(string.format('configs.%s', name))
+local function loadConfigs()
+  local configs = {
+    'autopairs',
+    'barbar',
+    'cmp',
+    'comment',
+    'gitsigns',
+    'lsp',
+    'lualine',
+    'null-ls',
+    'nvim-tree',
+    'onedarkpro',
+    'telescope',
+    'treesitter',
+  }
+  for _, cfg in ipairs(configs) do
+    require(string.format('configs.%s', cfg))
+  end
 end
 
 return packer.startup(function(use)
@@ -17,15 +33,9 @@ return packer.startup(function(use)
 
   use('nvim-lua/plenary.nvim')
 
-  use({
-    'olimorris/onedarkpro.nvim',
-    config = getConfig('onedarkpro'),
-  })
+  use('olimorris/onedarkpro.nvim')
 
-  use({
-    'hrsh7th/nvim-cmp',
-    config = getConfig('cmp'),
-  })
+  use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-path')
   use('hrsh7th/cmp-cmdline')
@@ -37,19 +47,10 @@ return packer.startup(function(use)
   use('rafamadriz/friendly-snippets')
 
   use('neovim/nvim-lspconfig')
-  use({
-    'williamboman/nvim-lsp-installer',
-    config = getConfig('lsp'),
-  })
-  use({
-    'jose-elias-alvarez/null-ls.nvim',
-    config = getConfig('null-ls'),
-  })
+  use('williamboman/nvim-lsp-installer')
+  use('jose-elias-alvarez/null-ls.nvim')
 
-  use({
-    'nvim-telescope/telescope.nvim',
-    config = getConfig('telescope'),
-  })
+  use('nvim-telescope/telescope.nvim')
   use({
     'ahmedkhalf/project.nvim',
     requires = {
@@ -60,40 +61,27 @@ return packer.startup(function(use)
 
   use({
     'nvim-treesitter/nvim-treesitter',
-    config = getConfig('treesitter'),
     run = ':TSUpdate',
   })
 
   use('JoosepAlviste/nvim-ts-context-commentstring')
-  use({
-    'numToStr/Comment.nvim',
-    config = getConfig('comment'),
-  })
+  use('numToStr/Comment.nvim')
 
-  use({
-    'windwp/nvim-autopairs',
-    config = getConfig('autopairs'),
-  })
+  use('windwp/nvim-autopairs')
 
-  use({
-    'lewis6991/gitsigns.nvim',
-    config = getConfig('gitsigns'),
-  })
+  use('lewis6991/gitsigns.nvim')
 
   use({
     'kyazdani42/nvim-tree.lua',
-    config = getConfig('nvim-tree'),
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   })
 
   use({
     'nvim-lualine/lualine.nvim',
-    config = getConfig('lualine'),
     requires = 'SmiteshP/nvim-navic',
   })
 
-  use({
-    'romgrk/barbar.nvim',
-    config = getConfig('barbar'),
-  })
+  use('romgrk/barbar.nvim')
+
+  loadConfigs()
 end)
