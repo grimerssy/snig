@@ -1,5 +1,3 @@
-#!/bin/sh
-
 alias nv="nvim"
 alias clr="clear"
 

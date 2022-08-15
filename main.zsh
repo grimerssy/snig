@@ -1,7 +1,7 @@
-#!/bin/sh
-
-export ZDOTDIR=$HOME/.config/zsh
-export HISTFILE="~/.zsh_history"
+ZDOTDIR=$HOME/.config/zsh
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=750000
 setopt appendhistory
 
 setopt autocd extendedglob nomatch menucomplete
@@ -22,13 +22,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 autoload -Uz colors && colors
-
-source "$ZDOTDIR/zsh-functions"
-
-zsh_add_file "zsh-exports"
-zsh_add_file "zsh-vim-mode"
-zsh_add_file "zsh-aliases"
-zsh_add_file "zsh-prompt"
 
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"

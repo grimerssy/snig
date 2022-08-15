@@ -1,5 +1,3 @@
-#!/bin/sh
-
 autoload -Uz vcs_info
 autoload -U colors && colors
 
@@ -24,6 +22,6 @@ zstyle ":vcs_info:git*+set-message:*" hooks git-untracked
 zstyle ":vcs_info:*" check-for-changes true
 zstyle ":vcs_info:git:*" formats " %{$fg[green]%}git:(%{$fg[yellow]%}%b%{$fg[green]%})"
 
-PROMPT="%{$fg[blue]%}%~%{$reset_color%}"
+PROMPT="%{$fg[magenta]%}%~%{$reset_color%}"
 PROMPT+="\$vcs_info_msg_0_ "
 PROMPT+=$'\n'
