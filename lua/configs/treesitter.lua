@@ -8,6 +8,7 @@ configs.setup({
     'json',
     'proto',
     'sql',
+    'c_sharp',
   },
   sync_install = false,
   ignore_install = { '' },

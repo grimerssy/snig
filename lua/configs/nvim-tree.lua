@@ -9,6 +9,7 @@ nvim_tree.setup({
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
   update_focused_file = {
+    update_cwd = true,
     enable = true,
     update_root = true,
     ignore_list = {},

@@ -15,7 +15,7 @@ barbar.setup({
   exclude_ft = {},
   exclude_name = {},
   icons = true,
-  icon_custom_colors = false,
+  icon_custom_colors = true,
   icon_separator_active = '▎',
   icon_separator_inactive = ' ',
   icon_close_tab = '',
@@ -38,7 +38,7 @@ nvim_tree_events.on_tree_open(function()
 end)
 
 nvim_tree_events.on_tree_resize(function()
-  barbar_state.set_offset(36)
+  barbar_state.set_offset(35)
 end)
 
 nvim_tree_events.on_tree_close(function()

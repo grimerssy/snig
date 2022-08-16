@@ -84,6 +84,7 @@ M.on_attach = function(client, bufnr)
   local ignore = {
     'gopls',
     'sumneko_lua',
+    'omnisharp',
     'jsonls',
   }
   for _, srv in ipairs(ignore) do
