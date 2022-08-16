@@ -36,6 +36,7 @@ null_ls.setup({
         'postgres',
       },
     }),
+    formatting.csharpier,
     formatting.trim_whitespace,
     diagnostics.eslint,
     diagnostics.codespell,
