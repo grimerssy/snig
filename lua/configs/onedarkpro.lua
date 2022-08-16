@@ -40,6 +40,7 @@ onedarkpro.setup({
     gray = colors.gray,
     highlight = colors.highlight,
     none = colors.none,
+    cursorline = colors.highlight,
   },
   hlgroups = {
     CmpItemKindField = { fg = colors.orange },
@@ -63,6 +64,9 @@ onedarkpro.setup({
     TSParameterReference = { fg = colors.orange },
     NvimTreeNormal = { bg = colors.black },
     NvimTreeWinSeparator = { fg = colors.blue, bg = colors.none },
+    NvimTreeFolderIcon = { fg = colors.blue },
+    NvimTreeEmptyFolderName = { fg = colors.blue },
+    NvimTreeOpenedFolderName = { fg = colors.blue },
     BufferCurrent = { fg = colors.blue, bg = colors.highlight },
     BufferCurrentMod = { fg = colors.blue, bg = colors.highlight },
     BufferVisible = { fg = colors.black },
@@ -74,6 +78,7 @@ onedarkpro.setup({
     nvim_cmp = true,
     telescope = true,
     treesitter = true,
+    nvim_tree = true,
     barbar = true,
   },
   styles = {

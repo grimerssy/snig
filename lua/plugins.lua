@@ -13,6 +13,7 @@ local function loadConfigs()
     'autopairs',
     'barbar',
     'cmp',
+    'colorizer',
     'comment',
     'gitsigns',
     'lsp',
@@ -85,6 +86,8 @@ return packer.startup(function(use)
   use('romgrk/barbar.nvim')
 
   use('akinsho/toggleterm.nvim')
+
+  use('norcalli/nvim-colorizer.lua')
 
   loadConfigs()
 end)
