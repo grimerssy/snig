@@ -21,6 +21,7 @@ local function loadConfigs()
     'nvim-tree',
     'onedarkpro',
     'telescope',
+    'toggleterm',
     'treesitter',
   }
   for _, cfg in ipairs(configs) do
@@ -82,6 +83,8 @@ return packer.startup(function(use)
   })
 
   use('romgrk/barbar.nvim')
+
+  use('akinsho/toggleterm.nvim')
 
   loadConfigs()
 end)
