@@ -15,6 +15,7 @@ local function loadConfigs()
     'cmp',
     'colorizer',
     'comment',
+    'devicons',
     'gitsigns',
     'lsp',
     'lualine',
@@ -36,6 +37,7 @@ return packer.startup(function(use)
   use('nvim-lua/plenary.nvim')
 
   use('olimorris/onedarkpro.nvim')
+  use('NvChad/nvim-colorizer.lua')
 
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-buffer')
@@ -86,8 +88,6 @@ return packer.startup(function(use)
   use('romgrk/barbar.nvim')
 
   use('akinsho/toggleterm.nvim')
-
-  use('norcalli/nvim-colorizer.lua')
 
   loadConfigs()
 end)

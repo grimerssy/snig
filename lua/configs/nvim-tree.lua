@@ -1,7 +1,7 @@
 local n = require('keymap').nnoremap
 
-n('<leader>e', ':NvimTreeFocus<CR>')
-n('<leader>h', ':NvimTreeToggle<CR>')
+n('<leader>e', '<CMD>NvimTreeFocus<CR>')
+n('<leader>h', '<CMD>NvimTreeToggle<CR>')
 
 local nvim_tree = require('nvim-tree')
 
@@ -21,7 +21,7 @@ nvim_tree.setup({
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
   open_on_setup = true,
-  open_on_setup_file = false,
+  open_on_setup_file = true,
   open_on_tab = true,
   sort_by = 'name',
   reload_on_bufenter = false,

@@ -12,22 +12,18 @@ require('toggleterm').setup({
   open_mapping = '<C-n>',
   hide_numbers = true,
   shade_filetypes = {},
-  shade_terminals = true,
-  shading_factor = '1',
+  highlights = {
+    Normal = {
+      guibg = require('configs.onedarkpro.colors').black,
+    },
+  },
+  shade_terminals = false,
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
   direction = 'vertical',
   close_on_exit = true,
   shell = vim.o.shell,
-  float_opts = {
-    border = 'single',
-    winblend = 3,
-    highlights = {
-      border = 'Normal',
-      background = 'Normal',
-    },
-  },
 })
 map('t', '<ESC>', '<C-\\><C-n>', { noremap = true, silent = true })
 

@@ -1,0 +1,15 @@
+return {
+  bg = '#282C34',
+  fg = '#A9B2C0',
+  red = '#F16372',
+  orange = '#DB975C',
+  yellow = '#DAB067',
+  green = '#8CC570',
+  blue = '#40B0F5',
+  cyan = '#00AEBA',
+  purple = '#E36FEA',
+  white = '#A9B2C0',
+  black = '#23272E',
+  gray = '#576270',
+  highlight = '#2B323D',
+}

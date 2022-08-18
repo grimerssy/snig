@@ -1,21 +1,6 @@
 local onedarkpro = require('onedarkpro')
 
-local colors = {
-  bg = '#282C34',
-  fg = '#A9B2C0',
-  red = '#F16372',
-  orange = '#DB975C',
-  yellow = '#DAB067',
-  green = '#8CC570',
-  blue = '#40B0F5',
-  cyan = '#00AEBA',
-  purple = '#E36FEA',
-  white = '#A9B2C0',
-  black = '#23272E',
-  gray = '#576270',
-  highlight = '#2B323D',
-  none = 'NONE',
-}
+local colors = require('configs.onedarkpro.colors')
 
 onedarkpro.setup({
   theme = function()
@@ -43,11 +28,13 @@ onedarkpro.setup({
     cursorline = colors.highlight,
   },
   hlgroups = {
+    Special = { fg = colors.cyan },
+    SpecialChar = { link = 'Special' },
     CmpItemKindField = { fg = colors.orange },
     CmpItemKindInterface = { fg = colors.green },
     CmpItemKindModule = { fg = colors.cyan },
     CmpItemKindProperty = { fg = colors.orange },
-    CmpItemKindSnippet = { fg = colors.white },
+    CmpItemKindSnippet = { fg = colors.fg },
     CmpItemKindEnumMember = { fg = colors.orange },
     CmpItemKindConstant = { fg = colors.orange },
     TSPunctBracket = { fg = colors.fg },
@@ -62,14 +49,19 @@ onedarkpro.setup({
     TSVariableBuiltin = { fg = colors.orange },
     TSParameter = { fg = colors.orange },
     TSParameterReference = { fg = colors.orange },
+    TSCharacterSpecial = { link = 'Special' },
     NvimTreeNormal = { bg = colors.black },
+    NvimTreeNormalNC = { link = 'NvimTreeNormal' },
     NvimTreeWinSeparator = { fg = colors.blue, bg = colors.none },
     NvimTreeFolderIcon = { fg = colors.blue },
     NvimTreeEmptyFolderName = { fg = colors.blue },
     NvimTreeOpenedFolderName = { fg = colors.blue },
     BufferCurrent = { fg = colors.blue, bg = colors.highlight },
-    BufferCurrentMod = { fg = colors.blue, bg = colors.highlight },
-    BufferVisible = { fg = colors.black },
+    BufferCurrentMod = { link = 'BufferCurrent' },
+    BufferCurrentTarget = { link = 'BufferCurrent' },
+    BufferVisible = { fg = colors.fg, bg = colors.black },
+    BufferVisibleIndex = { link = 'BufferVisible' },
+    BufferVisibleMod = { link = 'BufferVisible' },
   },
   filetype_hlgroups = {},
   plugins = {
@@ -84,15 +76,15 @@ onedarkpro.setup({
   styles = {
     strings = 'NONE',
     comments = 'NONE',
-    keywords = 'NONE',
+    keywords = 'italic',
     functions = 'NONE',
     variables = 'NONE',
     virtual_text = 'NONE',
   },
   options = {
-    bold = false,
-    italic = false,
-    underline = false,
+    bold = true,
+    italic = true,
+    underline = true,
     undercurl = false,
     cursorline = true,
     transparency = true,

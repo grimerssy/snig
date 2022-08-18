@@ -29,18 +29,3 @@ barbar.setup({
   letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
   no_name_title = nil,
 })
-
-local nvim_tree_events = require('nvim-tree.events')
-local barbar_state = require('bufferline.state')
-
-nvim_tree_events.on_tree_open(function()
-  barbar_state.set_offset(35)
-end)
-
-nvim_tree_events.on_tree_resize(function()
-  barbar_state.set_offset(35)
-end)
-
-nvim_tree_events.on_tree_close(function()
-  barbar_state.set_offset(0)
-end)
