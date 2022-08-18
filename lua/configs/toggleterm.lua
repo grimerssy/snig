@@ -1,29 +1,31 @@
 local map = vim.api.nvim_set_keymap
 local buf_map = vim.api.nvim_buf_set_keymap
 
+local colors = require('configs.onedarkpro.colors')
+
 require('toggleterm').setup({
-  size = function(term)
-    if term.direction == 'horizontal' then
-      return 15
-    elseif term.direction == 'vertical' then
-      return vim.o.columns * 0.32
-    end
-  end,
   open_mapping = '<C-n>',
   hide_numbers = true,
-  shade_filetypes = {},
   highlights = {
-    Normal = {
-      guibg = require('configs.onedarkpro.colors').black,
+    NormalFloat = {
+      guifg = colors.fg,
+      guibg = colors.black,
+    },
+    FloatBorder = {
+      guifg = colors.blue,
+      guibg = colors.none,
     },
   },
-  shade_terminals = false,
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
-  direction = 'vertical',
+  direction = 'float',
+  auto_scroll = true,
   close_on_exit = true,
   shell = vim.o.shell,
+  float_opts = {
+    border = 'curved',
+  },
 })
 map('t', '<ESC>', '<C-\\><C-n>', { noremap = true, silent = true })
 
