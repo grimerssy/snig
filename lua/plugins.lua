@@ -15,7 +15,6 @@ local function loadConfigs()
     'cmp',
     'colorizer',
     'comment',
-    'devicons',
     'gitsigns',
     'lsp',
     'lualine',

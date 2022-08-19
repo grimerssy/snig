@@ -30,6 +30,7 @@ onedarkpro.setup({
   hlgroups = {
     Special = { fg = colors.cyan },
     SpecialChar = { link = 'Special' },
+
     CmpItemKindField = { fg = colors.orange },
     CmpItemKindInterface = { fg = colors.green },
     CmpItemKindModule = { fg = colors.cyan },
@@ -37,6 +38,7 @@ onedarkpro.setup({
     CmpItemKindSnippet = { fg = colors.fg },
     CmpItemKindEnumMember = { fg = colors.orange },
     CmpItemKindConstant = { fg = colors.orange },
+
     TSPunctBracket = { fg = colors.fg },
     TSOperator = { fg = colors.blue },
     TSFuncBuiltin = { fg = colors.blue },
@@ -50,12 +52,14 @@ onedarkpro.setup({
     TSParameter = { fg = colors.orange },
     TSParameterReference = { fg = colors.orange },
     TSCharacterSpecial = { link = 'Special' },
+
     NvimTreeNormal = { bg = colors.black },
     NvimTreeNormalNC = { link = 'NvimTreeNormal' },
     NvimTreeWinSeparator = { fg = colors.blue, bg = colors.none },
     NvimTreeFolderIcon = { fg = colors.blue },
     NvimTreeEmptyFolderName = { fg = colors.blue },
     NvimTreeOpenedFolderName = { fg = colors.blue },
+
     BufferCurrent = { fg = colors.blue, bg = colors.highlight },
     BufferCurrentMod = { link = 'BufferCurrent' },
     BufferCurrentTarget = { link = 'BufferCurrent' },
