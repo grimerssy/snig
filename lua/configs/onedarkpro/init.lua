@@ -3,13 +3,6 @@ local onedarkpro = require('onedarkpro')
 local colors = require('configs.onedarkpro.colors')
 
 onedarkpro.setup({
-  theme = function()
-    if vim.o.background == 'dark' then
-      return 'onedark'
-    else
-      return 'onelight'
-    end
-  end,
   colors = {
     bg = colors.bg,
     fg = colors.fg,
@@ -30,6 +23,15 @@ onedarkpro.setup({
   hlgroups = {
     Special = { fg = colors.cyan },
     SpecialChar = { link = 'Special' },
+
+    DiagnosticError = { fg = colors.red },
+    DiagnosticWarn = { fg = colors.yellow },
+    DiagnosticInfo = { fg = colors.gray },
+    DiagnosticHint = { fg = colors.cyan },
+    DiagnosticSignError = { link = 'DiagnosticError' },
+    DiagnosticSignWarn = { link = 'DiagnosticWarn' },
+    DiagnosticSignInfo = { link = 'DiagnosticInfo' },
+    DiagnosticSignHint = { link = 'DiagnosticHint' },
 
     CmpItemKindField = { fg = colors.orange },
     CmpItemKindInterface = { fg = colors.green },
