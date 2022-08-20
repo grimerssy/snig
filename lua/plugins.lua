@@ -10,6 +10,7 @@ packer.init({
 
 local function loadConfigs()
   local configs = {
+    'alpha',
     'autopairs',
     'barbar',
     'cmp',
@@ -36,6 +37,7 @@ return packer.startup(function(use)
   use('nvim-lua/plenary.nvim')
 
   use('olimorris/onedarkpro.nvim')
+  use('goolord/alpha-nvim')
   use('NvChad/nvim-colorizer.lua')
 
   use('hrsh7th/nvim-cmp')
