@@ -1,7 +1,7 @@
 local n = require('keymap').nnoremap
 
 n('<leader>e', '<CMD>NvimTreeFocus<CR>')
-n('<leader>h', '<CMD>NvimTreeToggle<CR>')
+n('<leader><S-e>', '<CMD>NvimTreeToggle<CR>')
 
 local nvim_tree = require('nvim-tree')
 

@@ -12,11 +12,11 @@ local function loadConfigs()
   local configs = {
     'alpha',
     'autopairs',
-    'barbar',
     'cmp',
     'colorizer',
     'comment',
     'gitsigns',
+    'harpoon',
     'lsp',
     'lualine',
     'null-ls',
@@ -35,10 +35,6 @@ return packer.startup(function(use)
   use('wbthomason/packer.nvim')
 
   use('nvim-lua/plenary.nvim')
-
-  use('olimorris/onedarkpro.nvim')
-  use('goolord/alpha-nvim')
-  use('NvChad/nvim-colorizer.lua')
 
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-buffer')
@@ -63,24 +59,29 @@ return packer.startup(function(use)
       'kyazdani42/nvim-tree.lua',
     },
   })
+  use('ThePrimeagen/harpoon')
 
   use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   })
 
-  use('JoosepAlviste/nvim-ts-context-commentstring')
-  use('numToStr/Comment.nvim')
-
   use('windwp/nvim-autopairs')
 
   use('lewis6991/gitsigns.nvim')
 
+  use('akinsho/toggleterm.nvim')
+
+  use('JoosepAlviste/nvim-ts-context-commentstring')
+  use('numToStr/Comment.nvim')
+
+  use('olimorris/onedarkpro.nvim')
+  use('goolord/alpha-nvim')
+  use('NvChad/nvim-colorizer.lua')
   use({
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
   })
-
   use({
     'nvim-lualine/lualine.nvim',
     requires = {
@@ -88,13 +89,6 @@ return packer.startup(function(use)
       'SmiteshP/nvim-navic',
     },
   })
-
-  use({
-    'romgrk/barbar.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-  })
-
-  use('akinsho/toggleterm.nvim')
 
   loadConfigs()
 end)
