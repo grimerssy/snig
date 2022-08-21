@@ -61,13 +61,6 @@ onedarkpro.setup({
     NvimTreeFolderIcon = { fg = colors.blue },
     NvimTreeEmptyFolderName = { fg = colors.blue },
     NvimTreeOpenedFolderName = { fg = colors.blue },
-
-    BufferCurrent = { fg = colors.blue, bg = colors.highlight },
-    BufferCurrentMod = { link = 'BufferCurrent' },
-    BufferCurrentTarget = { link = 'BufferCurrent' },
-    BufferVisible = { fg = colors.fg, bg = colors.black },
-    BufferVisibleIndex = { link = 'BufferVisible' },
-    BufferVisibleMod = { link = 'BufferVisible' },
   },
   filetype_hlgroups = {},
   plugins = {
@@ -77,7 +70,6 @@ onedarkpro.setup({
     telescope = true,
     treesitter = true,
     nvim_tree = true,
-    barbar = true,
   },
   styles = {
     strings = 'NONE',
