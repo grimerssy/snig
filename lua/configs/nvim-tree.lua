@@ -118,7 +118,7 @@ nvim_tree.setup({
   git = {
     enable = true,
     ignore = false,
-    show_on_dirs = true,
+    show_on_dirs = false,
     timeout = 400,
   },
   actions = {
