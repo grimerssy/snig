@@ -141,15 +141,13 @@ local project = require('project_nvim')
 project.setup({
   patterns = {
     '.git',
-    'go.mod',
-    'package.json',
   },
   detection_methods = {
-    -- 'lsp',
     'pattern',
   },
   exclude_dirs = {
     '/Users/grimerssy',
+    '/opt/homebrew',
   },
 })
 

@@ -15,6 +15,7 @@ local function loadConfigs()
     'cmp',
     'colorizer',
     'comment',
+    'dap',
     'gitsigns',
     'harpoon',
     'lsp',
@@ -50,6 +51,10 @@ return packer.startup(function(use)
   use('neovim/nvim-lspconfig')
   use('williamboman/nvim-lsp-installer')
   use('jose-elias-alvarez/null-ls.nvim')
+
+  use('mfussenegger/nvim-dap')
+  use('rcarriga/nvim-dap-ui')
+  use('leoluz/nvim-dap-go')
 
   use('nvim-telescope/telescope.nvim')
   use({
