@@ -20,7 +20,7 @@ onedarkpro.setup({
     none = colors.none,
     cursorline = colors.highlight,
   },
-  hlgroups = {
+  highlights = {
     Special = { fg = colors.cyan },
     SpecialChar = { link = 'Special' },
 
@@ -62,7 +62,7 @@ onedarkpro.setup({
     NvimTreeEmptyFolderName = { fg = colors.blue },
     NvimTreeOpenedFolderName = { fg = colors.blue },
   },
-  filetype_hlgroups = {},
+  ft_highlights = {},
   plugins = {
     all = false,
     packer = true,

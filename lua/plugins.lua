@@ -75,9 +75,8 @@ return packer.startup(function(use)
   use('JoosepAlviste/nvim-ts-context-commentstring')
   use('numToStr/Comment.nvim')
 
-  use('olimorris/onedarkpro.nvim')
   use('goolord/alpha-nvim')
-  use('NvChad/nvim-colorizer.lua')
+  use('olimorris/onedarkpro.nvim')
   use({
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -89,6 +88,7 @@ return packer.startup(function(use)
       'SmiteshP/nvim-navic',
     },
   })
+  use('NvChad/nvim-colorizer.lua')
 
   loadConfigs()
 end)
