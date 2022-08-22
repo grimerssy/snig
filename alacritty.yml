@@ -1,0 +1,69 @@
+colors:
+  primary:
+    background: '#282C34'
+    foreground: '#A9B2C0'
+  background_opacity: 1.0
+  cursor:
+    text: '#282C34'
+    cursor: '#4DBDFF'
+  normal:
+    black: '#576270'
+    red: '#F16372'
+    green: '#8CC570'
+    yellow: '#DAB067'
+    blue: '#40B0F5'
+    magenta: '#E36FEA'
+    cyan: '#00AEBA'
+    white: '#A9B2C0'
+  bright:
+    black: '#576270'
+    red: '#F16372'
+    green: '#8CC570'
+    yellow: '#DAB067'
+    blue: '#40B0F5'
+    magenta: '#E36FEA'
+    cyan: '#00AEBA'
+    white: '#A9B2C0'
+
+cursor:
+  style:
+    blinking: Never
+
+font:
+  size: 15.0
+  ligatures: true
+  normal:
+    family: JetBrainsMonoNL Nerd Font
+    style: Regular
+  bold:
+    family: JetBrainsMonoNL Nerd Font
+    style: Bold
+  italic:
+    family: JetBrainsMonoNL Nerd Font
+    style: Italic
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+window:
+  dimensions:
+    columns: 186
+    lines: 57
+  padding:
+    x: 2
+    y: 2
+  history: 10000
+  dynamic_title: true
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+  live_config_reload: true
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
