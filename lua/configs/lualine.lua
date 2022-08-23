@@ -25,8 +25,17 @@ lualine.setup({
     disabled_filetypes = {},
   },
   sections = {
-    lualine_a = { { 'b:gitsigns_head', icon = '' }, { 'diff', source = diff_source } },
+    lualine_a = {
+      {
+        'b:gitsigns_head',
+        icon = '',
+      },
+    },
     lualine_b = {
+      {
+        'diff',
+        source = diff_source,
+      },
       {
         'diagnostics',
         sources = { 'nvim_diagnostic' },
@@ -53,7 +62,9 @@ lualine.setup({
       'filesize',
     },
     lualine_y = {},
-    lualine_z = { 'location' },
+    lualine_z = {
+      'location',
+    },
   },
   inactive_sections = {
     lualine_a = {},
