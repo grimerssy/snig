@@ -89,7 +89,7 @@ local buttons = {
   val = {
     button('n', '  New file', '<CMD>ene <CR>'),
     button('p', '  Open project', '<CMD>Telescope projects theme=dropdown previewer=false<CR>'),
-    button('u', '  Update plugins', '<CMD>PackerSync<CR>'),
+    button('u', '  Update plugins', '<CMD>PackerSync<CR>'),
     button('q', '  Quit', '<CMD>q<CR>'),
   },
   opts = {

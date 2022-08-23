@@ -58,3 +58,42 @@ end
 dap.listeners.before.event_exited['dapui_config'] = function()
   dapui.close()
 end
+
+local icons = {
+  breakpoint = {
+    text = '',
+    texthl = 'DiagnosticSignError',
+    linehl = '',
+    numhl = '',
+  },
+  breakpoint_condition = {
+    text = '',
+    texthl = 'DiagnosticSignError',
+    linehl = '',
+    numhl = '',
+  },
+  breakpoint_log = {
+    text = 'ﯽ',
+    texthl = 'DiagnosticSignError',
+    linehl = '',
+    numhl = '',
+  },
+  breakpoint_rejected = {
+    text = '',
+    texthl = 'DiagnosticSignError',
+    linehl = '',
+    numhl = '',
+  },
+  stopped = {
+    text = '',
+    texthl = 'TSOperator',
+    linehl = '',
+    numhl = '',
+  },
+}
+
+vim.fn.sign_define('DapBreakpoint', icons.breakpoint)
+vim.fn.sign_define('DapBreakpointCondition', icons.breakpoint_condition)
+vim.fn.sign_define('DapLogPoint', icons.breakpoint_log)
+vim.fn.sign_define('DapBreakpointRejected', icons.breakpoint_rejected)
+vim.fn.sign_define('DapStopped', icons.stopped)
