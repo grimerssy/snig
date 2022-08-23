@@ -26,12 +26,14 @@ lualine.setup({
   },
   sections = {
     lualine_a = {
+      'mode',
       {
         'b:gitsigns_head',
         icon = '',
       },
     },
-    lualine_b = {
+    lualine_b = {},
+    lualine_c = {
       {
         'diff',
         source = diff_source,
@@ -41,8 +43,6 @@ lualine.setup({
         sources = { 'nvim_diagnostic' },
         sections = { 'error', 'warn', 'info', 'hint' },
       },
-    },
-    lualine_c = {
       {
         'filetype',
         icon_only = true,
