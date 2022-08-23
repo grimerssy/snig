@@ -6,7 +6,7 @@ local options = {
 
   termguicolors = true,
 
-  cmdheight = 2,
+  cmdheight = 1,
   swapfile = false,
   wrap = false,
   undofile = true,

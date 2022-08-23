@@ -25,6 +25,8 @@ require('toggleterm').setup({
   shell = vim.o.shell,
   float_opts = {
     border = 'curved',
+    width = 140,
+    height = 40,
   },
 })
 map('t', '<ESC>', '<C-\\><C-n>', { noremap = true, silent = true })
