@@ -8,7 +8,6 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 
---   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = '',
   Method = 'm',
@@ -38,6 +37,7 @@ local kind_icons = {
 }
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -90,8 +90,8 @@ cmp.setup({
       vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
       vim_item.menu = ({
         nvim_lsp = '[LSP]',
-        nvim_lua = '[NVIM_LUA]',
         luasnip = '[Snippet]',
+        nvim_lua = '[NVIM_LUA]',
         buffer = '[Buffer]',
         path = '[Path]',
       })[entry.source.name]
@@ -100,8 +100,8 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'nvim_lua' },
     { name = 'luasnip' },
+    { name = 'nvim_lua' },
     { name = 'buffer' },
     { name = 'path' },
   },
