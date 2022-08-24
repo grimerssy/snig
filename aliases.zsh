@@ -1,4 +1,5 @@
 alias nv="nvim"
+alias lg="lazygit"
 alias clr="clear"
 
 if [[ $TERM == "xterm-kitty" ]]; then
