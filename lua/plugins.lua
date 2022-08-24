@@ -56,15 +56,13 @@ return packer.startup(function(use)
   use('rcarriga/nvim-dap-ui')
   use('leoluz/nvim-dap-go')
 
-  use('nvim-telescope/telescope.nvim')
   use({
-    'ahmedkhalf/project.nvim',
+    'nvim-telescope/telescope.nvim',
     requires = {
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-tree.lua',
+      'ahmedkhalf/project.nvim',
+      'ThePrimeagen/harpoon',
     },
   })
-  use('ThePrimeagen/harpoon')
 
   use({
     'nvim-treesitter/nvim-treesitter',
