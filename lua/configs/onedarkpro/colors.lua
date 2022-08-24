@@ -1,5 +1,5 @@
 return {
-  bg = '#282C34',
+  bg = '#23272F',
   fg = '#A9B2C0',
   red = '#F16372',
   orange = '#DB975C',
@@ -9,7 +9,7 @@ return {
   cyan = '#00AEBA',
   purple = '#E36FEA',
   white = '#A9B2C0',
-  black = '#23272E',
+  black = '#1E2229',
   gray = '#576270',
   highlight = '#2B323D',
 }
