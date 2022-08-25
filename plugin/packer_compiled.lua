@@ -184,6 +184,11 @@ _G.packer_plugins = {
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-navic",
     url = "https://github.com/SmiteshP/nvim-navic"
   },
+  ["nvim-scrollbar"] = {
+    loaded = true,
+    path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
+    url = "https://github.com/petertriho/nvim-scrollbar"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/grimerssy/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",

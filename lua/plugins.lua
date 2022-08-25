@@ -22,6 +22,7 @@ local function loadConfigs()
     'lualine',
     'null-ls',
     'nvim-tree',
+    'scrollbar',
     'onedarkpro',
     'telescope',
     'toggleterm',
@@ -91,6 +92,7 @@ return packer.startup(function(use)
       'SmiteshP/nvim-navic',
     },
   })
+  use('petertriho/nvim-scrollbar')
   use('NvChad/nvim-colorizer.lua')
 
   loadConfigs()
