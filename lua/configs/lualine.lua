@@ -1,4 +1,4 @@
-local onedarkpro = require('lualine.themes.onedarkpro')
+local theme = require('configs.onedarkpro.lualine')
 
 local navic = require('nvim-navic')
 local function diff_source()
@@ -16,7 +16,7 @@ local lualine = require('lualine')
 
 lualine.setup({
   options = {
-    theme = onedarkpro,
+    theme = theme,
     icons_enabled = true,
     component_separators = { left = ' ', right = ' ' },
     section_separators = { left = ' ', right = ' ' },

@@ -21,6 +21,9 @@ onedarkpro.setup({
     cursorline = colors.highlight,
   },
   highlights = {
+    Normal = { fg = colors.fg, bg = colors.bg },
+    ColorColumn = { bg = colors.highlight },
+
     Special = { fg = colors.cyan },
     SpecialChar = { link = 'Special' },
 
