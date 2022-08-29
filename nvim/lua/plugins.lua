@@ -24,7 +24,6 @@ local function loadConfigs()
     'scrollbar',
     'onedarkpro',
     'telescope',
-    'toggleterm',
     'treesitter',
   }
   for _, cfg in ipairs(configs) do
@@ -71,8 +70,6 @@ return packer.startup(function(use)
   use('windwp/nvim-autopairs')
 
   use('lewis6991/gitsigns.nvim')
-
-  use('akinsho/toggleterm.nvim')
 
   use('JoosepAlviste/nvim-ts-context-commentstring')
   use('numToStr/Comment.nvim')
