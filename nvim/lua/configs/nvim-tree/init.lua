@@ -1,64 +1,82 @@
 local n = require('keymap').nnoremap
 
-n('<leader>e', '<CMD>NvimTreeFindFile<CR>')
-n('<leader><S-e>', '<CMD>NvimTreeToggle<CR>')
+n('<leader>e', '<CMD>lua require("configs.nvim-tree.handlers").toggle()<CR>')
 
 local nvim_tree = require('nvim-tree')
 
 nvim_tree.setup({
   sync_root_with_cwd = true,
-  respect_buf_cwd = true,
-  update_focused_file = {
-    update_cwd = true,
-    enable = true,
-    update_root = true,
-    ignore_list = {},
-  },
   auto_reload_on_write = true,
   create_in_closed_folder = true,
   disable_netrw = true,
   hijack_netrw = true,
-  hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
-  open_on_setup = true,
-  open_on_setup_file = false,
-  open_on_tab = true,
   sort_by = 'name',
-  reload_on_bufenter = false,
-  update_cwd = true,
   view = {
-    width = 35,
-    height = 35,
-    hide_root_folder = false,
+    hide_root_folder = true,
     side = 'left',
-    preserve_window_proportions = false,
-    number = false,
-    relativenumber = false,
     signcolumn = 'yes',
     mappings = {
-      custom_only = false,
-      list = {},
+      list = {
+        {
+          key = '<C-h>',
+          action = 'toggle_dotfiles',
+        },
+        {
+          key = 'H',
+          action = 'harpoon_first_mark',
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, 'harpoon.ui')
+            if not ok then
+              return
+            end
+            harpoon.nav_file(1)
+          end,
+        },
+        {
+          key = 'J',
+          action = 'harpoon_second_mark',
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, 'harpoon.ui')
+            if not ok then
+              return
+            end
+            harpoon.nav_file(2)
+          end,
+        },
+        {
+          key = 'K',
+          action = 'harpoon_third_mark',
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, 'harpoon.ui')
+            if not ok then
+              return
+            end
+            harpoon.nav_file(3)
+          end,
+        },
+        {
+          key = 'L',
+          action = 'harpoon_fourth_mark',
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, 'harpoon.ui')
+            if not ok then
+              return
+            end
+            harpoon.nav_file(4)
+          end,
+        },
+      },
     },
   },
   renderer = {
-    add_trailing = false,
-    group_empty = false,
     highlight_git = true,
     highlight_opened_files = 'none',
     root_folder_modifier = ':~',
-    indent_markers = {
-      enable = false,
-      icons = {
-        corner = '└ ',
-        edge = '│ ',
-        none = '  ',
-      },
-    },
     icons = {
       webdev_colors = true,
       git_placement = 'signcolumn',
       padding = ' ',
-      symlink_arrow = ' ➛ ',
+      symlink_arrow = '  ',
       show = {
         file = true,
         folder = true,
@@ -89,31 +107,6 @@ nvim_tree.setup({
         },
       },
     },
-    special_files = { 'Makefile' },
-  },
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
-  ignore_ft_on_setup = {},
-  system_open = {
-    cmd = '',
-    args = {},
-  },
-  diagnostics = {
-    enable = false,
-    show_on_dirs = false,
-    icons = {
-      error = '',
-      warning = '',
-      info = '',
-      hint = '',
-    },
-  },
-  filters = {
-    dotfiles = false,
-    custom = {},
-    exclude = {},
   },
   git = {
     enable = true,
@@ -124,13 +117,13 @@ nvim_tree.setup({
   actions = {
     use_system_clipboard = true,
     change_dir = {
-      enable = true,
+      enable = false,
       global = false,
       restrict_above_cwd = false,
     },
     open_file = {
-      quit_on_open = false,
-      resize_window = true,
+      quit_on_open = true,
+      resize_window = false,
       window_picker = {
         enable = true,
         chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
@@ -148,17 +141,5 @@ nvim_tree.setup({
   live_filter = {
     prefix = '[FILTER]: ',
     always_show_folders = true,
-  },
-  log = {
-    enable = false,
-    truncate = false,
-    types = {
-      all = false,
-      config = false,
-      copy_paste = false,
-      diagnostics = false,
-      git = false,
-      profile = false,
-    },
   },
 })
