@@ -1,6 +1,6 @@
 #!/bin/sh
 
-selected=`cat ~/.local/bin/tmux-cht-sh-lists/languages ~/.local/bin/tmux-cht/commands | fzf --reverse`
+selected=`cat ~/.local/bin/tmux-cht-sh-lists/languages ~/.local/bin/tmux-cht-sh-lists/commands | fzf --reverse`
 
 if [[ -z $selected ]]; then
     exit 0
