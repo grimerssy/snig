@@ -1,0 +1,37 @@
+gui:
+  theme:
+    activeBorderColor:
+      - blue
+      - bold
+    inactiveBorderColor:
+      - '#576270'
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - '#2B323D'
+    selectedRangeBgColor:
+      - '#2B323D'
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+
+  showFileTree: true
+  showListFooter: false
+  showRandomTip: false
+  showBottomLine: false
+  showCommandLog: true
+  showIcons: true
+
+disableStartupPopups: true
+
+notARepository: 'skip'
+
+keybinding:
+  universal:
+    return: 'q'
+
+os:
+  editCommand: 'nvim'
