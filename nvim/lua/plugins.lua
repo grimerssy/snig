@@ -60,7 +60,6 @@ return packer.startup(function(use)
   use({
     'nvim-telescope/telescope.nvim',
     requires = {
-      'ahmedkhalf/project.nvim',
       'ThePrimeagen/harpoon',
     },
   })

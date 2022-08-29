@@ -2,7 +2,6 @@ local n = require('keymap').nnoremap
 
 n('<leader>f', '<CMD>Telescope find_files<CR>')
 n('<leader>t', '<CMD>Telescope live_grep<CR>')
-n('<leader>p', '<CMD>Telescope projects theme=dropdown previewer=false<CR>')
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')
@@ -136,20 +135,4 @@ telescope.setup({
   extensions = {},
 })
 
-local project = require('project_nvim')
-
-project.setup({
-  patterns = {
-    '.git',
-  },
-  detection_methods = {
-    'pattern',
-  },
-  exclude_dirs = {
-    '/Users/grimerssy',
-    '/opt/homebrew',
-  },
-})
-
-telescope.load_extension('projects')
 telescope.load_extension('harpoon')
