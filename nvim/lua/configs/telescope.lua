@@ -1,7 +1,7 @@
 local n = require('keymap').nnoremap
 
 n('<leader>f', '<CMD>Telescope find_files<CR>')
-n('<leader>t', '<CMD>Telescope live_grep<CR>')
+n('<leader>g', '<CMD>Telescope live_grep<CR>')
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')

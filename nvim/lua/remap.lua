@@ -2,7 +2,8 @@ local n = require('keymap').nnoremap
 local i = require('keymap').inoremap
 local v = require('keymap').vnoremap
 
-n('<leader>so', '<CMD>w<CR><CMD>luafile %<CR>')
+n('<leader>so', '<CMD>luafile %<CR>')
+n('<leader>sy', '<CMD>PackerSync<CR>')
 n('<C-r', '<CMD>redo<CR>')
 n('<C-h>', '<C-w>h')
 n('<C-j>', '<C-w>j')
