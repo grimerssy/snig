@@ -10,7 +10,6 @@ packer.init({
 
 local function loadConfigs()
   local configs = {
-    'alpha',
     'autopairs',
     'cmp',
     'colorizer',
@@ -78,7 +77,6 @@ return packer.startup(function(use)
   use('JoosepAlviste/nvim-ts-context-commentstring')
   use('numToStr/Comment.nvim')
 
-  use('goolord/alpha-nvim')
   use('olimorris/onedarkpro.nvim')
   use({
     'kyazdani42/nvim-tree.lua',
