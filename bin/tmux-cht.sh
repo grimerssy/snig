@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
-
-# Stolen from ThePrimeagen
-# https://www.youtube.com/watch?v=hJzqEAf2U4I
+#!/bin/sh
 
 selected=`cat ~/.local/bin/tmux-cht/languages ~/.local/bin/tmux-cht/commands | fzf`
 if [[ -z $selected ]]; then
