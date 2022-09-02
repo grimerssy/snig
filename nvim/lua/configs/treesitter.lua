@@ -1,3 +1,12 @@
+local n = require('keymap').nnoremap
+
+n('<leader>cf', function()
+  ContextSetup(true)
+end)
+n('<leader>cp', function()
+  ContextSetup(false)
+end)
+
 local configs = require('nvim-treesitter.configs')
 
 configs.setup({
@@ -19,3 +28,25 @@ configs.setup({
   },
   indent = { enable = true, disable = { 'yaml' } },
 })
+
+function ContextSetup(show_all_context)
+  require('treesitter-context').setup({
+    enable = true,
+    throttle = true,
+    max_lines = 0,
+    show_all_context = show_all_context,
+    patterns = {
+      default = {
+        'function',
+        'method',
+        'for',
+        'while',
+        'if',
+        'switch',
+        'case',
+      },
+    },
+  })
+end
+
+ContextSetup(false)
