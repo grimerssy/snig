@@ -1,5 +1,9 @@
 local M = {}
 
+local keymap = require('keymap')
+local n = keymap.nnoremap
+local i = keymap.inoremap
+
 M.setup = function()
   local signs = {
     { name = 'DiagnosticSignError', text = '' },
@@ -56,24 +60,34 @@ local function lsp_highlight_document(client)
   end
 end
 
-local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<CMD>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-h>', '<CMD>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<CMD>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<CMD>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<CMD>Telescope lsp_references theme=dropdown<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<CMD>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<CMD>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gl', '<CMD>lua vim.diagnostic.open_float()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<CMD>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>q', '<CMD>lua vim.diagnostic.setloclist()<CR>', opts)
+local function lsp_keymaps()
+  i('<C-h>', vim.lsp.buf.signature_help)
+  n('K', vim.lsp.buf.hover)
+  n('gd', '<CMD>lua vim.lsp.buf.definition()<CR>')
+  n('<leader>rr', '<CMD>Telescope lsp_references theme=dropdown<CR>')
+  n('<leader>ca', vim.lsp.buf.code_action)
+  n('<leader>rn', vim.lsp.buf.rename)
+  n('<leader>vws', vim.lsp.buf.workspace_symbol)
+  n('<leader>vd', vim.diagnostic.open_float)
+  n('[d', vim.diagnostic.goto_next)
+  n(']d', vim.diagnostic.goto_prev)
+  n('<leader>co', function()
+    vim.lsp.buf.code_action({
+      filter = function(code_action)
+        if not code_action or not code_action.data then
+          return false
+        end
+
+        local data = code_action.data.id
+        return string.sub(data, #data - 1, #data) == ':0'
+      end,
+      apply = true,
+    })
+  end)
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(client, _)
   local ignore = {
     'gopls',
     'sumneko_lua',
@@ -86,7 +100,7 @@ M.on_attach = function(client, bufnr)
       client.resolved_capabilities.document_range_formatting = false
     end
   end
-  lsp_keymaps(bufnr)
+  lsp_keymaps()
   lsp_highlight_document(client)
 end
 
