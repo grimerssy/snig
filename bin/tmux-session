@@ -10,7 +10,7 @@ if [ -z "$ZOXIDE_RESULT" ]; then
   exit 0
 fi
 
-FOLDER=$(basename $ZOXIDE_RESULT | tr '.' '\0')
+FOLDER=$(basename $ZOXIDE_RESULT | tr '.' '_')
 
 SESSION=$(tmux list-sessions | grep $FOLDER | awk '{print $1}')
 SESSION=${SESSION//:/}
