@@ -9,6 +9,8 @@ n('<C-h>', '<C-w>h')
 n('<C-j>', '<C-w>j')
 n('<C-k>', '<C-w>k')
 n('<C-l>', '<C-w>l')
+n('<C-d>', '<C-d>zz')
+n('<C-u>', '<C-u>zz')
 
 i('jk', '<ESC>')
 
