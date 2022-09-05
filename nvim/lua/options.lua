@@ -19,6 +19,9 @@ local options = {
   cursorline = true,
   conceallevel = 0,
 
+  tabstop = 2,
+  softtabstop = 2,
+  shiftwidth = 2,
   expandtab = true,
   hlsearch = false,
   incsearch = true,
