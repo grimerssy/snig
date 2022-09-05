@@ -81,7 +81,6 @@ return packer.startup(function(use)
     requires = {
       'nvim-treesitter/nvim-treesitter-context',
     },
-    run = ':TSUpdate',
   })
 
   use('windwp/nvim-autopairs')
