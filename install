@@ -1,0 +1,26 @@
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ln -s ~/.dotfiles/Brewfile ~/.Brewfile
+brew bundle install --global
+
+mkdir -p ~/.config
+mkdir -p ~/.local
+mkdir -p ~/Library
+mkdir -p ~/Library/Application Support
+mkdir -p ~/Library/Application Support/jesseduffield
+
+ln -s ~/.dotfiles/alacritty ~/.config/alacritty
+ln -s ~/.dotfiles/bin ~/.local/bin
+ln -s ~/.dotfiles/lazygit ~/Library/Application Support/jesseduffield/lazygit
+ln -s ~/.dotfiles/nvim ~/.config/nvim
+ln -s ~/.dotfiles/tmux ~/.config/tmux
+ln -s ~/.dotfiles/zsh ~/.config/zsh
+ln -s ~/.dotfiles/zshrc ~/.zshrc
+
+for FILE in ~/.local/bin/*
+do 
+  if [ -f $FILE ]; then
+    chmod +x $FILE
+  fi
+done
+
+source ~/.zshrc
