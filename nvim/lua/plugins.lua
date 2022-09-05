@@ -104,7 +104,7 @@ return packer.startup(function(use)
     },
   })
   use('petertriho/nvim-scrollbar')
-  use('NvChad/nvim-colorizer.lua')
+  use('norcalli/nvim-colorizer.lua')
 
   loadConfigs()
 end)
