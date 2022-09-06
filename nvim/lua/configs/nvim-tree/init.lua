@@ -7,12 +7,11 @@ local nvim_tree = require('nvim-tree')
 nvim_tree.setup({
   sync_root_with_cwd = true,
   auto_reload_on_write = true,
-  create_in_closed_folder = true,
   disable_netrw = true,
   hijack_netrw = true,
   sort_by = 'name',
   view = {
-    hide_root_folder = true,
+    hide_root_folder = false,
     side = 'left',
     signcolumn = 'yes',
     mappings = {
