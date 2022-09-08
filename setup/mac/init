@@ -26,10 +26,3 @@ do
     chmod +x $SCRIPT
   fi
 done
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew bundle install --global
-
-curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz
-/usr/bin/tic -xe alacritty-direct,tmux-256color terminfo.src
-rm terminfo.src
