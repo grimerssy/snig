@@ -9,6 +9,7 @@ tap "homebrew/services"
 tap "isen-ng/dotnet-sdk-versions"
 tap "mongodb/brew"
 tap "sass/sass"
+brew "boost"
 brew "checkmake"
 brew "codespell"
 brew "node"
@@ -24,6 +25,7 @@ brew "krb5"
 brew "kubernetes-cli"
 brew "lazygit"
 brew "mas"
+brew "node@16"
 brew "neovim"
 brew "postgresql@14"
 brew "prettier"
@@ -45,6 +47,5 @@ cask "rectangle"
 cask "telegram"
 mas "1Blocker", id: 1365531024
 mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
-mas "Neo Noir", id: 1592844577
+mas "The Unarchiver", id: 425424353
