@@ -1,14 +1,5 @@
 return {
   tools = {
-    on_initialized = function()
-      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufEnter', 'CursorHold', 'InsertLeave' }, {
-        pattern = { '*.rs' },
-        callback = function()
-          vim.lsp.codelens.refresh()
-        end,
-      })
-    end,
-
     auto = false,
     inlay_hints = {
       only_current_line = false,
@@ -26,7 +17,7 @@ return {
     },
   },
   server = {
-    cmd = { 'rustup', 'run', 'nightly', os.getenv('HOME') .. '/.local/bin/rust-analyzer' },
+    cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
     on_attach = require('configs.lsp.handlers').on_attach,
     capabilities = require('configs.lsp.handlers').capabilities,
 
