@@ -13,6 +13,7 @@ configs.setup({
   ensure_installed = {
     'go',
     'gomod',
+    'rust',
     'lua',
     'json',
     'proto',
