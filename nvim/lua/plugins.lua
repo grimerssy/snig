@@ -61,6 +61,8 @@ return packer.startup(function(use)
   use('L3MON4D3/LuaSnip')
   use('rafamadriz/friendly-snippets')
 
+  use('williamboman/mason.nvim')
+  use('williamboman/mason-lspconfig.nvim')
   use('neovim/nvim-lspconfig')
   use('williamboman/nvim-lsp-installer')
   use('jose-elias-alvarez/null-ls.nvim')
@@ -104,6 +106,11 @@ return packer.startup(function(use)
   })
   use('petertriho/nvim-scrollbar')
   use('norcalli/nvim-colorizer.lua')
+
+  use({
+    'christianchiarulli/rust-tools.nvim',
+    branch = 'modularize_and_inlay_rewrite',
+  })
 
   loadConfigs()
 end)
