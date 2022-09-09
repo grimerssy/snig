@@ -48,7 +48,6 @@ null_ls.setup({
       },
     }),
     diagnostics.buf,
-    diagnostics.checkmake,
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
