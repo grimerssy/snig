@@ -24,6 +24,7 @@ onedarkpro.setup({
     Normal = { fg = colors.fg, bg = colors.bg },
     ColorColumn = { bg = colors.highlight },
 
+    MatchParen = { fg = colors.cyan },
     Special = { fg = colors.cyan },
     SpecialChar = { link = 'Special' },
 
