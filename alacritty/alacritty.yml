@@ -30,7 +30,7 @@ cursor:
     blinking: Never
 
 font:
-  size: 15.5
+  size: 16
   ligatures: true
   normal:
     family: JetBrainsMonoNL Nerd Font
