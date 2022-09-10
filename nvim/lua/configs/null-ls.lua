@@ -40,7 +40,13 @@ null_ls.setup({
     formatting.csharpier,
     formatting.trim_whitespace,
     diagnostics.eslint,
-    diagnostics.codespell,
+    diagnostics.codespell.with({
+      extra_args = {
+        '--check-filenames',
+        '--ignore-words-list',
+        'crate',
+      },
+    }),
     diagnostics.staticcheck,
     diagnostics.sqlfluff.with({
       extra_args = {
