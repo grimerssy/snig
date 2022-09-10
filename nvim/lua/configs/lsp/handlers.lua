@@ -62,9 +62,9 @@ end
 
 local function lsp_keymaps()
   i('<C-h>', vim.lsp.buf.signature_help)
-  n('K', vim.lsp.buf.hover)
-  n('gd', '<CMD>lua vim.lsp.buf.definition()<CR>')
-  n('<leader>rr', '<CMD>Telescope lsp_references theme=dropdown<CR>')
+  n('<C-h>', vim.lsp.buf.hover)
+  n('<leader>d', '<CMD>lua vim.lsp.buf.definition()<CR>')
+  n('<leader>r', '<CMD>Telescope lsp_references theme=dropdown<CR>')
   n('<leader>ca', vim.lsp.buf.code_action)
   n('<leader>rn', vim.lsp.buf.rename)
   n('<leader>vws', vim.lsp.buf.workspace_symbol)
