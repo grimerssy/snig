@@ -64,7 +64,6 @@ return packer.startup(function(use)
   use('williamboman/mason.nvim')
   use('williamboman/mason-lspconfig.nvim')
   use('neovim/nvim-lspconfig')
-  use('williamboman/nvim-lsp-installer')
   use('jose-elias-alvarez/null-ls.nvim')
 
   use('mfussenegger/nvim-dap')
