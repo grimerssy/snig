@@ -1,6 +1,7 @@
 local n = require('keymap').nnoremap
 local i = require('keymap').inoremap
 local v = require('keymap').vnoremap
+local x = require('keymap').xnoremap
 
 n('<leader>so', '<CMD>luafile %<CR>')
 n('<leader>sy', '<CMD>PackerSync<CR>')
@@ -17,3 +18,5 @@ i('jk', '<ESC>')
 v('jk', '<ESC>')
 v('<', '<gv')
 v('>', '>gv')
+
+x('<leader>p', '"_dP')
