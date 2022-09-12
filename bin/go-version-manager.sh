@@ -14,7 +14,7 @@ DIRECTORY="$GO_DIR/$VERSION"
 if ! [[ "(darwin, linux)[*]" =~ "$OS" ]];
 then
   echo "quit using windows"
-  exit 1
+  return 1
 fi
 
 show_help () {
@@ -30,7 +30,7 @@ check_version () {
   if ! [[ $VERSION =~ ^1\.[1-9]?[0-9]\.[1-9]?[0-9]$ ]];
   then
     echo "invalid version input"
-    exit 1
+    return 1
   fi
 }
 
@@ -43,7 +43,7 @@ set_version () {
   if ! [ -d $DIRECTORY ]
   then
     echo "version $VERSION is not installed"
-    exit 1
+    return 1
   fi
   write_source
   . $SOURCE_FILE
@@ -70,7 +70,7 @@ install_version () {
     if ! [ $? -eq 0 ]; then
         echo "could not unarchive downloaded file"
         echo "make sure specified version is available at https://go.dev/dl"
-        exit 1
+        return 1
     fi
 
     echo "installing go $VERSION"
@@ -100,7 +100,7 @@ case $COMMAND in
   *)
     echo "invalid command"
     echo "type \`go-version-manager help\` to see more"
-    exit 1
+    return 1
     ;;
 esac
 
