@@ -1,3 +1,4 @@
+alias g="source go-version-manager.sh"
 alias n="nvim"
 alias l="lazygit"
 alias t="tmux"
