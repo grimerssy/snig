@@ -1,8 +1,8 @@
-function zsh_add_file() {
+zsh_add_file() {
     [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
 
-function zsh_add_plugin() {
+zsh_add_plugin() {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
     if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
         zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
@@ -12,7 +12,7 @@ function zsh_add_plugin() {
     fi
 }
 
-function zsh_add_completion() {
+zsh_add_completion() {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
     if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
 		completion_file_path=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
