@@ -17,7 +17,7 @@ then
   return 1
 fi
 
-show_help () {
+show_help() {
   echo "\ncommands:\n"
   echo "\thelp"
   echo "\tinstall [version]"
@@ -26,7 +26,7 @@ show_help () {
   echo "\tvisit https://go.dev/dl to see all available versions of go\n"
 }
 
-check_version () {
+check_version() {
   if ! [[ $VERSION =~ ^1\.[1-9]?[0-9]\.[1-9]?[0-9]$ ]];
   then
     echo "invalid version input"
@@ -34,11 +34,11 @@ check_version () {
   fi
 }
 
-write_source () {
+write_source() {
   echo "eval export PATH=$DIRECTORY/bin:'$'PATH" &> $SOURCE_FILE
 }
 
-set_version () {
+set_version() {
   check_version
   if ! [ -d $DIRECTORY ]
   then
@@ -50,7 +50,7 @@ set_version () {
   echo "now using go $VERSION"
 }
 
-install_version () {
+install_version() {
   check_version
   if [ -d $DIRECTORY ]
   then
