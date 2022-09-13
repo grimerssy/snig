@@ -45,6 +45,24 @@ apply_current_version() {
   export PATH=$(echo $PATH | sed -re "s/$pattern/$replace/")
 }
 
+list_installed_versions() {
+  local current=$(read_current_version)
+  local result=""
+  for item in $GO_DIRECTORY/*; do
+    if [ -d $item ]; then
+      if ! [ -z $result ]; then
+        result="\n$result"
+      fi
+      item=$(basename $item)
+      if [ $item = $current ]; then
+        item="$item (current)"
+      fi
+      result="$item$result"
+    fi
+  done
+  echo $result
+}
+
 set_version() {
   check_version
   if ! [ $? -eq 0 ]; then
@@ -104,6 +122,7 @@ install_version() {
 show_help() {
   echo "\ncommands:\n"
   echo "\tinit"
+  echo "\tlist"
   echo "\tset [version]"
   echo "\tinstall [version]"
   echo "\nversions:\n"
@@ -114,11 +133,14 @@ case $COMMAND in
   init)
     apply_current_version
     ;;
-  install)
-    install_version
+  list)
+    list_installed_versions
     ;;
   set)
     set_version
+    ;;
+  install)
+    install_version
     ;;
   *)
     show_help
