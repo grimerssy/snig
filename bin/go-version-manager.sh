@@ -35,7 +35,14 @@ write_current_version() {
 
 apply_current_version() {
   local version=$(read_current_version)
-  export PATH="$GO_DIRECTORY/$version/bin:$PATH"
+  local go_directory=$(echo $GO_DIRECTORY | sed -e 's/\//\\\//g')
+  if ! [[ $PATH =~ "$GO_DIRECTORY/$VERSION_REGEX/bin" ]]; then
+    export PATH="$GO_DIRECTORY/$version/bin:$PATH"
+    return 0
+  fi
+  local pattern="$go_directory\/$VERSION_REGEX\/bin"
+  local replace="$go_directory\/$version\/bin"
+  export PATH=$(echo $PATH | sed -re "s/$pattern/$replace/")
 }
 
 set_version() {
