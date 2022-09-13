@@ -4,12 +4,7 @@ GO_DIRECTORY="$GOPATH/.go"
 CURRENT_VERSION_FILE="$GO_DIRECTORY/.current"
 
 OS=$(uname -s | tr "[:upper:]" "[:lower:]")
-ARCH=$(uname -m)
-
-if ! [[ "(darwin, linux)[*]" =~ "$OS" ]]; then
-  echo "quit using windows"
-  return 1
-fi
+ARCH=$(uname -m | sed -e 's/^x86_64$/amd64/')
 
 COMMAND=$1
 VERSION=$2
@@ -17,8 +12,20 @@ VERSION=$2
 FULL_VERSION="$OS-$ARCH-$VERSION"
 VERSION_DIRECTORY="$GO_DIRECTORY/$FULL_VERSION"
 
+OS_REGEX="(darwin|linux)"
+ARCH_REGEX="(arm64|amd64)"
 VERSION_REGEX="1\.[1-9]?[0-9]\.[1-9]?[0-9]"
-FULL_VERSION_REGEX="(darwin|linux)-(arm64|amd64)-$VERSION_REGEX"
+FULL_VERSION_REGEX="$OS_REGEX-$ARCH_REGEX-$VERSION_REGEX"
+
+if ! [[ $OS =~ "^$OS_REGEX$" ]]; then
+  echo "unsupported OS"
+  return 1
+fi
+
+if ! [[ $ARCH =~ "^$ARCH_REGEX$" ]]; then
+  echo "unsupported processor architecture"
+  return 1
+fi
 
 check_version() {
   if ! [[ $VERSION =~ "^$VERSION_REGEX$" ]]; then
@@ -181,5 +188,7 @@ unset VERSION
 unset FULL_VERSION
 unset VERSION_DIRECTORY
 
+unset OS_REGEX
+unset ARCH_REGEX
 unset VERSION_REGEX
 unset FULL_VERSION_REGEX
