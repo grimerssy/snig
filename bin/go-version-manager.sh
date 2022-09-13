@@ -1,95 +1,111 @@
 #!/bin/sh
 
-GO_DIR="$GOPATH/.go"
-SOURCE_FILE="$GO_DIR/.source"
+GO_DIRECTORY="$GOPATH/.go"
+CURRENT_VERSION_FILE="$GO_DIRECTORY/.current"
 
 OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 ARCH=$(uname -m)
 
-COMMAND=$1
-VERSION=$2
-
-DIRECTORY="$GO_DIR/$VERSION"
-
-if ! [[ "(darwin, linux)[*]" =~ "$OS" ]];
-then
+if ! [[ "(darwin, linux)[*]" =~ "$OS" ]]; then
   echo "quit using windows"
   return 1
 fi
 
-show_help() {
-  echo "\ncommands:\n"
-  echo "\thelp"
-  echo "\tinstall [version]"
-  echo "\tset [version]"
-  echo "\nversions:\n"
-  echo "\tvisit https://go.dev/dl to see all available versions of go\n"
-}
+COMMAND=$1
+VERSION=$2
+
+VERSION_DIRECTORY="$GO_DIRECTORY/$VERSION"
+
+VERSION_REGEX="1\.[1-9]?[0-9]\.[1-9]?[0-9]"
 
 check_version() {
-  if ! [[ $VERSION =~ ^1\.[1-9]?[0-9]\.[1-9]?[0-9]$ ]];
-  then
+  if ! [[ $VERSION =~ "^$VERSION_REGEX$" ]]; then
     echo "invalid version input"
     return 1
   fi
 }
 
-write_source() {
-  echo "eval export PATH=$DIRECTORY/bin:'$'PATH" &> $SOURCE_FILE
+read_current_version() {
+  head -n 1 $CURRENT_VERSION_FILE
+}
+
+write_current_version() {
+  echo $VERSION &> $CURRENT_VERSION_FILE
+}
+
+apply_current_version() {
+  local version=$(read_current_version)
+  export PATH="$GO_DIRECTORY/$version/bin:$PATH"
 }
 
 set_version() {
   check_version
-  if ! [ -d $DIRECTORY ]
-  then
+  if ! [ $? -eq 0 ]; then
+    return $?
+  fi
+  if ! [ -d $VERSION_DIRECTORY ]; then
     echo "version $VERSION is not installed"
     return 1
   fi
-  write_source
-  . $SOURCE_FILE
+  write_current_version
+  apply_current_version
   echo "now using go $VERSION"
 }
 
 install_version() {
   check_version
-  if [ -d $DIRECTORY ]
-  then
+  if ! [ $? -eq 0 ]; then
+    return $?
+  fi
+  if [ -d $VERSION_DIRECTORY ]; then
     echo "version $VERSION is already installed"
   else
     ARCHIVE="go$VERSION.$OS-$ARCH.tar.gz"
 
     echo "downloading $ARCHIVE"
 
-    curl -LO https://go.dev/dl/$ARCHIVE &>/dev/null
+    curl -fLO https://go.dev/dl/$ARCHIVE &>/dev/null
+    if ! [ $? -eq 0 ]; then
+      echo "could not download $ARCHIVE"
+      echo "make sure specified version is available at https://go.dev/dl"
+      return 1
+    fi
 
     echo "unarchiving $ARCHIVE"
 
     tar -C . -xzf $ARCHIVE &>/dev/null
+    local TAR_RESULT=$?
+
     rm $ARCHIVE &>/dev/null
 
-    if ! [ $? -eq 0 ]; then
+    if ! [ $TAR_RESULT -eq 0 ]; then
         echo "could not unarchive downloaded file"
-        echo "make sure specified version is available at https://go.dev/dl"
         return 1
     fi
 
-    echo "installing go $VERSION"
+    echo "installing go$VERSION"
 
-    mkdir -p $GO_DIR
-    mv go $DIRECTORY &>/dev/null
+    mkdir -p $GO_DIRECTORY
+    mv go $VERSION_DIRECTORY &>/dev/null
 
     echo "installation is successful"
   fi
 
-  echo "run \`go-version-manager.sh set $VERSION\` to make it active"
+  echo "run with \`set $VERSION\` command to make it active"
+}
+
+show_help() {
+  echo "\ncommands:\n"
+  echo "\tinit"
+  echo "\tset [version]"
+  echo "\tinstall [version]"
+  echo "\nversions:\n"
+  echo "\tvisit https://go.dev/dl to see all available versions of go\n"
 }
 
 case $COMMAND in
-  help)
-    show_help
-    ;;
   init)
-    . $SOURCE_FILE
+    apply_current_version
     ;;
   install)
     install_version
@@ -98,14 +114,12 @@ case $COMMAND in
     set_version
     ;;
   *)
-    echo "invalid command"
-    echo "type \`go-version-manager help\` to see more"
-    return 1
+    show_help
     ;;
 esac
 
-unset GO_DIR
-unset SOURCE_FILE
+unset GO_DIRECTORY
+unset CURRENT_VERSION_FILE
 
 unset OS
 unset ARCH
@@ -113,4 +127,6 @@ unset ARCH
 unset COMMAND
 unset VERSION
 
-unset DIRECTORY
+unset VERSION_DIRECTORY
+
+unset VERSION_REGEX
