@@ -14,9 +14,11 @@ fi
 COMMAND=$1
 VERSION=$2
 
-VERSION_DIRECTORY="$GO_DIRECTORY/$VERSION"
+FULL_VERSION="$OS-$ARCH-$VERSION"
+VERSION_DIRECTORY="$GO_DIRECTORY/$FULL_VERSION"
 
 VERSION_REGEX="1\.[1-9]?[0-9]\.[1-9]?[0-9]"
+FULL_VERSION_REGEX="(darwin|linux)-(arm64|amd64)-$VERSION_REGEX"
 
 check_version() {
   if ! [[ $VERSION =~ "^$VERSION_REGEX$" ]]; then
@@ -34,14 +36,14 @@ write_current_version() {
 }
 
 apply_current_version() {
-  local version=$(read_current_version)
+  local full_version="$OS-$ARCH-$(read_current_version)"
   local go_directory=$(echo $GO_DIRECTORY | sed -e 's/\//\\\//g')
-  if ! [[ $PATH =~ "$GO_DIRECTORY/$VERSION_REGEX/bin" ]]; then
-    export PATH="$GO_DIRECTORY/$version/bin:$PATH"
+  if ! [[ $PATH =~ "$GO_DIRECTORY/$FULL_VERSION_REGEX/bin" ]]; then
+    export PATH="$GO_DIRECTORY/$full_version/bin:$PATH"
     return 0
   fi
-  local pattern="$go_directory\/$VERSION_REGEX\/bin"
-  local replace="$go_directory\/$version\/bin"
+  local pattern="$go_directory\/$FULL_VERSION_REGEX\/bin"
+  local replace="$go_directory\/$full_version\/bin"
   export PATH=$(echo $PATH | sed -re "s/$pattern/$replace/")
 }
 
@@ -54,7 +56,7 @@ list_installed_versions() {
         result="\n$result"
       fi
       item=$(basename $item)
-      if [ $item = $current ]; then
+      if [ $item = "$OS-$ARCH-$current" ]; then
         item="$item (current)"
       fi
       result="$item$result"
@@ -69,7 +71,7 @@ set_version() {
     return $?
   fi
   if ! [ -d $VERSION_DIRECTORY ]; then
-    echo "version $VERSION is not installed"
+    echo "$FULL_VERSION is not installed"
     return 1
   fi
   write_current_version
@@ -83,7 +85,7 @@ install_version() {
     return $?
   fi
   if [ -d $VERSION_DIRECTORY ]; then
-    echo "version $VERSION is already installed"
+    echo "$FULL_VERSION is already installed"
   else
     ARCHIVE="go$VERSION.$OS-$ARCH.tar.gz"
 
@@ -108,7 +110,7 @@ install_version() {
         return 1
     fi
 
-    echo "installing go$VERSION"
+    echo "installing $FULL_VERSION"
 
     mkdir -p $GO_DIRECTORY
     mv go $VERSION_DIRECTORY &>/dev/null
@@ -123,16 +125,16 @@ uninstall_version() {
   check_version
   local current=$(read_current_version)
   if [ $VERSION = $current ]; then
-    echo "cannot uninstall go$VERSION as it is active"
+    echo "cannot uninstall $FULL_VERSION as it is active"
     echo "set another version and try again"
     return 1
   fi
   if ! [ -d $VERSION_DIRECTORY ]; then
-    echo "go$VERSION is not installed"
+    echo "$FULL_VERSION is not installed"
     return 1
   fi
   rm -rf $VERSION_DIRECTORY
-  echo "successfully uninstalled go$VERSION"
+  echo "successfully uninstalled $FULL_VERSION"
 }
 
 show_help() {
@@ -176,6 +178,8 @@ unset ARCH
 unset COMMAND
 unset VERSION
 
+unset FULL_VERSION
 unset VERSION_DIRECTORY
 
 unset VERSION_REGEX
+unset FULL_VERSION_REGEX
