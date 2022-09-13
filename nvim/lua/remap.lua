@@ -19,4 +19,5 @@ v('jk', '<ESC>')
 v('<', '<gv')
 v('>', '>gv')
 
+x('jk', '<ESC>')
 x('<leader>p', '"_dP')
