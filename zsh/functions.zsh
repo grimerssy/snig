@@ -1,3 +1,11 @@
+add_to_path() {
+  local add=$1
+  local regex=$(echo $add | sed -e 's/\//\\\//g')
+  if ! [[ $PATH =~ $regex ]]; then
+    export PATH="$add:$PATH"
+  fi
+}
+
 add_file() {
     [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
