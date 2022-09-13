@@ -36,14 +36,16 @@ ln -s ~/.dotfiles/zshrc ~/.zshrc
 source ~/.zshrc
 
 mkdir -p $FONTS
-for FONT in ~/.dotfiles/fonts/*
-do
-  cp $FONT $FONTS
+for FONT in ~/.dotfiles/fonts/*; do
+  if [ -f "$FONT" ]; then
+    FONT=$(echo $FONT | sed -e 's/ /\\ /g')
+    eval "cp $FONT $FONTS"
+  fi
 done
 
-for SCRIPT in $BIN/*
-do 
-  if [ -f $SCRIPT ]; then
-    chmod +x $SCRIPT
+for SCRIPT in $BIN/*; do
+  if [ -f "$SCRIPT" ]; then
+    SCRIPT=$(echo $SCRIPT | sed -e 's/ /\\ /g')
+    eval "chmod +x $SCRIPT"
   fi
 done
