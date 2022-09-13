@@ -119,12 +119,29 @@ install_version() {
   echo "run with \`set $VERSION\` command to make it active"
 }
 
+uninstall_version() {
+  check_version
+  local current=$(read_current_version)
+  if [ $VERSION = $current ]; then
+    echo "cannot uninstall go$VERSION as it is active"
+    echo "set another version and try again"
+    return 1
+  fi
+  if ! [ -d $VERSION_DIRECTORY ]; then
+    echo "go$VERSION is not installed"
+    return 1
+  fi
+  rm -rf $VERSION_DIRECTORY
+  echo "successfully uninstalled go$VERSION"
+}
+
 show_help() {
   echo "\ncommands:\n"
   echo "\tinit"
   echo "\tlist"
   echo "\tset [version]"
   echo "\tinstall [version]"
+  echo "\tuninstall [version]"
   echo "\nversions:\n"
   echo "\tvisit https://go.dev/dl to see all available versions of go\n"
 }
@@ -141,6 +158,9 @@ case $COMMAND in
     ;;
   install)
     install_version
+    ;;
+  uninstall)
+    uninstall_version
     ;;
   *)
     show_help
