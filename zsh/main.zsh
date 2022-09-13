@@ -23,9 +23,9 @@ zle -N down-line-or-beginning-search
 
 autoload -Uz colors && colors
 
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "hlissner/zsh-autopair"
+add_plugin "zsh-users/zsh-autosuggestions"
+add_plugin "zsh-users/zsh-syntax-highlighting"
+add_plugin "hlissner/zsh-autopair"
 
 eval "$(zoxide init zsh)"
 source go-version-manager.sh init
