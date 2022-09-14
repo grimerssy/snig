@@ -31,6 +31,7 @@ local function loadConfigs()
     'dap',
     'gitsigns',
     'harpoon',
+    'impatient',
     'lsp',
     'lualine',
     'null-ls',
@@ -49,6 +50,8 @@ return packer.startup(function(use)
   use('wbthomason/packer.nvim')
 
   use('nvim-lua/plenary.nvim')
+
+  use('lewis6991/impatient.nvim')
 
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-buffer')
