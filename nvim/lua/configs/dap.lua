@@ -11,8 +11,10 @@ n('<leader>dr', '<CMD>lua require("dap").repl.open()<CR>')
 n('<leader>ds', '<CMD>lua require("dap").continue()<CR>')
 n('<leader>de', '<CMD>lua require("dap").disconnect()<CR>')
 
+local dap, dapui = require('dap'), require('dapui')
+
 require('dap-go').setup()
-require('dapui').setup({
+dapui.setup({
   icons = { expanded = '', collapsed = '' },
   mappings = {
     expand = { '<CR>', '<2-LeftMouse>' },
@@ -46,8 +48,6 @@ require('dapui').setup({
     max_type_length = nil,
   },
 })
-
-local dap, dapui = require('dap'), require('dapui')
 
 dap.listeners.after.event_initialized['dapui_config'] = function()
   dapui.open()
