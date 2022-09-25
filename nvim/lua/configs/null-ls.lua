@@ -35,6 +35,7 @@ null_ls.setup({
       extra_args = {
         '--dialect',
         'postgres',
+        '--exclude-rules=L009',
       },
     }),
     formatting.csharpier,
