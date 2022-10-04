@@ -25,6 +25,7 @@ packer.init({
 local function loadConfigs()
   local configs = {
     'autopairs',
+    'autotag',
     'cmp',
     'colorizer',
     'comment',
@@ -88,6 +89,7 @@ return packer.startup(function(use)
   })
 
   use('windwp/nvim-autopairs')
+  use('windwp/nvim-ts-autotag')
 
   use('lewis6991/gitsigns.nvim')
 

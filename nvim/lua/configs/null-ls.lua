@@ -18,12 +18,10 @@ null_ls.setup({
         'AutoPreferSingle',
       },
     }),
-    formatting.eslint,
     formatting.prettier.with({
       extra_args = {
-        '--no-semi',
-        '--single-quote',
-        '--jsx-single-quote',
+        '--double-quote',
+        '--jsx-double-quote',
       },
     }),
     formatting.jq,
@@ -40,7 +38,6 @@ null_ls.setup({
     }),
     formatting.csharpier,
     formatting.trim_whitespace,
-    diagnostics.eslint,
     diagnostics.codespell.with({
       extra_args = {
         '--check-filenames',
