@@ -11,7 +11,7 @@ local options = {
   wrap = false,
   undofile = true,
   scrolloff = 1,
-  sidescrolloff = 10,
+  sidescrolloff = 5,
 
   fileencoding = 'utf-8',
   clipboard = 'unnamedplus',
