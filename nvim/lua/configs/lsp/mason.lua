@@ -5,6 +5,7 @@ local mason_lspconfig = require('mason-lspconfig')
 local servers = {
   'gopls',
   'rust_analyzer',
+  'tsserver',
   'jsonls',
   'sumneko_lua',
 }

@@ -91,6 +91,7 @@ M.on_attach = function(client, _)
   local ignore = {
     'gopls',
     'rust_analyzer',
+    'tsserver',
     'sumneko_lua',
     'omnisharp',
     'jsonls',
