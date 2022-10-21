@@ -29,6 +29,7 @@ null_ls.setup({
     formatting.gofumpt,
     formatting.buf,
     formatting.rustfmt,
+    formatting.mix,
     formatting.sqlfluff.with({
       extra_args = {
         '--dialect',

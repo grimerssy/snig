@@ -6,6 +6,7 @@ local servers = {
   'gopls',
   'rust_analyzer',
   'tsserver',
+  'elixirls',
   'jsonls',
   'sumneko_lua',
 }

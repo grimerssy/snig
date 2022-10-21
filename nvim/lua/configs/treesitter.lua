@@ -14,6 +14,7 @@ configs.setup({
     'go',
     'gomod',
     'rust',
+    'elixir',
     'lua',
     'html',
     'css',

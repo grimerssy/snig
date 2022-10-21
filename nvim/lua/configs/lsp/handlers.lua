@@ -92,6 +92,7 @@ M.on_attach = function(client, _)
     'gopls',
     'rust_analyzer',
     'tsserver',
+    'elixirls',
     'sumneko_lua',
     'omnisharp',
     'jsonls',
