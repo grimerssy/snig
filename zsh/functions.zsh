@@ -2,7 +2,7 @@ add_to_path() {
   local add=$1
   local regex=$(echo $add | sed -e 's/\//\\\//g')
   if ! [[ $PATH =~ $regex ]]; then
-    export PATH="$add:$PATH"
+    export PATH="$PATH:$add"
   fi
 }
 

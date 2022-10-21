@@ -27,11 +27,11 @@ add_plugin "zsh-users/zsh-autosuggestions"
 add_plugin "zsh-users/zsh-syntax-highlighting"
 add_plugin "hlissner/zsh-autopair"
 
-add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.asdf/shims"
 add_to_path "$HOME/.homebrew/bin"
+add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.local/share/neovim/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$CARGO_HOME/bin"
-add_to_path "$HOME/.asdf/shims"
 
 eval "$(zoxide init zsh)"
