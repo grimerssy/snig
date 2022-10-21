@@ -32,6 +32,6 @@ add_to_path "$HOME/.homebrew/bin"
 add_to_path "$HOME/.local/share/neovim/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$CARGO_HOME/bin"
+add_to_path "$HOME/.asdf/shims"
 
 eval "$(zoxide init zsh)"
-source go-version-manager.sh init
