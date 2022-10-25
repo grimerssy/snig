@@ -62,7 +62,8 @@ null_ls.setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.formatting_sync() -- nvim 0.8+, -> vim.lsp.buf.format({ bufnr = bufnr })
+          -- vim.lsp.buf.formatting_sync() -- nvim < 0.8
+          vim.lsp.buf.format({ bufnr = bufnr }) -- nvim 0.8+
         end,
       })
     end
