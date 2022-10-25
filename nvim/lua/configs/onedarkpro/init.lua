@@ -4,7 +4,6 @@ local colors = require('configs.onedarkpro.colors')
 
 onedarkpro.setup({
   colors = {
-    bg = colors.bg,
     fg = colors.fg,
     red = colors.red,
     orange = colors.orange,
@@ -21,7 +20,6 @@ onedarkpro.setup({
     cursorline = colors.highlight,
   },
   highlights = {
-    Normal = { fg = colors.fg, bg = colors.bg },
     ColorColumn = { bg = colors.highlight },
 
     MatchParen = { fg = colors.cyan },

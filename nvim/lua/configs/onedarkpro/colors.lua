@@ -1,5 +1,4 @@
 return {
-  bg = '#23272F',
   fg = '#A9B2C0',
   red = '#F16372',
   orange = '#DB975C',
