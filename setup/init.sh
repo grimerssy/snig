@@ -1,9 +1,12 @@
-ALACRITTY=~/.config/alacritty
-BIN=~/.local/bin
+ALACRITTY=$HOME/.config/alacritty
+BIN=$HOME/.local/bin
+KARABINER=$HOME/.config/karabiner
 LAZYGIT=_
-NVIM=~/.config/nvim
-TMUX=~/.config/tmux
-ZSH=~/.config/zsh
+NVIM=$HOME/.config/nvim
+SKHD=$HOME/.config/skhd
+TMUX=$HOME/.config/tmux
+YABAI=$HOME/.config/yabai
+ZSH=$HOME/.config/zsh
 FONTS=_
 
 case "$(uname -s)" in
@@ -27,9 +30,12 @@ mkdir -p ~/.local
 
 ln -s ~/.dotfiles/alacritty $ALACRITTY
 ln -s ~/.dotfiles/bin $BIN
+ln -s ~/.dotfiles/karabiner $KARABINER
 ln -s ~/.dotfiles/lazygit $LAZYGIT
 ln -s ~/.dotfiles/nvim $NVIM
+ln -s ~/.dotfiles/skhd $SKHD
 ln -s ~/.dotfiles/tmux $TMUX
+ln -s ~/.dotfiles/yabai $YABAI
 ln -s ~/.dotfiles/zsh $ZSH
 
 ln -s ~/.dotfiles/zshrc ~/.zshrc
