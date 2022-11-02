@@ -2,7 +2,7 @@ local colors = require('configs.onedarkpro.colors')
 
 require('scrollbar').setup({
   handle = {
-    color = colors.highlight,
+    color = colors.none,
   },
   marks = {
     Search = { color = colors.orange },

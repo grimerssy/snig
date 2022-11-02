@@ -20,7 +20,9 @@ onedarkpro.setup({
     cursorline = colors.highlight,
   },
   highlights = {
-    ColorColumn = { bg = colors.highlight },
+    ColorColumn = { bg = colors.none },
+    CursorLine = { bg = colors.none },
+    CursorLineNr = { fg = colors.purple, bg = colors.none },
 
     MatchParen = { fg = colors.cyan },
     Special = { fg = colors.cyan },
@@ -57,9 +59,6 @@ onedarkpro.setup({
     TSParameterReference = { fg = colors.orange },
     TSCharacterSpecial = { link = 'Special' },
 
-    NvimTreeNormal = { bg = colors.black },
-    NvimTreeNormalNC = { link = 'NvimTreeNormal' },
-    NvimTreeWinSeparator = { fg = colors.blue, bg = colors.none },
     NvimTreeFolderIcon = { fg = colors.blue },
     NvimTreeEmptyFolderName = { fg = colors.blue },
     NvimTreeOpenedFolderName = { fg = colors.blue },
