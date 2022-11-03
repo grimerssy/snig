@@ -83,6 +83,7 @@ return packer.startup(function(use)
 
   use({
     'nvim-treesitter/nvim-treesitter',
+    commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0',
     requires = {
       'nvim-treesitter/nvim-treesitter-context',
     },
@@ -96,7 +97,10 @@ return packer.startup(function(use)
   use('JoosepAlviste/nvim-ts-context-commentstring')
   use('numToStr/Comment.nvim')
 
-  use('olimorris/onedarkpro.nvim')
+  use({
+    'olimorris/onedarkpro.nvim',
+    commit = 'ad9fca686aa96650e11ca9c1b4601195c7869086',
+  })
   use({
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',

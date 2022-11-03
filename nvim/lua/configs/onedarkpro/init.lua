@@ -63,7 +63,6 @@ onedarkpro.setup({
     NvimTreeEmptyFolderName = { fg = colors.blue },
     NvimTreeOpenedFolderName = { fg = colors.blue },
   },
-  ft_highlights = {},
   plugins = {
     all = false,
     packer = true,

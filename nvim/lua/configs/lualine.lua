@@ -2,6 +2,9 @@ local theme = require('configs.onedarkpro.lualine')
 
 local lualine = require('lualine')
 
+local x_icon = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
+local z_icon = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
+
 lualine.setup({
   options = {
     theme = theme,
@@ -45,7 +48,7 @@ lualine.setup({
     lualine_x = {
       {
         function()
-          return vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
+          return x_icon
         end,
         padding = 0,
       },
@@ -63,7 +66,7 @@ lualine.setup({
     lualine_z = {
       {
         function()
-          return vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
+          return z_icon
         end,
         padding = 0,
       },
