@@ -7,34 +7,69 @@ lualine.setup({
     theme = theme,
     icons_enabled = true,
     component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
 
     always_divide_middle = false,
     globalstatus = true,
-    disabled_filetypes = {},
+    disabled_filetypes = { 'NvimTree' },
   },
   sections = {
     lualine_a = {
-      'mode',
+      {
+        function()
+          return ''
+        end,
+        padding = 0,
+      },
     },
-    lualine_b = {},
+    lualine_b = {
+      {
+        'mode',
+        padding = 0,
+      },
+    },
     lualine_c = {
+      {
+        function()
+          return ''
+        end,
+        padding = 0,
+      },
       {
         'diagnostics',
         sources = { 'nvim_diagnostic' },
         sections = { 'error', 'warn', 'info', 'hint' },
+        padding = 2,
       },
     },
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {
+    lualine_x = {
+      {
+        function()
+          return vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
+        end,
+        padding = 0,
+      },
+    },
+    lualine_y = {
       {
         'b:gitsigns_head',
-        icon = '',
+        icon = {
+          '',
+          align = 'right',
+        },
+        padding = 0,
+      },
+    },
+    lualine_z = {
+      {
+        function()
+          return vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
+        end,
+        padding = 0,
       },
     },
   },
   inactive_sections = {},
   tabline = {},
-  extensions = { 'nvim-tree' },
+  extensions = {},
 })
