@@ -96,6 +96,7 @@ M.on_attach = function(client, _)
     'sumneko_lua',
     'omnisharp',
     'jsonls',
+    'omnisharp',
   }
   for _, srv in ipairs(ignore) do
     if srv == client.name then
