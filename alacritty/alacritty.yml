@@ -53,8 +53,8 @@ window:
     columns: 200
     lines: 80
   padding:
-    x: 2
-    y: 2
+    x: 15
+    y: 15
   history: 10000
   decorations: "buttonless"
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
