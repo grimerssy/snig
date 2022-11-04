@@ -30,13 +30,6 @@ null_ls.setup({
     formatting.buf,
     formatting.rustfmt,
     formatting.mix,
-    formatting.sqlfluff.with({
-      extra_args = {
-        '--dialect',
-        'postgres',
-        '--exclude-rules=L009',
-      },
-    }),
     formatting.csharpier,
     formatting.trim_whitespace,
     diagnostics.codespell.with({
@@ -47,12 +40,6 @@ null_ls.setup({
       },
     }),
     diagnostics.staticcheck,
-    diagnostics.sqlfluff.with({
-      extra_args = {
-        '--dialect',
-        'postgres',
-      },
-    }),
     diagnostics.buf,
   },
   on_attach = function(client, bufnr)
