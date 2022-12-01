@@ -30,6 +30,7 @@ null_ls.setup({
     formatting.buf,
     formatting.rustfmt,
     formatting.mix,
+    formatting.black,
     formatting.csharpier,
     formatting.trim_whitespace,
     diagnostics.codespell.with({

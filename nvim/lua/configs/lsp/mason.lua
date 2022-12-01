@@ -9,6 +9,7 @@ local servers = {
   'elixirls',
   'jsonls',
   'sumneko_lua',
+  'pyright',
   'omnisharp',
 }
 

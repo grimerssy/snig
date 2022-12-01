@@ -94,6 +94,7 @@ M.on_attach = function(client, _)
     'tsserver',
     'elixirls',
     'sumneko_lua',
+    'pyright',
     'omnisharp',
     'jsonls',
     'omnisharp',

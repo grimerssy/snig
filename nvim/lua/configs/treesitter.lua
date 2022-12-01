@@ -16,6 +16,7 @@ configs.setup({
     'rust',
     'elixir',
     'lua',
+    'python',
     'html',
     'css',
     'javascript',
