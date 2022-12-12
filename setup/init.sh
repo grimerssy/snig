@@ -2,6 +2,7 @@ ALACRITTY=$HOME/.config/alacritty
 BIN=$HOME/.local/bin
 KARABINER=$HOME/.config/karabiner
 LAZYGIT=_
+NEOFETCH=$HOME/.config/neofetch
 NVIM=$HOME/.config/nvim
 SKHD=$HOME/.config/skhd
 TMUX=$HOME/.config/tmux
@@ -32,6 +33,7 @@ ln -s ~/.dotfiles/alacritty $ALACRITTY
 ln -s ~/.dotfiles/bin $BIN
 ln -s ~/.dotfiles/karabiner $KARABINER
 ln -s ~/.dotfiles/lazygit $LAZYGIT
+ln -s ~/.dotfiles/neofetch $NEOFETCH
 ln -s ~/.dotfiles/nvim $NVIM
 ln -s ~/.dotfiles/skhd $SKHD
 ln -s ~/.dotfiles/tmux $TMUX
