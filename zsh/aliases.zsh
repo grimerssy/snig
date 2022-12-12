@@ -13,9 +13,11 @@ fi
 case "$(uname -s)" in
 Darwin)
 	alias ls="ls -G"
+  alias neofetch="neofetch --ascii ~/.config/neofetch/mac"
 	;;
 Linux)
 	alias ls="ls --color=auto"
+  alias neofetch="neofetch --ascii ~/.config/neofetch/linux"
 	;;
 CYGWIN* | MINGW32* | MSYS* | MINGW*)
 	;;
