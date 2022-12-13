@@ -1,5 +1,6 @@
 ALACRITTY=$HOME/.config/alacritty
 BIN=$HOME/.local/bin
+FIREFOX=$HOME/.config/firefox
 KARABINER=$HOME/.config/karabiner
 LAZYGIT=_
 NEOFETCH=$HOME/.config/neofetch
@@ -31,6 +32,7 @@ mkdir -p ~/.local
 
 ln -s ~/.dotfiles/alacritty $ALACRITTY
 ln -s ~/.dotfiles/bin $BIN
+ln -s ~/.dotfiles/firefox $FIREFOX/chrome
 ln -s ~/.dotfiles/karabiner $KARABINER
 ln -s ~/.dotfiles/lazygit $LAZYGIT
 ln -s ~/.dotfiles/neofetch $NEOFETCH
