@@ -92,7 +92,7 @@ return packer.startup(function(use)
   use('windwp/nvim-autopairs')
   use('windwp/nvim-ts-autotag')
 
-  use('lewis6991/gitsigns.nvim')
+  use({ 'lewis6991/gitsigns.nvim', commit = 'd3a8ba0b0d34bbac482b963e52b346065169fa20' })
 
   use('JoosepAlviste/nvim-ts-context-commentstring')
   use('numToStr/Comment.nvim')
