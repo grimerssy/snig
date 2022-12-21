@@ -88,6 +88,7 @@ return packer.startup(function(use)
       'nvim-treesitter/nvim-treesitter-context',
     },
   })
+  use('nvim-treesitter/playground')
 
   use('windwp/nvim-autopairs')
   use('windwp/nvim-ts-autotag')
