@@ -15,20 +15,19 @@ FOLDER=$(basename $ZOXIDE_RESULT | tr '.' '_')
 SESSION=$(tmux list-sessions | grep $FOLDER | awk '{print $1}')
 SESSION=${SESSION//:/}
 
+if [ -z "$SESSION" ]; then
+  cd $ZOXIDE_RESULT
+  tmux new-session -d -s $FOLDER
+  tmux send-keys -t "$FOLDER:1" "nvim ." Enter
+fi
+
 if [ -z "$TMUX" ]; then
-  if [ -z "$SESSION" ]; then
-    cd $ZOXIDE_RESULT
-    tmux new-session -d -s $FOLDER
-    tmux send-keys -t "$FOLDER:1" "nvim ." Enter
-  fi
   tmux attach -t $SESSION
+  exit 0;
+fi
+
+if [ -z "$SESSION" ]; then
+  tmux switch-client -t $FOLDER
 else
-  if [ -z "$SESSION" ]; then
-    cd $ZOXIDE_RESULT
-    tmux new-session -d -s $FOLDER
-    tmux send-keys -t "$FOLDER:1" "nvim ." Enter
-    tmux switch-client -t $FOLDER
-  else
-    tmux switch-client -t $SESSION
-  fi
+  tmux switch-client -t $SESSION
 fi
