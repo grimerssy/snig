@@ -11,6 +11,7 @@ local servers = {
   'sumneko_lua',
   'pyright',
   'omnisharp',
+  'svelte',
 }
 
 local mason_settings = {
@@ -59,3 +60,7 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
   ::continue::
 end
+
+return {
+  servers = servers,
+}

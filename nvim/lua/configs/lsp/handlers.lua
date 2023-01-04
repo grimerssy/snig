@@ -88,17 +88,7 @@ local function lsp_keymaps()
 end
 
 M.on_attach = function(client, _)
-  local ignore = {
-    'gopls',
-    'rust_analyzer',
-    'tsserver',
-    'elixirls',
-    'sumneko_lua',
-    'pyright',
-    'omnisharp',
-    'jsonls',
-    'omnisharp',
-  }
+  local ignore = require('configs.lsp.mason')
   for _, srv in ipairs(ignore) do
     if srv == client.name then
       client.server_capabilities.document_formatting = false

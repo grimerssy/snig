@@ -26,6 +26,7 @@ configs.setup({
     'proto',
     'sql',
     'c_sharp',
+    'svelte',
   },
   sync_install = false,
   ignore_install = { '' },
