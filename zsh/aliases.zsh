@@ -4,6 +4,7 @@ alias t="tmux"
 alias a="tmux attach"
 alias s="tmux-session.sh"
 alias c="clear"
+alias cn="clear && neofetch"
 
 case "$(uname -s)" in
 Darwin)
