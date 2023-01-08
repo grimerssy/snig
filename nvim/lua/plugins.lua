@@ -24,7 +24,6 @@ packer.init({
 
 local function loadConfigs()
   local configs = {
-    'autopairs',
     'autotag',
     'cmp',
     'colorizer',
@@ -90,7 +89,6 @@ return packer.startup(function(use)
   })
   use('nvim-treesitter/playground')
 
-  use('windwp/nvim-autopairs')
   use('windwp/nvim-ts-autotag')
 
   use({ 'lewis6991/gitsigns.nvim', commit = 'd3a8ba0b0d34bbac482b963e52b346065169fa20' })
