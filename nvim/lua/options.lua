@@ -10,7 +10,7 @@ local options = {
   swapfile = false,
   wrap = false,
   undofile = true,
-  scrolloff = 1,
+  scrolloff = 8,
   sidescrolloff = 5,
 
   fileencoding = 'utf-8',
