@@ -1,6 +1,6 @@
 local n = require('keymap').nnoremap
 
-n('<leader>f', '<CMD>Telescope find_files<CR>')
+n('<leader>f', '<CMD>Telescope find_files hidden=true<CR>')
 n('<leader>g', '<CMD>Telescope live_grep<CR>')
 
 local telescope = require('telescope')
@@ -23,7 +23,6 @@ telescope.setup({
       '%.ttf',
       '%.webp',
       '.dart_tool/',
-      '.github/',
       '.gradle/',
       '.idea/',
       '.vscode/',
