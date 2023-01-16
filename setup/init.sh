@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ALACRITTY=$HOME/.config/alacritty
 BIN=$HOME/.local/bin
 FIREFOX=$HOME/.config/firefox
