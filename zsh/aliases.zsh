@@ -5,6 +5,8 @@ alias a="tmux attach"
 alias s="tmux-session.sh"
 alias c="clear"
 alias cn="clear && neofetch"
+alias senv="source .env"
+alias sepsql="senv && psql \$DATABASE_URL"
 
 case "$(uname -s)" in
 Darwin)
