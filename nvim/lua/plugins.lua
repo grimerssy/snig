@@ -34,6 +34,7 @@ local function loadConfigs()
     'impatient',
     'lsp',
     'lualine',
+    'luasnip',
     'null-ls',
     'nvim-tree',
     'scrollbar',
