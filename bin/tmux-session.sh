@@ -18,7 +18,7 @@ SESSION=${SESSION//:/}
 if [ -z "$SESSION" ]; then
   cd $ZOXIDE_RESULT
   tmux new-session -d -s $FOLDER
-  tmux send-keys -t "$FOLDER:1" "nvim ." Enter
+  tmux send-keys -t "$FOLDER:1" "v ." Enter
 fi
 
 if [ -z "$TMUX" ]; then
