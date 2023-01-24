@@ -18,4 +18,18 @@ ls.add_snippets('rust', {
     i(2, 'unimplemented!();'),
     t({ '', '}' }),
   }),
+  s('param-test', {
+    t('#['),
+    i(1, 'runner'),
+    t('::test]'),
+    t({ '', 'async fn ' }),
+    i(2, 'it_works'),
+    t('('),
+    i(3, 'param'),
+    t(': '),
+    i(4, 'Type'),
+    t({ ') {', '    ' }),
+    i(5, 'unimplemented!();'),
+    t({ '', '}' }),
+  }),
 })
