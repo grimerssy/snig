@@ -11,7 +11,7 @@ alias cn="c new"
 alias ca="c add"
 alias cc="c check"
 alias cca="ca --all-targets"
-alias ct="c test"
+alias ct="ulimit -n 1024 && c test"
 alias cr="c run"
 alias crr="cr --release"
 
