@@ -25,6 +25,7 @@ packer.init({
 local function loadConfigs()
   local configs = {
     'autotag',
+    'bacon',
     'cmp',
     'colorizer',
     'comment',
@@ -119,6 +120,7 @@ return packer.startup(function(use)
     'christianchiarulli/rust-tools.nvim',
     branch = 'modularize_and_inlay_rewrite',
   })
+  use('Canop/nvim-bacon')
 
   loadConfigs()
 end)
