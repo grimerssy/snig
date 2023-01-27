@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ALACRITTY=$HOME/.config/alacritty
+BACON=_
 BIN=$HOME/.local/bin
 FIREFOX=$HOME/.config/firefox
 KARABINER=$HOME/.config/karabiner
@@ -16,12 +17,14 @@ FONTS=_
 case "$(uname -s)" in
 Darwin)
   LAZYGIT=~/Library/Application\ Support/jesseduffield/lazygit
+  BACON=~/Library/Application\ Support/org.dystroy.bacon
   FONTS=~/Library/Fonts
   mkdir -p ~/Library/Application\ Support/jesseduffield
   ln -s ~/.dotfiles/Brewfile ~/.Brewfile
 	;;
 Linux)
   LAZYGIT=~/.config/lazygit
+  BACON=~/.config/bacon
   FONTS=~/.fonts
 	;;
 *)
@@ -33,6 +36,7 @@ mkdir -p ~/.config
 mkdir -p ~/.local
 
 ln -s ~/.dotfiles/alacritty $ALACRITTY
+ln -s ~/.dotfiles/bacon $BACON
 ln -s ~/.dotfiles/bin $BIN
 ln -s ~/.dotfiles/firefox $FIREFOX/chrome
 ln -s ~/.dotfiles/karabiner $KARABINER
