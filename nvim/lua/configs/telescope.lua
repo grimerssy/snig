@@ -2,6 +2,7 @@ local n = require('keymap').nnoremap
 
 n('<leader>f', '<CMD>Telescope find_files hidden=true<CR>')
 n('<leader>g', '<CMD>Telescope live_grep<CR>')
+n('<leader>h', '<CMD>Telescope diagnostics<CR>')
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')
@@ -128,6 +129,9 @@ telescope.setup({
       previewer = false,
     },
     live_grep = {
+      theme = 'dropdown',
+    },
+    diagnostics = {
       theme = 'dropdown',
     },
   },
