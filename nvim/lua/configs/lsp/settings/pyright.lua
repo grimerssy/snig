@@ -1,7 +1,7 @@
 return {
   settings = {
     python = {
-      pythonPath = os.getenv('HOME') .. '/.asdf/shims/python',
+      pythonPath = vim.env.HOME .. '/.asdf/shims/python',
     },
   },
 }

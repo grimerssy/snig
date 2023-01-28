@@ -1,3 +1,7 @@
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
+
 return {
   tools = {
     auto = false,
@@ -17,8 +21,12 @@ return {
     },
   },
   server = {
-    cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
-    on_attach = require('configs.lsp.handlers').on_attach,
+    on_attach = function(client, bufnr)
+      local n = require('keymap').nnoremap
+      local rt = require('rust-tools')
+      n('<C-h>', rt.hover_actions.hover_actions, { buffer = bufnr })
+      require('configs.lsp.handlers').on_attach(client, bufnr)
+    end,
     capabilities = require('configs.lsp.handlers').capabilities,
 
     settings = {
@@ -31,5 +39,8 @@ return {
         },
       },
     },
+  },
+  dap = {
+    adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),
   },
 }
