@@ -1,28 +1,14 @@
 alias clr="clear && neofetch"
 
+alias t="task"
 alias v="nvim"
 alias l="lazygit"
-alias t="tmux"
 alias a="tmux attach"
 alias s="tmux-session.sh"
 
 alias c="cargo"
-alias cn="c new"
-alias ca="c add"
-alias candf="ca --no-default-features"
-alias ch="c check"
-alias cha="ch --all-targets"
-alias ct="ulimit -n 1024 && c test"
-alias ctl="ulimit -n 1024 && TEST_LOG=enabled c test | bunyan"
-alias cr="c run"
-alias crr="cr --release"
-
 alias n="pnpm"
-alias nrd="n run dev"
 alias svelte="n create svelte@latest"
-
-alias senv="source .env"
-alias sep="senv && psql \$DATABASE_URL"
 
 case "$(uname -s)" in
 Darwin)
