@@ -1,4 +1,4 @@
-local colors = require('configs.onedarkpro.colors')
+local colors = require('colorscheme.colors')
 
 return {
   normal = {

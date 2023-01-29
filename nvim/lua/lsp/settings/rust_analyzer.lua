@@ -25,9 +25,9 @@ return {
       local n = require('keymap').nnoremap
       local rt = require('rust-tools')
       n('<C-h>', rt.hover_actions.hover_actions, { buffer = bufnr })
-      require('configs.lsp.handlers').on_attach(client, bufnr)
+      require('lsp.handlers').on_attach(client, bufnr)
     end,
-    capabilities = require('configs.lsp.handlers').capabilities,
+    capabilities = require('lsp.handlers').capabilities,
 
     settings = {
       ['rust-analyzer'] = {

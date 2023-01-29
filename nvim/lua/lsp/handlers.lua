@@ -88,7 +88,7 @@ local function lsp_keymaps()
 end
 
 M.on_attach = function(client, _)
-  local ignore = require('configs.lsp.mason')
+  local ignore = require('lsp.servers')
   for _, srv in ipairs(ignore) do
     if srv == client.name then
       client.server_capabilities.document_formatting = false
