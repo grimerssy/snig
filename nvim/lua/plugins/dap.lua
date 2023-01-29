@@ -6,21 +6,20 @@ return {
   },
   config = function()
     local n = require('keymap').nnoremap
-
-    n('<F1>', '<CMD>lua require("dap").continue()<CR>')
-    n('<F2>', '<CMD>lua require("dap").step_over()<CR>')
-    n('<F3>', '<CMD>lua require("dap").step_into()<CR>')
-    n('<F4>', '<CMD>lua require("dap").step_out()<CR>')
-    n('<leader>b', '<CMD>lua require"dap".toggle_breakpoint()<CR>')
-    n('<leader>B', '<CMD>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
-    n('<leader>lp', '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>')
-    n('<leader>dr', '<CMD>lua require("dap").repl.open()<CR>')
-    n('<leader>ds', '<CMD>lua require("dap").continue()<CR>')
-    n('<leader>de', '<CMD>lua require("dap").disconnect()<CR>')
-
     local dap, dapui = require('dap'), require('dapui')
 
+    n('<leader>dc', dap.continue)
+    n('<leader>ds', dap.step_over)
+    n('<leader>di', dap.step_into)
+    n('<leader>do', dap.step_out)
+    n('<leader>b', dap.toggle_breakpoint)
+    n('<leader>B', '<CMD>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
+    n('<leader>lp', '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>')
+    n('<leader>dr', dap.repl.open)
+    n('<leader>dd', dap.disconnect)
+
     require('dap-go').setup()
+
     dapui.setup({
       icons = { expanded = '', collapsed = '' },
       mappings = {

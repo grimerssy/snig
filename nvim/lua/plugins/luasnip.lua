@@ -24,18 +24,14 @@ return {
         i(2, 'unimplemented!();'),
         t({ '', '}' }),
       }),
-      s('param-test', {
-        t('#['),
-        i(1, 'runner'),
-        t('::test]'),
+      s('sqlx-test', {
+        t('#[sqlx::test]'),
         t({ '', 'async fn ' }),
-        i(2, 'it_works'),
+        i(1, 'it_works'),
         t('('),
-        i(3, 'param'),
-        t(': '),
-        i(4, 'Type'),
+        i(2, 'param: Type'),
         t({ ') {', '    ' }),
-        i(5, 'unimplemented!();'),
+        i(3, 'unimplemented!();'),
         t({ '', '}' }),
       }),
     })

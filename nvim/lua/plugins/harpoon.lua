@@ -2,13 +2,20 @@ return {
   'ThePrimeagen/harpoon',
   config = function()
     local n = require('keymap').nnoremap
+    local harpoon, harpoon_ui = require('harpoon.mark'), require('harpoon.ui')
 
-    n('<leader>m', '<CMD>:lua require("harpoon.mark").add_file()<CR>')
-    n('<leader>mm', '<CMD>:lua require("harpoon.ui").toggle_quick_menu()<CR>')
+    n('<leader>m', harpoon.add_file)
+    n('<leader>mm', harpoon_ui.toggle_quick_menu)
 
-    n('<S-h>', '<CMD>:lua require("harpoon.ui").nav_file(1)<CR>')
-    n('<S-j>', '<CMD>:lua require("harpoon.ui").nav_file(2)<CR>')
-    n('<S-k>', '<CMD>:lua require("harpoon.ui").nav_file(3)<CR>')
-    n('<S-l>', '<CMD>:lua require("harpoon.ui").nav_file(4)<CR>')
+    local function nav_file(file)
+      return function()
+        harpoon_ui.nav_file(file)
+      end
+    end
+
+    n('<S-h>', nav_file(1))
+    n('<S-j>', nav_file(2))
+    n('<S-k>', nav_file(3))
+    n('<S-l>', nav_file(4))
   end,
 }
