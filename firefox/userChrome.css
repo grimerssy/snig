@@ -49,7 +49,9 @@
   }
 
   /* enable rounded top corners */
-  :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]):not([customizing="true"])
+  :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]):not(
+      [customizing="true"]
+    )
     #nav-bar {
     border-top-left-radius: env(-moz-gtk-csd-titlebar-radius);
     border-top-right-radius: env(-moz-gtk-csd-titlebar-radius);
@@ -67,7 +69,7 @@
   }
 
   :root[tabsintitlebar][lwtheme]:not([customizing="true"]) {
-    /* seperate values for when using a theme, based on the Firefox defaults */
+    /* separate values for when using a theme, based on the Firefox defaults */
     --uc-win-ctrl-btn-width: 30px;
     --uc-win-ctrl-padding: 12px;
     /* vertical offset from the top of the window, calculation: (1/2 * (NAVBAR_HEIGHT - BUTTON_HEIGHT)) */
