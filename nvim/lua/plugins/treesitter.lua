@@ -6,6 +6,7 @@ return {
   config = function()
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
+        'nix',
         'go',
         'gomod',
         'rust',
@@ -22,6 +23,7 @@ return {
         'sql',
         'c_sharp',
         'svelte',
+        'prisma',
       },
       sync_install = false,
       ignore_install = { '' },

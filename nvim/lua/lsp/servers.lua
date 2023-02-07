@@ -1,4 +1,5 @@
 return {
+  'nil_ls',
   'bashls',
   'gopls',
   'rust_analyzer',
@@ -9,4 +10,5 @@ return {
   'pyright',
   'omnisharp',
   'svelte',
+  'prismals',
 }
