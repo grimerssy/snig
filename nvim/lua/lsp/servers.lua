@@ -11,4 +11,5 @@ return {
   'omnisharp',
   'svelte',
   'prismals',
+  'tailwindcss',
 }
