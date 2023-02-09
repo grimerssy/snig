@@ -23,6 +23,7 @@ return {
         'sql',
         'c_sharp',
         'svelte',
+        'astro',
         'prisma',
       },
       sync_install = false,

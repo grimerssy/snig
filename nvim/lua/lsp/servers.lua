@@ -10,6 +10,7 @@ return {
   'pyright',
   'omnisharp',
   'svelte',
+  'astro',
   'prismals',
   'tailwindcss',
 }
