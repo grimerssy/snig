@@ -14,6 +14,30 @@ return {
       end
     end
 
+    local function trash()
+      local lib = require('nvim-tree.lib')
+      local node = lib.get_node_at_cursor()
+      local trash_cmd = 'trash '
+
+      local function get_user_input_char()
+        local c = vim.fn.getchar()
+        return vim.fn.nr2char(c)
+      end
+
+      print('Trash ' .. node.name .. ' ? y/n')
+
+      if get_user_input_char():match('^y') and node then
+        vim.fn.jobstart(trash_cmd .. node.absolute_path, {
+          detach = true,
+          on_exit = function(_, _, _)
+            lib.refresh_tree()
+          end,
+        })
+      end
+
+      vim.api.nvim_command('normal :esc<CR>')
+    end
+
     n('<leader>e', toggle)
 
     local nvim_tree = require('nvim-tree')
@@ -33,6 +57,11 @@ return {
             {
               key = '<C-h>',
               action = 'toggle_dotfiles',
+            },
+            {
+              key = 'd',
+              action = 'trash',
+              action_cb = trash,
             },
             {
               key = 'H',
