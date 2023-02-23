@@ -2,6 +2,7 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'ThePrimeagen/harpoon',
+    'debugloop/telescope-undo.nvim',
   },
   config = function()
     local n = require('keymap').nnoremap
@@ -9,6 +10,7 @@ return {
     n('<leader>f', '<CMD>Telescope find_files hidden=true<CR>')
     n('<leader>g', '<CMD>Telescope live_grep<CR>')
     n('<leader>h', '<CMD>Telescope diagnostics<CR>')
+    n('<leader>u', '<CMD>Telescope undo<CR>')
 
     local telescope = require('telescope')
     local actions = require('telescope.actions')
@@ -141,9 +143,17 @@ return {
           theme = 'dropdown',
         },
       },
-      extensions = {},
+      extensions = {
+        undo = {
+          side_by_side = true,
+          layout_strategy = 'vertical',
+          layout_config = {
+            preview_height = 0.8,
+          },
+        },
+      },
     })
 
-    telescope.load_extension('harpoon')
+    telescope.load_extension('undo')
   end,
 }
