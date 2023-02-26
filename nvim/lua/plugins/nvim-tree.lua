@@ -1,7 +1,6 @@
 return {
   'nvim-tree/nvim-tree.lua',
   dependencies = 'nvim-tree/nvim-web-devicons',
-  commit = 'e8a89db1bbc06510a76fc935754b4e99a3e5e8a7',
   config = function()
     local n = require('keymap').nnoremap
 

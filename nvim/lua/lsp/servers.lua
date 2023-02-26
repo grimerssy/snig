@@ -6,7 +6,7 @@ return {
   'tsserver',
   'elixirls',
   'jsonls',
-  'sumneko_lua',
+  'lua_ls',
   'pyright',
   'omnisharp',
   'svelte',

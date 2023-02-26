@@ -4,7 +4,7 @@ return {
     'JoosepAlviste/nvim-ts-context-commentstring',
   },
   config = function()
-    local comment = require('comment')
+    local comment = require('Comment')
 
     comment.setup({
       toggler = {
