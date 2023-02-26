@@ -5,7 +5,7 @@ return {
     'neovim/nvim-lspconfig',
     'simrat39/rust-tools.nvim',
   },
-  config = function ()
+  config = function()
     local mason = require('mason')
 
     local mason_lspconfig = require('mason-lspconfig')
@@ -48,7 +48,7 @@ return {
         local rust_opts = require(settings)
         local rust_tools = require('rust-tools')
         rust_tools.setup(rust_opts)
-        goto continue
+        return
       end
 
       local found, srv_opts = pcall(require, settings)
@@ -57,9 +57,8 @@ return {
       end
 
       lspconfig[server].setup(opts)
-      ::continue:: -- remove?
     end
 
     handlers.setup()
-  end
+  end,
 }
