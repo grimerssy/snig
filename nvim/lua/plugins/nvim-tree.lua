@@ -1,19 +1,15 @@
 return {
   'nvim-tree/nvim-tree.lua',
   dependencies = 'nvim-tree/nvim-web-devicons',
+  commit = 'e8a89db1bbc06510a76fc935754b4e99a3e5e8a7',
   config = function()
     local n = require('keymap').nnoremap
 
-    local function toggle()
-      local view = require('nvim-tree.view')
-      if view.is_visible() then
-        view.close()
-      else
-        require('nvim-tree').open_replacing_current_buffer(vim.fn.getcwd())
-      end
+    local function open()
+      require('nvim-tree').open_replacing_current_buffer(vim.fn.getcwd())
     end
 
-    n('<leader>e', toggle)
+    n('<leader>e', open)
 
     local nvim_tree = require('nvim-tree')
 
@@ -29,6 +25,10 @@ return {
         signcolumn = 'yes',
         mappings = {
           list = {
+            {
+              key = '<CR>',
+              action = 'edit_in_place',
+            },
             {
               key = '<C-h>',
               action = 'toggle_dotfiles',
