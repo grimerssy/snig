@@ -54,7 +54,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]] ,
+    ]],
       false
     )
   end
@@ -97,6 +97,7 @@ M.on_attach = function(client, _)
   end
   lsp_keymaps()
   lsp_highlight_document(client)
+  vim.notify_once(string.format('%s is attached', client.name))
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
