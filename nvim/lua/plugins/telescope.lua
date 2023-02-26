@@ -155,5 +155,6 @@ return {
     })
 
     telescope.load_extension('undo')
+    telescope.load_extension('notify')
   end,
 }
