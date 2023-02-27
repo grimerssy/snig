@@ -16,7 +16,7 @@ return {
         t({ '', '}' }),
       }),
       s('tokio-main', {
-        t({ '#[tokio::main]', 'async fn main()', '    ' }),
+        t({ '#[tokio::main]', 'async fn main() {', '    ' }),
         i(1, 'unimplemented!();'),
         t({ '', '}' }),
       }),
