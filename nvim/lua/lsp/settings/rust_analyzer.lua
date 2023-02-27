@@ -37,6 +37,11 @@ return {
         checkOnSave = {
           command = 'clippy',
         },
+        diagnostics = {
+          disabled = {
+            'unresolved-proc-macro',
+          },
+        },
       },
     },
   },
