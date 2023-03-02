@@ -8,6 +8,7 @@ LAZYGIT=_
 NEOFETCH=$HOME/.config/neofetch
 NVIM=$HOME/.config/nvim
 SKHD=$HOME/.config/skhd
+STARSHIP=$HOME/.config/starship.toml
 TMUX=$HOME/.config/tmux
 YABAI=$HOME/.config/yabai
 ZSH=$HOME/.config/zsh
@@ -41,6 +42,7 @@ ln -s ~/.dotfiles/lazygit "$LAZYGIT"
 ln -s ~/.dotfiles/neofetch "$NEOFETCH"
 ln -s ~/.dotfiles/nvim "$NVIM"
 ln -s ~/.dotfiles/skhd "$SKHD"
+ln -s ~/.dotfiles/starship.toml "$STARSHIP"
 ln -s ~/.dotfiles/tmux "$TMUX"
 ln -s ~/.dotfiles/yabai "$YABAI"
 ln -s ~/.dotfiles/zsh "$ZSH"
