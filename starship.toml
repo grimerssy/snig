@@ -1,0 +1,48 @@
+palette = "onedark"
+
+add_newline = false
+
+format = "$directory$git_branch$package$nix_shell$rust$nodejs$golang$character"
+
+[character]
+success_symbol = "\n[](green)"
+error_symbol = "\n[](red)"
+
+[directory]
+style = "bold purple"
+truncation_length = 5
+
+[git_branch]
+symbol = ""
+style = "bold purple"
+
+[package]
+symbol = ""
+style = "bold yellow"
+
+[nix_shell]
+symbol = ""
+style = "bold #5072BD"
+
+[rust]
+symbol = ""
+style = "bold #F74B00"
+
+[nodejs]
+symbol = ""
+style = "bold #82CD28"
+
+[golang]
+symbol = ""
+style = "bold #68D1DE"
+
+[palettes.onedark]
+black = "#576270"
+red = "#F16372"
+green = "#8CC570"
+orange = "#DB975C"
+yellow = "#DAB067"
+blue = "#40B0F5"
+purple = "#E36FEA"
+cyan = "#00AEBA"
+white = "#A9B2C0"
