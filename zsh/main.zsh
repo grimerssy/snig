@@ -34,6 +34,7 @@ add_to_path "$HOME/.local/share/neovim/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$CARGO_HOME/bin"
 
+eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 if [ -z $TMUX ]; then neofetch; fi
