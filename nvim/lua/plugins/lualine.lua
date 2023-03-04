@@ -1,13 +1,46 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
+    'catppuccin/nvim',
     'nvim-tree/nvim-web-devicons',
     'SmiteshP/nvim-navic',
   },
   config = function()
-    local theme = require('colorscheme.lualine')
-
     local lualine = require('lualine')
+
+    local colors = require('catppuccin.palettes.macchiato')
+    local theme = {
+      normal = {
+        a = { bg = colors.none, fg = colors.green },
+        b = { bg = colors.green, fg = colors.mantle },
+        c = { bg = colors.none, fg = colors.green },
+      },
+      insert = {
+        a = { bg = colors.none, fg = colors.blue },
+        b = { bg = colors.blue, fg = colors.mantle },
+        c = { bg = colors.none, fg = colors.blue },
+      },
+      command = {
+        a = { bg = colors.none, fg = colors.mauve },
+        b = { bg = colors.mauve, fg = colors.mantle },
+        c = { bg = colors.none, fg = colors.mauve },
+      },
+      visual = {
+        a = { bg = colors.none, fg = colors.peach },
+        b = { bg = colors.peach, fg = colors.mantle },
+        c = { bg = colors.none, fg = colors.peach },
+      },
+      replace = {
+        a = { bg = colors.none, fg = colors.red },
+        b = { bg = colors.red, fg = colors.mantle },
+        c = { bg = colors.none, fg = colors.red },
+      },
+      inactive = {
+        a = { bg = colors.none, fg = colors.none },
+        b = { bg = colors.none, fg = colors.none },
+        c = { bg = colors.none, fg = colors.none },
+      },
+    }
 
     local x_icon = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''
     local z_icon = vim.fn.system('git rev-parse --is-inside-work-tree 2>/dev/null') == '' and '' or ''

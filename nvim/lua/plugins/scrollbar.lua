@@ -1,19 +1,22 @@
 return {
   'petertriho/nvim-scrollbar',
+  dependencies = {
+    'catppuccin/nvim',
+  },
   config = function()
-    local colors = require('colorscheme.colors')
+    local colors = require('catppuccin.palettes.macchiato')
 
     require('scrollbar').setup({
       handle = {
-        color = colors.none,
+        color = 'none',
       },
       marks = {
-        Search = { color = colors.orange },
-        Error = { color = colors.error },
-        Warn = { color = colors.warning },
-        Info = { color = colors.info },
-        Hint = { color = colors.hint },
-        Misc = { color = colors.purple },
+        Search = { color = colors.peach },
+        Error = { color = colors.red },
+        Warn = { color = colors.yellow },
+        Info = { color = colors.blue },
+        Hint = { color = colors.teal },
+        Misc = { color = colors.lavender },
       },
     })
   end,
