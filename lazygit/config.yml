@@ -28,7 +28,7 @@ gui:
 
 disableStartupPopups: true
 
-notARepository: "skip"
+notARepository: "quit"
 
 keybinding:
   universal:
