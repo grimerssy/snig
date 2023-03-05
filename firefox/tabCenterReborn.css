@@ -7,7 +7,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1c1b22;
+    --background: #1c1b26;
     --icons: rgb(251, 251, 254);
     --tab-separator: transparent;
     --tab-active-background: rgb(66, 65, 77);
@@ -80,7 +80,7 @@
 
 #tablist-wrapper {
   height: auto;
-  margin: 0 6px;
+  margin: 6px 6px 0 6px;
 }
 
 #tablist-wrapper::after {
