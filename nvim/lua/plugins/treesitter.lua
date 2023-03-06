@@ -21,6 +21,7 @@ return {
         'json',
         'proto',
         'sql',
+        'cpp',
         'c_sharp',
         'svelte',
         'astro',

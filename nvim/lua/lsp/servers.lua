@@ -1,6 +1,7 @@
 return {
   -- 'nil_ls',
   'bashls',
+  'clangd',
   'gopls',
   'rust_analyzer',
   'tsserver',
