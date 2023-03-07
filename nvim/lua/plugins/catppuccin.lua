@@ -6,11 +6,6 @@ return {
       flavour = 'macchiato',
       transparent_background = true,
       term_colors = true,
-      dim_invactive = {
-        enabled = true,
-        shade = 'dark',
-        percentage = '0.15',
-      },
       styles = {
         comments = { 'italic' },
         functions = { 'italic' },
