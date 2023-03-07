@@ -21,12 +21,7 @@ return {
             'AutoPreferSingle',
           },
         }),
-        formatting.prettier.with({
-          extra_args = {
-            '--double-quote',
-            '--jsx-double-quote',
-          },
-        }),
+        formatting.prettier,
         formatting.jq,
         formatting.goimports,
         formatting.gofumpt,
