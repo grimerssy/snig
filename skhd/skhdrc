@@ -1,3 +1,5 @@
+hyper - return : open -n /Applications/Alacritty.app
+
 hyper - e : yabai -m space --balance
 
 hyper - r : yabai -m space --rotate 90
