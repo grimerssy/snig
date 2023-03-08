@@ -2,11 +2,16 @@ palette = "catppuccin_macchiato"
 
 add_newline = false
 
-format = "$directory$git_branch$package$nix_shell$rust$nodejs$golang$character"
+format = "$nix_shell$directory$git_branch$package$rust$nodejs$golang$character"
 
 [character]
 success_symbol = "\n[](green)"
 error_symbol = "\n[](red)"
+
+[nix_shell]
+format = '[$state]($style) '
+symbol = ""
+style = "bold #7eb6e1"
 
 [directory]
 style = "bold directory"
@@ -19,10 +24,6 @@ style = "bold branch"
 [package]
 symbol = ""
 style = "bold package"
-
-[nix_shell]
-symbol = ""
-style = "bold #7eb6e1"
 
 [rust]
 symbol = ""
