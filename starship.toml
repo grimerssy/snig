@@ -26,15 +26,15 @@ symbol = ""
 style = "bold package"
 
 [rust]
-symbol = ""
+symbol = "rust "
 style = "bold #f74b00"
 
 [nodejs]
-symbol = ""
+symbol = "node "
 style = "bold #82cd28"
 
 [golang]
-symbol = ""
+symbol = "go "
 style = "bold #68d1de"
 
 [palettes.onedark]
