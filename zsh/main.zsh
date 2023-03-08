@@ -37,4 +37,4 @@ add_to_path "$CARGO_HOME/bin"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-if [ -z $TMUX ]; then neofetch; fi
+if [ -z $TMUX ] && [ -z $IN_NIX_SHELL ]; then neofetch; fi

@@ -10,6 +10,8 @@ alias c="cargo"
 alias n="pnpm"
 alias nx="pnpx"
 
+alias ns="nix-shell --command zsh"
+
 case "$(uname -s)" in
 Darwin)
 	alias ls="ls -G"
