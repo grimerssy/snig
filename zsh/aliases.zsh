@@ -11,6 +11,7 @@ alias n="pnpm"
 alias nx="pnpx"
 
 alias ns="nix-shell --command zsh"
+alias nd="nix develop --command zsh"
 
 case "$(uname -s)" in
 Darwin)
