@@ -1,5 +1,5 @@
 return {
-  -- 'nil_ls',
+  'nil_ls',
   'bashls',
   'clangd',
   'gopls',
