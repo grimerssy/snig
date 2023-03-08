@@ -22,33 +22,33 @@ style = "bold package"
 
 [nix_shell]
 symbol = ""
-style = "bold #5072BD"
+style = "bold #7eb6e1"
 
 [rust]
 symbol = ""
-style = "bold #F74B00"
+style = "bold #f74b00"
 
 [nodejs]
 symbol = ""
-style = "bold #82CD28"
+style = "bold #82cd28"
 
 [golang]
 symbol = ""
-style = "bold #68D1DE"
+style = "bold #68d1de"
 
 [palettes.onedark]
 black = "#576270"
-red = "#F16372"
-green = "#8CC570"
-orange = "#DB975C"
-yellow = "#DAB067"
-blue = "#40B0F5"
-purple = "#E36FEA"
-cyan = "#00AEBA"
-white = "#A9B2C0"
-directory = "#E36FEA"
-branch = "#E36FEA"
-package = "#DAB067"
+red = "#f16372"
+green = "#8cc570"
+orange = "#db975c"
+yellow = "#dab067"
+blue = "#40b0f5"
+purple = "#e36fea"
+cyan = "#00aeba"
+white = "#a9b2c0"
+directory = "#e36fea"
+branch = "#e36fea"
+package = "#dab067"
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
