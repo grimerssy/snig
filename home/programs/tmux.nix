@@ -1,0 +1,59 @@
+{ pkgs, ... }:
+{
+  programs.tmux = {
+    enable = true;
+    sensibleOnTop = false;
+    baseIndex = 1;
+    disableConfirmationPrompt = true;
+    escapeTime = 0;
+    keyMode = "vi";
+    prefix = "C-a";
+    terminal = "tmux-256color";
+    shell = "${pkgs.fish}/bin/fish";
+    extraConfig = ''
+      set -g detach-on-destroy off
+      set -g allow-rename off
+
+      set -g renumber-windows on
+
+      unbind %
+      unbind '"'
+      bind \\ split-window -h
+      bind - split-window -v
+
+      bind -r ^ last-window
+      bind -r k select-pane -U
+      bind -r j select-pane -D
+      bind -r h select-pane -L
+      bind -r l select-pane -R
+      bind C-h resize-pane -L 5
+      bind C-j resize-pane -D 5
+      bind C-k resize-pane -U 5
+      bind C-l resize-pane -R 5
+
+      bind r source-file ~/.config/tmux/tmux.conf
+
+      bind C-s display-popup -E fish -c "__tmux-session"
+
+      set -g pane-border-style fg=brightblack
+      set -g pane-active-border-style fg=brightblack
+
+      set -g status-position top
+
+      set -g status-justify centre
+
+      set -g status-style 'bg=default'
+
+      set -g status-left-length 32
+      set -g status-left '#[fg=blue]#[fg=black]#[bg=blue]#{session_name}#[fg=blue]#[bg=default]'
+
+      set -g status-right-length 32
+      set -g status-right '#[bg=default] #{s|.| |:session_name} '
+
+      set -g window-status-separator '   '
+
+      set -g window-status-format "#[fg=white]#[fg=black]#[bg=white]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
+      set -g window-status-current-format "#[fg=blue]#[fg=black]#[bg=blue]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
+    '';
+  };
+}

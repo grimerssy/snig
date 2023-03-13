@@ -1,0 +1,16 @@
+return {
+  "nil_ls",
+  "rust_analyzer",
+  "gopls",
+  "elixirls",
+  "pyright",
+  "clangd",
+  "lua_ls",
+  "jdtls",
+  "omnisharp",
+  "bashls",
+  "svelte",
+  "tsserver",
+  "eslint",
+  "tailwindcss",
+}
