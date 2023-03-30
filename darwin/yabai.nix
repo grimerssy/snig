@@ -15,10 +15,10 @@
       auto_balance = "on";
       window_topmost = "on";
       window_placement = "second_child";
-      top_padding = "10";
-      bottom_padding = "10";
-      left_padding = "10";
-      right_padding = "10";
+      top_padding = "15";
+      bottom_padding = "15";
+      left_padding = "15";
+      right_padding = "15";
       window_gap = "10";
       window_border = "on";
       window_border_blur = "off";

@@ -1,16 +1,9 @@
 # TODO
 # lldb debugger https://github.com/NixOS/nixpkgs/pull/211321
 
-# sketchybar
-# zsh
-
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    # nur = {
-    #   url = "github:nix-community/nur";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +49,7 @@
             shell = pkgs.fish;
           };
           home-manager.users.${user} = {
-            imports = nixFiles ./home; # ++ [ nur.hmModules.nur ];
+            imports = nixFiles ./home;
           };
         }
       ];

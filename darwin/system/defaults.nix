@@ -3,7 +3,7 @@
   system.defaults = {
     dock = {
       autohide = true;
-      orientation = "left";
+      orientation = "right";
       launchanim = false;
       static-only = true;
       tilesize = 1;
