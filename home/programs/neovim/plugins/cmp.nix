@@ -69,7 +69,7 @@
               c = cmp.mapping.close(),
             }),
             ["<CR>"] = cmp.mapping.confirm({ select = false }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
+            ["<C-l>"] = cmp.mapping(function(fallback)
               if luasnip.expandable() then
                 luasnip.expand()
               elseif luasnip.expand_or_jumpable() then
