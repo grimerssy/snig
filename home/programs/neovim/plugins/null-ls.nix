@@ -7,6 +7,7 @@ with pkgs; {
       gofumpt
       go-tools
       gotools
+      nixfmt
       stylua
       shellcheck
       elixir
@@ -30,6 +31,7 @@ with pkgs; {
           null_ls.setup({
             sources = {
               code_actions.shellcheck,
+              formatting.nixfmt,
               formatting.stylua,
               formatting.prettier,
               formatting.jq,
