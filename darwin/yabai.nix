@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-{
-  services.yabai =
-  let package = pkgs.yabai;
+{ pkgs, ... }: {
+  services.yabai = let package = pkgs.yabai;
   in {
     enable = true;
     package = package;
@@ -36,8 +34,7 @@
       mouse_action1 = "move";
       mouse_action2 = "resize";
     };
-    extraConfig =
-    let yabai = "${package}/bin/yabai";
+    extraConfig = let yabai = "${package}/bin/yabai";
     in ''
       ${yabai} -m rule --add app="^Stats$" manage=off
       ${yabai} -m rule --add app="^(Calculator|Software Update|Dictionary|Archive Utility|App Store)$" manage=off

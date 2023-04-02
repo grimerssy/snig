@@ -1,12 +1,9 @@
-{ pkgs, ... }:
-{
-  services.skhd =
-  let package = pkgs.skhd;
+{ pkgs, ... }: {
+  services.skhd = let package = pkgs.skhd;
   in {
     enable = true;
     package = package;
-    skhdConfig =
-    let
+    skhdConfig = let
       skhd = "${package}/bin/skhd";
       yabai = "${pkgs.yabai}/bin/yabai";
     in ''

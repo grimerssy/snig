@@ -1,13 +1,7 @@
 { pkgs, ... }:
-with pkgs;
-{
+with pkgs; {
   programs.neovim = {
-    extraPackages = [
-      nodejs
-    ];
-    plugins = with vimPlugins; [
-      copilot-vim
-    ];
+    extraPackages = [ nodejs ];
+    plugins = with vimPlugins; [ copilot-vim ];
   };
 }
-

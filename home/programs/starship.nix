@@ -1,14 +1,18 @@
-{ ... }:
-{
+{ ... }: {
   programs.starship = {
     enable = true;
     settings = {
       palette = "catppuccin_frappe";
       add_newline = false;
-      format = "$nix_shell$directory$git_branch$package$rust$nodejs$golang$character";
+      format =
+        "$nix_shell$directory$git_branch$package$rust$nodejs$golang$character";
       character = {
-        success_symbol = "\n[](green)";
-        error_symbol = "\n[](red)";
+        success_symbol = ''
+
+          [](green)'';
+        error_symbol = ''
+
+          [](red)'';
       };
       nix_shell = {
         format = "[$state]($style) ";

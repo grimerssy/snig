@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.neovim.plugins = with pkgs.vimPlugins; [
     cmp-buffer
     cmp-path

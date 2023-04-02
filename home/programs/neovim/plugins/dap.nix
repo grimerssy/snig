@@ -1,9 +1,7 @@
 { pkgs, ... }:
 with pkgs; {
   programs.neovim = {
-    extraPackages = [
-      delve
-    ];
+    extraPackages = [ delve ];
     plugins = with vimPlugins; [
       nvim-dap-ui
       nvim-dap-go

@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 let
   cfg = config.security.pam;
   mkSudoTouchIdAuthScript = isEnabled:

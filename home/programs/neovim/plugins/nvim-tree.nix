@@ -5,7 +5,7 @@ with pkgs; {
     plugins = with vimPlugins; [
       nvim-web-devicons
       {
-        plugin = nvim-tree-lua.overrideAttrs(old: {
+        plugin = nvim-tree-lua.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
             owner = "nvim-tree";
             repo = "nvim-tree.lua";

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.alacritty = {
     enable = true;
     package = pkgs.alacritty.overrideAttrs (old: rec {
@@ -59,11 +58,31 @@
       };
 
       key_bindings = [
-        { key = "V"; mods = "Control|Shift"; action = "Paste"; }
-        { key = "C"; mods = "Control|Shift"; action = "Copy"; }
-        { key = "Return"; mods = "Control"; action = "ResetFontSize"; }
-        { key = "Equals"; mods = "Control"; action = "IncreaseFontSize"; }
-        { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
+        {
+          key = "V";
+          mods = "Control|Shift";
+          action = "Paste";
+        }
+        {
+          key = "C";
+          mods = "Control|Shift";
+          action = "Copy";
+        }
+        {
+          key = "Return";
+          mods = "Control";
+          action = "ResetFontSize";
+        }
+        {
+          key = "Equals";
+          mods = "Control";
+          action = "IncreaseFontSize";
+        }
+        {
+          key = "Minus";
+          mods = "Control";
+          action = "DecreaseFontSize";
+        }
       ];
       colors = {
         primary = {
@@ -139,9 +158,15 @@
           white = "#B5BFE2";
         };
         indexed_colors = [
-            { index = 16; color = "#EF9F76"; }
-            { index = 17; color = "#F2D5CF"; }
-        ]; 
+          {
+            index = 16;
+            color = "#EF9F76";
+          }
+          {
+            index = 17;
+            color = "#F2D5CF";
+          }
+        ];
       };
     };
   };
