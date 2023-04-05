@@ -2,6 +2,7 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    enableNushellIntegration = false;
     stdlib = ''
       : ''${XDG_CACHE_HOME:=$HOME/.cache}
       declare -A direnv_layout_dirs
@@ -13,4 +14,5 @@
       }
     '';
   };
+  home.sessionVariables.DIRENV_LOG_FORMAT = "";
 }
