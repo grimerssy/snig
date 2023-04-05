@@ -20,25 +20,25 @@
 
       rctrl - r : ${yabai} -m space --rotate 90
 
+      rctrl - b : ${yabai} -m window --toggle border
+
       rctrl - f : ${yabai} -m window --toggle zoom-fullscreen
+      cmd - return : ${yabai} -m window --toggle native-fullscreen
 
       rctrl - g : ${yabai} -m space --toggle padding; yabai -m space --toggle gap
 
       rctrl - c : ${yabai} -m window --toggle float;\
                   ${yabai} -m window --grid 4:4:1:1:2:2
 
-      rctrl - b : ${yabai} -m config window_border on
-      shift + rctrl - b : ${yabai} -m config window_border off
+      cmd + shift - h : ${yabai} -m window --focus west
+      cmd + shift - j : ${yabai} -m window --focus south
+      cmd + shift - k : ${yabai} -m window --focus north
+      cmd + shift - l : ${yabai} -m window --focus east
 
-      alt - h : ${yabai} -m window --focus west
-      alt - j : ${yabai} -m window --focus south
-      alt - k : ${yabai} -m window --focus north
-      alt - l : ${yabai} -m window --focus east
-
-      cmd + shift - h : ${yabai} -m window --swap west
-      cmd + shift - j : ${yabai} -m window --swap south
-      cmd + shift - k : ${yabai} -m window --swap north
-      cmd + shift - l : ${yabai} -m window --swap east
+      cmd + rctrl - h : ${yabai} -m window --swap west
+      cmd + rctrl - j : ${yabai} -m window --swap south
+      cmd + rctrl - k : ${yabai} -m window --swap north
+      cmd + rctrl - l : ${yabai} -m window --swap east
 
       cmd - 1 : ${yabai} -m space --focus 1
       cmd - 2 : ${yabai} -m space --focus 2
@@ -50,22 +50,18 @@
       cmd - 8 : ${yabai} -m space --focus 8
       cmd - 9 : ${yabai} -m space --focus 9
       cmd - 0 : ${yabai} -m space --focus 10
-      cmd + rctrl - h : ${yabai} -m space --focus prev
-      cmd + rctrl - l : ${yabai} -m space --focus next
       cmd + rctrl - r : ${yabai} -m space --focus recent
 
       rctrl - 1 : ${yabai} -m window --space 1
       rctrl - 2 : ${yabai} -m window --space 2
       rctrl - 3 : ${yabai} -m window --space 3
-      rctrl - r : ${yabai} -m window --space 4
+      rctrl - 4 : ${yabai} -m window --space 4
       rctrl - 5 : ${yabai} -m window --space 5
       rctrl - 6 : ${yabai} -m window --space 6
       rctrl - 7 : ${yabai} -m window --space 7
       rctrl - 8 : ${yabai} -m window --space 8
       rctrl - 9 : ${yabai} -m window --space 9
       rctrl - 0 : ${yabai} -m window --space 10
-      shift + rctrl - h : ${yabai} -m window --space prev
-      shift + rctrl - l : ${yabai} -m window --space next
       shift + rctrl - r : ${yabai} -m window --space recent
     '';
   };
