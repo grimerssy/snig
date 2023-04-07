@@ -39,7 +39,7 @@
         in darwin.lib.darwinSystem {
           inherit system pkgs;
           specialArgs = { inherit user; };
-          modules = nixFiles ./darwin ++ [
+          modules = nixFiles ./modules ++ nixFiles ./darwin ++ [
             home-manager.darwinModules.home-manager
             {
               users.users.${user} = {
