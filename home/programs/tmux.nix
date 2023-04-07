@@ -32,7 +32,7 @@
 
       bind r source-file ~/.config/tmux/tmux.conf
 
-      bind C-s display-popup -E fish -c "__tmux-session"
+      bind C-s display-popup -E "tmux-session"
 
       set -g pane-border-style fg=brightblack
       set -g pane-active-border-style fg=brightblack
