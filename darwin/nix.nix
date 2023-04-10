@@ -7,7 +7,6 @@
       options = "--delete-older-than 7d";
     };
     extraOptions = ''
-      build-users-group = nixbld
       experimental-features = nix-command flakes
     '';
   };
