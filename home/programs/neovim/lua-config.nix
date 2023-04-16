@@ -10,8 +10,8 @@ in {
     enable = true;
     defaultEditor = true;
     extraConfig = wrapLuaConfig ''
-      require("config.remap")
       require("config.settings")
+      require("config.remap")
     '';
   };
   home.file = {
