@@ -8,6 +8,7 @@
     extraConfig = {
       pull = { ff = "only"; };
       init.defaultBranch = "main";
+      format.pretty = "oneline";
     };
   };
 }
