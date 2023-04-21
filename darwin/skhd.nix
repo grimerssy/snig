@@ -25,9 +25,10 @@
       rctrl - f : ${yabai} -m window --toggle zoom-fullscreen
       cmd - return : ${yabai} -m window --toggle native-fullscreen
 
-      rctrl - g : ${yabai} -m space --toggle padding; yabai -m space --toggle gap
+      rctrl - g : ${yabai} -m space --toggle padding; \
+                  ${yabai} -m space --toggle gap
 
-      rctrl - c : ${yabai} -m window --toggle float;\
+      rctrl - c : ${yabai} -m window --toggle float; \
                   ${yabai} -m window --grid 4:4:1:1:2:2
 
       cmd + shift - h : ${yabai} -m window --focus west
