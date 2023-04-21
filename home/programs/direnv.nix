@@ -2,7 +2,6 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-    enableNushellIntegration = false;
     stdlib = let
       cut = "${pkgs.coreutils}/bin/cut";
       sha256sum = "${pkgs.coreutils}/bin/sha256sum";
