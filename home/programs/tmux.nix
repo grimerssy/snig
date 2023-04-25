@@ -14,11 +14,12 @@
       set -g allow-rename off
 
       set -g renumber-windows on
+      set -g mouse on
 
       unbind %
       unbind '"'
-      bind \\ split-window -h
-      bind - split-window -v
+      bind \\ split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
 
       bind -r ^ last-window
       bind -r k select-pane -U
@@ -29,6 +30,10 @@
       bind C-j resize-pane -D 5
       bind C-k resize-pane -U 5
       bind C-l resize-pane -R 5
+
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection
 
       bind r source-file ~/.config/tmux/tmux.conf
 
