@@ -18,7 +18,7 @@
 
       rctrl - e : ${yabai} -m space --balance
 
-      rctrl - r : ${yabai} -m space --rotate 90
+      rctrl - r : ${yabai} -m space --rotate 270
 
       rctrl - b : ${yabai} -m window --toggle border
 
