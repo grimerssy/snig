@@ -23,7 +23,7 @@
       rctrl - b : ${yabai} -m window --toggle border
 
       rctrl - f : ${yabai} -m window --toggle zoom-fullscreen
-      cmd - return : ${yabai} -m window --toggle native-fullscreen
+      shift + cmd - return : ${yabai} -m window --toggle native-fullscreen
 
       rctrl - g : ${yabai} -m space --toggle padding; \
                   ${yabai} -m space --toggle gap
