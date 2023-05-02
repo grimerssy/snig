@@ -3,6 +3,7 @@ with pkgs; {
   programs.neovim = {
     extraPackages = [
       nil
+      clippy
       rust-analyzer
       gopls
       elixir_ls
