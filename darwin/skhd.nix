@@ -52,6 +52,8 @@
       cmd - 9 : ${yabai} -m space --focus 9
       cmd - 0 : ${yabai} -m space --focus 10
       cmd + rctrl - r : ${yabai} -m space --focus recent
+      cmd + lctrl - h : ${yabai} -m space --focus prev
+      cmd + lctrl - l : ${yabai} -m space --focus next
 
       rctrl - 1 : ${yabai} -m window --space 1
       rctrl - 2 : ${yabai} -m window --space 2
@@ -64,6 +66,8 @@
       rctrl - 9 : ${yabai} -m window --space 9
       rctrl - 0 : ${yabai} -m window --space 10
       shift + rctrl - r : ${yabai} -m window --space recent
+      shift + cmd + lctrl - h : ${yabai} -m window --space prev
+      shift + cmd + lctrl - l : ${yabai} -m window --space next
     '';
   };
 }
