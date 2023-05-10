@@ -15,7 +15,7 @@ n("<C-k>", "cprev<CR>zz")
 n("<leader>n", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 -- to not overlap with lsp remaps
 n("<leader>rn", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-n("<leader>x", "<CMD>!chmod +x %<CR>")
+n("<leader>x", "<CMD>!chmod u+x %<CR>")
 
 i("jk", "<ESC>")
 
