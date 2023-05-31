@@ -19,7 +19,7 @@
         co = "checkout";
         ca = "commit --amend -m";
         rv = "revert";
-        rb = "rebase -i";
+        rb = "rebase";
         rs = "reset";
         rh = "reset --hard";
       };
