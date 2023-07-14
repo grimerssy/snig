@@ -39,7 +39,7 @@
       ${yabai} -m rule --add app="^Stats$" manage=off
       ${yabai} -m rule --add app="^(Calculator|Software Update|Archive Utility)$" manage=off
       ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-      ${yabai} -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+      ${yabai} -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance|FaceTime)$" manage=off
     '';
   };
 }
