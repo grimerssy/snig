@@ -3,15 +3,15 @@
     enable = true;
     package = pkgs.alacritty.overrideAttrs (old: rec {
       src = pkgs.fetchFromGitHub {
-        owner = "fee1-dead";
+        owner = "grimerssy";
         repo = "alacritty";
-        rev = "796cdfeeaae730b2224e910bf9f1dfa81abcfd51";
-        sha256 = "sha256-Vm/pcVDh6CcR2Sl3mrIvqWF+SmX4wqtLPEeQ5GcepPA=";
+        rev = "06b0bfbdeb4ace044b5b554a293173363b5c2d07";
+        sha256 = "sha256-JpwHsEmGZwCm0GkDKj1kwWr/HT9ZUtTyZk8oEHMKaDY=";
       };
       doCheck = false;
       cargoDeps = old.cargoDeps.overrideAttrs (_: {
         inherit src;
-        outputHash = "sha256-qRvPBuDJ5K7II1LXOpTINs35XvKALOFQa4h5PPIMZic=";
+        outputHash = "sha256-XGhLDhxVTauigT698qtd18QwwIqHYY2EcZrt9QvNaLM=";
       });
     });
     settings = {

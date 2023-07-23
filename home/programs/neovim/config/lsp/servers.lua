@@ -5,7 +5,7 @@ return {
   "elixirls",
   "pyright",
   "clangd",
-  "lua_ls",
+  -- "lua_ls",
   "jdtls",
   "omnisharp",
   "bashls",

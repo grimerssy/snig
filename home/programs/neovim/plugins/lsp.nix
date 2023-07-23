@@ -9,7 +9,7 @@ with pkgs; {
       elixir_ls
       pyright
       clang-tools
-      lua-language-server
+      # lua-language-server
       jdt-language-server
       omnisharp-roslyn
       nodePackages.bash-language-server

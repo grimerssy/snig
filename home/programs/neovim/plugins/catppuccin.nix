@@ -14,6 +14,7 @@
         },
         custom_highlights = function(colors)
           return {
+            CursorLine = { bg = colors.none },
             ColorColumn = { bg = colors.none },
             NvimTreeGitNew = { fg = colors.green },
             NvimTreeSpecialFile = { fg = colors.sapphire },
