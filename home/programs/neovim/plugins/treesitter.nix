@@ -6,7 +6,7 @@ with pkgs; {
       playground
       nvim-ts-context-commentstring
       {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = nvim-treesitter;
         type = "lua";
         config = ''
           require("nvim-treesitter.configs").setup({
