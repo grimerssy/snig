@@ -24,6 +24,11 @@ return {
   },
   server = {
     on_attach = function(client, bufnr)
+      vim.api.nvim_set_hl(0, "@lsp.type.function", {})
+      for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+        vim.api.nvim_set_hl(0, group, {})
+      end
+
       local n = require("config.keymap").nnoremap
       local rt = require("rust-tools")
       n("<C-h>", rt.hover_actions.hover_actions, { buffer = bufnr })
@@ -38,11 +43,6 @@ return {
         },
         checkOnSave = {
           command = "clippy",
-        },
-        diagnostics = {
-          disabled = {
-            "unresolved-proc-macro",
-          },
         },
       },
     },
