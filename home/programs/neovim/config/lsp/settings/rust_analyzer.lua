@@ -38,6 +38,14 @@ return {
 
     settings = {
       ["rust-analyzer"] = {
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
         lens = {
           enable = false,
         },
