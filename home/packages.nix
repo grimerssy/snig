@@ -1,8 +1,11 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    comma
     colima
     docker
+    comma
+    tldr
+    parallel
+    hyperfine
     (uutils-coreutils.override { prefix = ""; })
   ];
 }
