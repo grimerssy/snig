@@ -11,17 +11,21 @@
       init.defaultBranch = "main";
       format.pretty = "oneline";
       alias = {
-        c = "commit -m";
         s = "status";
-        m = "merge";
-        b = "branch";
-        l = "log --oneline --graph";
+        c = "commit";
+        ca = "commit --amend";
+        p = "push";
+        pf = "push --force";
         co = "checkout";
-        ca = "commit --amend -m";
-        rv = "revert";
+        l = "log --oneline --graph";
+        b = "branch";
+        m = "merge";
         rb = "rebase";
+        rbi = "rebase -i";
+        rbc = "rebase --continue";
         rs = "reset";
         rh = "reset --hard";
+        rv = "revert";
       };
     };
   };
