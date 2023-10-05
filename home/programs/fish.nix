@@ -3,7 +3,7 @@
     nvim = "nvim";
     fd = "${pkgs.fd}/bin/fd";
     bat = "${pkgs.bat}/bin/bat";
-    exa = "${pkgs.exa}/bin/exa";
+    eza = "${pkgs.eza}/bin/eza";
     xcp = "${pkgs.xcp}/bin/xcp";
     rg = "${pkgs.ripgrep}/bin/rg";
     btm = "${pkgs.bottom}/bin/btm";
@@ -22,7 +22,7 @@
       grep = rg;
       cat = "${bat} --paging=never";
       ls =
-        "${exa} -lF --group-directories-first --no-user --no-time --color-scale --icons";
+        "${eza} -lF --group-directories-first --no-user --no-time --color-scale --icons";
       nix-shell = "nix-shell --command fish";
     };
     shellInit = ''
