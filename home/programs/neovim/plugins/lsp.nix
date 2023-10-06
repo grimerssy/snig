@@ -3,9 +3,11 @@ with pkgs; {
   programs.neovim = {
     extraPackages = [
       nil
+      ltex-ls
       clippy
       rust-analyzer
       gopls
+      sourcekit-lsp
       elixir_ls
       pyright
       clang-tools

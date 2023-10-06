@@ -1,7 +1,9 @@
 return {
   "nil_ls",
+  "ltex",
   "rust_analyzer",
   "gopls",
+  "sourcekit",
   "elixirls",
   "pyright",
   "clangd",
