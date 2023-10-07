@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-with pkgs; {
+{ pkgs, ... }: {
   programs.neovim = {
-    extraPackages = [
+    extraPackages = with pkgs; [
       codespell
       rustfmt
       gofumpt
@@ -16,7 +15,7 @@ with pkgs; {
       buf
       nodePackages.prettier
     ];
-    plugins = with vimPlugins; [{
+    plugins = with pkgs.vimPlugins; [{
       plugin = null-ls-nvim;
       type = "lua";
       config = ''
@@ -52,15 +51,10 @@ with pkgs; {
           },
           on_attach = function(client, bufnr)
             if client.supports_method("textDocument/formatting") then
-              vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-              vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                  -- vim.lsp.buf.formatting_sync() -- nvim < 0.8
-                  vim.lsp.buf.format({ bufnr = bufnr }) -- nvim 0.8+
-                end,
-              })
+              local n = require("config.keymap").nnoremap
+              n("<leader>;", function ()
+                vim.lsp.buf.format({ bufnr = bufnr })
+              end)
             end
           end,
         })
