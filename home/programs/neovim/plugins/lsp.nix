@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-with pkgs; {
+{ pkgs, ... }: {
   programs.neovim = {
-    extraPackages = [
+    extraPackages = with pkgs; [
       nil
       ltex-ls
       clippy
@@ -20,7 +19,7 @@ with pkgs; {
       nodePackages.vscode-langservers-extracted
       nodePackages."@tailwindcss/language-server"
     ];
-    plugins = with vimPlugins; [
+    plugins = with pkgs.vimPlugins; [
       rust-tools-nvim
       {
         plugin = nvim-lspconfig;

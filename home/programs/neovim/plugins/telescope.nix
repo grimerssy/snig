@@ -11,9 +11,9 @@ with pkgs; {
         config = ''
           local n = require("config.keymap").nnoremap
 
-          n("<leader>f", "<CMD>Telescope find_files hidden=true<CR>")
-          n("<leader>g", "<CMD>Telescope live_grep<CR>")
-          n("<leader>h", "<CMD>Telescope diagnostics<CR>")
+          n("<leader>f", ":Telescope find_files hidden=true<CR>")
+          n("<leader>g", ":Telescope live_grep<CR>")
+          n("<leader>h", ":Telescope diagnostics<CR>")
 
           local telescope = require("telescope")
           local actions = require("telescope.actions")

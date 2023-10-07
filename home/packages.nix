@@ -6,6 +6,7 @@
     tldr
     parallel
     hyperfine
+    tectonic
     (uutils-coreutils.override { prefix = ""; })
   ];
 }

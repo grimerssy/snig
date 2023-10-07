@@ -13,7 +13,10 @@ M.setup = function()
   }
 
   for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    vim.fn.sign_define(
+      sign.name,
+      { texthl = sign.name, text = sign.text, numhl = "" }
+    )
   end
 
   vim.diagnostic.config({
@@ -34,13 +37,15 @@ M.setup = function()
     },
   })
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
+  vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "rounded",
+    })
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
+  vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "rounded",
+    })
 end
 
 local function lsp_highlight_document(client)
@@ -62,7 +67,7 @@ local function lsp_keymaps()
   i("<C-h>", vim.lsp.buf.signature_help)
   n("<C-h>", vim.lsp.buf.hover)
   n("<leader>d", vim.lsp.buf.definition)
-  n("<leader>r", "<CMD>Telescope lsp_references theme=dropdown<CR>")
+  n("<leader>r", ":Telescope lsp_references theme=dropdown<CR>")
   n("<leader>ca", vim.lsp.buf.code_action)
   n("<leader>n", vim.lsp.buf.rename)
   n("<leader>vws", vim.lsp.buf.workspace_symbol)

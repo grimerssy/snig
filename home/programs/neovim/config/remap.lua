@@ -4,8 +4,8 @@ local i = keymap.inoremap
 local v = keymap.vnoremap
 local x = keymap.xnoremap
 
-n("<leader>so", "<CMD>luafile %<CR>")
-n("<C-r>", "<CMD>redo<CR>")
+n("<leader>so", ":luafile %<CR>")
+n("<C-r>", ":redo<CR>")
 n("<C-d>", "<C-d>zzzv")
 n("<C-u>", "<C-u>zzzv")
 n("n", "nzzzv")
@@ -15,7 +15,9 @@ n("<C-k>", "cprev<CR>zz")
 n("<leader>n", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 -- to not overlap with lsp remaps
 n("<leader>rn", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-n("<leader>x", "<CMD>!chmod u+x %<CR>")
+n("<leader>x", ":!chmod u+x %<CR>")
+n("<leader>lk", ":!tectonic %<CR>")
+n("<leader>lo", ":!open <C-r>=expand('%:r')<CR>.pdf &<CR>")
 
 i("jk", "<ESC>")
 
