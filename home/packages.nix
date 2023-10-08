@@ -7,6 +7,7 @@
     parallel
     hyperfine
     tectonic
+    nix-index
     (uutils-coreutils.override { prefix = ""; })
   ];
 }
