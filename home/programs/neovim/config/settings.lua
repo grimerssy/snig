@@ -31,8 +31,8 @@ for k, v in pairs({
   splitbelow = true,
   splitright = true,
 
-  timeoutlen = 250,
-  updatetime = 250,
+  timeoutlen = 500,
+  updatetime = 1000,
 }) do
   vim.opt[k] = v
 end

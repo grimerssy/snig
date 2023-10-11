@@ -20,10 +20,15 @@ n("<leader>lk", ":!tectonic %<CR>")
 n("<leader>lo", ":!open <C-r>=expand('%:r')<CR>.pdf &<CR>")
 
 i("jk", "<ESC>")
+i("<C-j>", "j")
 
 v("jk", "<ESC>")
+v("<C-j>", "j")
+v("<C-k>", "k")
 v("<", "<gv")
 v(">", ">gv")
 
 x("jk", "<ESC>")
+x("<C-j>", "j")
+x("<C-k>", "k")
 x("<leader>p", '"_dP')
