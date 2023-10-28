@@ -18,12 +18,6 @@
       left_padding = "15";
       right_padding = "15";
       window_gap = "10";
-      window_border = "on";
-      window_border_blur = "off";
-      window_border_width = "2";
-      window_border_radius = "10";
-      active_window_border_color = "0xFF85C1DC";
-      normal_window_border_color = "0x0085C1DC";
       window_shadow = "off";
       window_opacity = "on";
       window_opacity_duration = "0.0";
