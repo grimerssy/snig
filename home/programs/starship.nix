@@ -38,6 +38,7 @@
       nodejs = {
         symbol = "node ";
         style = "bold #82cd28";
+        detect_extensions = ["js" "ts" "jsx" "tsx"];
       };
       golang = {
         symbol = "go ";
