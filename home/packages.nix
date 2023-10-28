@@ -5,6 +5,8 @@
     comma
     tldr
     parallel
+    watchexec
+    cpulimit
     hyperfine
     tectonic
     nix-index
