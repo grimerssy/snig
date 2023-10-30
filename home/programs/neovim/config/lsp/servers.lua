@@ -13,6 +13,5 @@ return {
   "bashls",
   "svelte",
   "tsserver",
-  "eslint",
   "tailwindcss",
 }
