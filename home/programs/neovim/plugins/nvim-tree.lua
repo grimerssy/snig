@@ -34,6 +34,50 @@ require("nvim-tree").setup({
           key = "D",
           action = "remove",
         },
+        {
+          key = "H",
+          action = "harpoon_first_mark",
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, "harpoon.ui")
+            if not ok then
+              return
+            end
+            harpoon.nav_file(1)
+          end,
+        },
+        {
+          key = "J",
+          action = "harpoon_second_mark",
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, "harpoon.ui")
+            if not ok then
+              return
+            end
+            harpoon.nav_file(2)
+          end,
+        },
+        {
+          key = "K",
+          action = "harpoon_third_mark",
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, "harpoon.ui")
+            if not ok then
+              return
+            end
+            harpoon.nav_file(3)
+          end,
+        },
+        {
+          key = "L",
+          action = "harpoon_fourth_mark",
+          action_cb = function(_)
+            local ok, harpoon = pcall(require, "harpoon.ui")
+            if not ok then
+              return
+            end
+            harpoon.nav_file(4)
+          end,
+        },
       },
     },
   },
