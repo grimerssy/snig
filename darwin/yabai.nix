@@ -10,7 +10,8 @@
       layout = "bsp";
       split_ratio = "0.5";
       split_type = "auto";
-      auto_balance = "on";
+      auto_balance = "off";
+      window_zoom_persist = "on";
       window_topmost = "on";
       window_placement = "second_child";
       top_padding = "15";
@@ -30,10 +31,10 @@
     };
     extraConfig = let yabai = "${package}/bin/yabai";
     in ''
+      ${yabai} -m signal --add event=space_changed action="~/.nix-profile/bin/destroy-empty-spaces"
       ${yabai} -m rule --add app="^Stats$" manage=off
       ${yabai} -m rule --add app="^(Calculator|Software Update|Archive Utility)$" manage=off
-      ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-      ${yabai} -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance|FaceTime)$" manage=off
+      ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Copy|Connect|Move|Info|Pref)" manage=off
     '';
   };
 }
