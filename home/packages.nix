@@ -3,7 +3,6 @@
     colima
     docker
     comma
-    tldr
     parallel
     watchexec
     cpulimit

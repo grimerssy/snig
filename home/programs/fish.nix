@@ -7,8 +7,10 @@
     xcp = "${pkgs.xcp}/bin/xcp";
     rg = "${pkgs.ripgrep}/bin/rg";
     btm = "${pkgs.bottom}/bin/btm";
+    tldr = "${pkgs.tldr}/bin/tldr";
     tmux = "${pkgs.tmux}/bin/tmux";
     dust = "${pkgs.du-dust}/bin/dust";
+    curlie = "${pkgs.curlie}/bin/curlie";
   in {
     enable = true;
     shellAliases = {
@@ -20,6 +22,8 @@
       du = dust;
       find = fd;
       grep = rg;
+      boy = tldr;
+      curl = curlie;
       cat = "${bat} --paging=never";
       ls =
         "${eza} -lF --group-directories-first --no-user --no-time --color-scale --icons";
