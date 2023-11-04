@@ -1,11 +1,11 @@
 { pkgs, ... }: {
   services.yabai = let package = pkgs.yabai;
   in {
+    inherit package;
     enable = true;
-    package = package;
     enableScriptingAddition = true;
     config = {
-      mouse_follows_focus = "off";
+      mouse_follows_focus = "on";
       focus_follows_mouse = "autoraise";
       layout = "bsp";
       split_ratio = "0.5";
@@ -32,8 +32,12 @@
     extraConfig = let yabai = "${package}/bin/yabai";
     in ''
       ${yabai} -m signal --add event=space_changed action="~/.nix-profile/bin/destroy-empty-spaces"
+      ${yabai} -m rule --add app="^Pika$" manage=off
       ${yabai} -m rule --add app="^Stats$" manage=off
-      ${yabai} -m rule --add app="^(Calculator|Software Update|Archive Utility)$" manage=off
+      ${yabai} -m rule --add app="^Calculator$" manage=off
+      ${yabai} -m rule --add app="^System Settings$" manage=off
+      ${yabai} -m rule --add app="^Archive Utility$" manage=off
+      ${yabai} -m rule --add app="^Software Update$" manage=off
       ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Copy|Connect|Move|Info|Pref)" manage=off
     '';
   };

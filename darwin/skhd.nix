@@ -27,9 +27,11 @@
 
       rctrl - r : ${yabai} -m window --toggle split
 
+      rctrl - s : ${yabai} -m window --toggle sticky
+
       rctrl - f : ${yabai} -m window --toggle zoom-fullscreen
 
-      rctrl - s : ${yabai} -m window --toggle sticky
+      cmd - m : ${yabai} -m space --toggle mission-control
 
       cmd + shift - h : ${yabai} -m window --focus west
       cmd + shift - j : ${yabai} -m window --focus south
