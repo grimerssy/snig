@@ -7,6 +7,7 @@
     watchexec
     cpulimit
     hyperfine
+    flyctl
     tectonic
     nix-index
     (uutils-coreutils.override { prefix = ""; })
