@@ -19,13 +19,19 @@ null_ls.setup({
     formatting.nixfmt,
     formatting.stylua,
     formatting.prettier,
-    formatting.jq,
+    formatting.rustfmt,
     formatting.goimports,
     formatting.gofumpt,
+    formatting.jq,
     formatting.buf,
-    formatting.rustfmt,
     formatting.mix,
     formatting.black,
+    formatting.djhtml,
+    formatting.rustywind.with({
+      extra_filetypes = { "htmldjango" },
+    }),
+    diagnostics.staticcheck,
+    diagnostics.buf,
     diagnostics.codespell.with({
       extra_args = {
         "--check-filenames",
@@ -33,7 +39,5 @@ null_ls.setup({
         "crate",
       },
     }),
-    diagnostics.staticcheck,
-    diagnostics.buf,
   },
 })

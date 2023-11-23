@@ -1,22 +1,24 @@
 { pkgs, ... }: {
   programs.neovim = {
     extraPackages = with pkgs; [
-      codespell
-      rustfmt
-      gofumpt
-      go-tools
-      gotools
+      shellcheck
       nixfmt
       stylua
-      shellcheck
-      elixir
-      black
+      nodePackages.prettier
+      rustfmt
+      gofumpt
+      gotools
+      go-tools
       jq
       buf
-      nodePackages.prettier
+      elixir
+      black
+      djhtml
+      rustywind
+      codespell
     ];
     plugins = with pkgs.vimPlugins; [{
-      plugin = null-ls-nvim;
+      plugin = none-ls-nvim;
       type = "lua";
       config = builtins.readFile ./null-ls.lua;
     }];
