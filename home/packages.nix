@@ -6,7 +6,12 @@
     parallel
     watchexec
     cpulimit
+    ffmpeg
     hyperfine
+    vhs
+    pop
+    gum
+    glow
     flyctl
     tectonic
     nix-index
