@@ -1,22 +1,20 @@
-require("nvim-web-devicons").setup({
-  override = {
-    ["astro"] = {
-      icon = "",
-      color = "#ff5d01",
-      cterm_color = "202",
-      name = "Astro",
-    },
-    ["mjs"] = {
-      icon = "",
-      color = "#cbcb41",
-      cterm_color = "185",
-      name = "Js",
-    },
-    ["cjs"] = {
-      icon = "",
-      color = "#cbcb41",
-      cterm_color = "185",
-      name = "Js",
-    },
+local webdev = require("nvim-web-devicons")
+
+local icons = {
+  ["astro"] = {
+    icon = "",
+    color = "#ff5d01",
+    name = "Astro",
   },
-})
+  ["tape"] = {
+    icon = "󰨜",
+    color = "#6948f6",
+    name = "VHS",
+  },
+}
+
+if webdev.has_loaded then
+  webdev.set_icon(icons)
+else
+  webdev.setup({ strict = true, override_by_extension = icons })
+end
