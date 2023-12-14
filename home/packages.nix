@@ -1,12 +1,18 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    comma
     colima
     docker
-    comma
+    fd
+    xcp
+    bottom
+    curlie
+    ffmpeg
+    du-dust
+    ripgrep
+    cpulimit
     parallel
     watchexec
-    cpulimit
-    ffmpeg
     hyperfine
     vhs
     pop

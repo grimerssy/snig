@@ -1,32 +1,22 @@
 { pkgs, ... }: {
   programs.fish = let
     nvim = "nvim";
-    fd = "${pkgs.fd}/bin/fd";
     bat = "${pkgs.bat}/bin/bat";
     eza = "${pkgs.eza}/bin/eza";
-    xcp = "${pkgs.xcp}/bin/xcp";
-    rg = "${pkgs.ripgrep}/bin/rg";
-    btm = "${pkgs.bottom}/bin/btm";
     tldr = "${pkgs.tldr}/bin/tldr";
     tmux = "${pkgs.tmux}/bin/tmux";
-    dust = "${pkgs.du-dust}/bin/dust";
-    curlie = "${pkgs.curlie}/bin/curlie";
   in {
     enable = true;
-    shellAliases = {
+    shellAliases = rec {
       v = nvim;
       s = "tmux-session";
       a = "${tmux} attach";
-      cp = xcp;
-      top = btm;
-      du = dust;
-      find = fd;
-      grep = rg;
       boy = tldr;
-      curl = curlie;
       cat = "${bat} --paging=never";
       ls =
-        "${eza} -lF --group-directories-first --no-user --no-time --color-scale --icons";
+        "${eza} -F --group-directories-first --no-user --no-time --color-scale --icons";
+      ll =
+        "${ls} -l";
       nix-shell = "nix-shell --command fish";
     };
     shellInit = ''
