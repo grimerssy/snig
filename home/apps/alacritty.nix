@@ -1,19 +1,19 @@
 { pkgs, ... }: {
   programs.alacritty = {
     enable = true;
-    package = pkgs.alacritty.overrideAttrs (old: rec {
-      src = pkgs.fetchFromGitHub {
-        owner = "grimerssy";
-        repo = "alacritty";
-        rev = "06b0bfbdeb4ace044b5b554a293173363b5c2d07";
-        sha256 = "sha256-JpwHsEmGZwCm0GkDKj1kwWr/HT9ZUtTyZk8oEHMKaDY=";
-      };
-      doCheck = false;
-      cargoDeps = old.cargoDeps.overrideAttrs (_: {
-        inherit src;
-        outputHash = "sha256-dXg+Dls+BCPXK2x/cVqo0vqPSiGcGhTA3VOBJY6ZuWc=";
-      });
-    });
+    # package = pkgs.alacritty.overrideAttrs (old: rec {
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "grimerssy";
+    #     repo = "alacritty";
+    #     rev = "06b0bfbdeb4ace044b5b554a293173363b5c2d07";
+    #     sha256 = "sha256-JpwHsEmGZwCm0GkDKj1kwWr/HT9ZUtTyZk8oEHMKaDY=";
+    #   };
+    #   doCheck = false;
+    #   cargoDeps = old.cargoDeps.overrideAttrs (_: {
+    #     inherit src;
+    #     outputHash = "sha256-dXg+Dls+BCPXK2x/cVqo0vqPSiGcGhTA3VOBJY6ZuWc=";
+    #   });
+    # });
     settings = {
       cursor.style.blinking = "Never";
       font = {

@@ -32,6 +32,7 @@
     extraConfig = let yabai = "${package}/bin/yabai";
     in ''
       ${yabai} -m signal --add event=space_changed action="~/.nix-profile/bin/destroy-empty-spaces"
+      ${yabai} -m signal --add event=window_destroyed action="yabai -m window --focus mouse"
       ${yabai} -m rule --add app="^Pika$" manage=off
       ${yabai} -m rule --add app="^Stats$" manage=off
       ${yabai} -m rule --add app="^Calculator$" manage=off
