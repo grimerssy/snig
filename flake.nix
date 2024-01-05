@@ -3,9 +3,10 @@
 
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
@@ -13,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, darwin, home-manager }:
+  outputs = { self, nixpkgs, unstable, darwin, home-manager }:
     let
       user = "grimerssy";
       host = "mbpssy";
@@ -47,7 +48,13 @@
               users.${user} = { imports = utils.nixFiles ./home; };
             };
           }
-          { nixpkgs.overlays = map import (utils.nixFiles ./overlays); }
+          {
+            nixpkgs.overlays = [
+              (self: super: {
+                unstable = import unstable { system = super.system; };
+              })
+            ] ++ map import (utils.nixFiles ./overlays);
+          }
         ];
       };
     };
