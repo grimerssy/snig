@@ -18,6 +18,9 @@
       ll =
         "${ls} -l";
       nix-shell = "nix-shell --command fish";
+      dev = "devcontainer-cwd";
+      devx = "dev exec";
+      devdown = "devcontainer-cwd-down";
     };
     shellInit = ''
       set fish_greeting

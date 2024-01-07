@@ -13,8 +13,12 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, unstable, darwin, home-manager }:
+  outputs = { self, nixpkgs, unstable, darwin, home-manager, rust-overlay }:
     let
       user = "grimerssy";
       host = "mbpssy";
@@ -53,6 +57,7 @@
               (self: super: {
                 unstable = import unstable { system = super.system; };
               })
+              rust-overlay.overlays.default
             ] ++ map import (utils.nixFiles ./overlays);
           }
         ];

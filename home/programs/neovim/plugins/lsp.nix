@@ -3,8 +3,10 @@
     extraPackages = with pkgs; [
       nil
       ltex-ls
-      clippy
+      rust-bin.stable.latest.default
       rust-analyzer
+      clippy
+      go
       gopls
       sourcekit-lsp
       elixir_ls
