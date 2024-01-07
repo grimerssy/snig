@@ -5,7 +5,7 @@
       palette = "catppuccin_frappe";
       add_newline = false;
       format =
-        "$nix_shell$directory$git_branch$package$rust$nodejs$golang$character";
+        "$nix_shell$directory$git_branch$package$character";
       character = {
         success_symbol = ''
 
@@ -30,19 +30,6 @@
       package = {
         symbol = "";
         style = "bold package";
-      };
-      rust = {
-        symbol = "rust ";
-        style = "bold #f74b00";
-      };
-      nodejs = {
-        symbol = "node ";
-        style = "bold #82cd28";
-        detect_extensions = ["js" "ts" "jsx" "tsx"];
-      };
-      golang = {
-        symbol = "go ";
-        style = "bold #68d1de";
       };
       palettes.catppuccin_frappe = {
         rosewater = "#f2d5cf";
