@@ -1,3 +1,4 @@
+{ ... }:
 self: super: {
   vimPlugins = super.vimPlugins // {
     nvim-tree-lua = super.vimPlugins.nvim-tree-lua.overrideAttrs (old: {

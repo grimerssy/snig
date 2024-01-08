@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, unstable, darwin, home-manager, rust-overlay }:
+  outputs = inputs@{ nixpkgs, darwin, home-manager, ... }:
     let
       user = "grimerssy";
       host = "mbpssy";
@@ -53,12 +53,8 @@
             };
           }
           {
-            nixpkgs.overlays = [
-              (self: super: {
-                unstable = import unstable { system = super.system; };
-              })
-              rust-overlay.overlays.default
-            ] ++ map import (utils.nixFiles ./overlays);
+            nixpkgs.overlays =
+              map (overlay: import overlay inputs) (utils.nixFiles ./overlays);
           }
         ];
       };
