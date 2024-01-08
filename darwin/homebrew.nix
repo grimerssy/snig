@@ -4,7 +4,6 @@
     brews = [ "devcontainer" ];
     casks = [
       "docker"
-      "raycast"
       "pika"
       "alex313031-thorium"
       "telegram"
