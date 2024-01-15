@@ -62,18 +62,10 @@ let
         ) == []).index) | reverse | .[]" | \
       ${xargs} -I % sh -c '${yabai} -m space % --destroy'
   '';
-  devcontainer-cwd = ''
-    devcontainer $1 --workspace-folder . ''${@:2}
-  '';
-  devcontainer-cwd-down = ''
-    docker rm -f $(devcontainer-cwd up | ${jq} -r .containerId)
-  '';
 in {
   home.packages = [
     (pkgs.writeScriptBin "restart-de" restart-de)
     (pkgs.writeScriptBin "tmux-session" tmux-session)
     (pkgs.writeScriptBin "destroy-empty-spaces" destroy-empty-spaces)
-    (pkgs.writeScriptBin "devcontainer-cwd" devcontainer-cwd)
-    (pkgs.writeScriptBin "devcontainer-cwd-down" devcontainer-cwd-down)
   ];
 }
