@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+with pkgs; {
   programs.neovim = {
-    extraPackages = with pkgs; [
+    extraPackages = [
       shellcheck
       nixfmt
       stylua
@@ -17,7 +18,7 @@
       rustywind
       codespell
     ];
-    plugins = with pkgs.vimPlugins; [{
+    plugins = with vimPlugins; [{
       plugin = none-ls-nvim;
       type = "lua";
       config = builtins.readFile ./null-ls.lua;
