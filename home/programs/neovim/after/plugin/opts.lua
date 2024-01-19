@@ -1,8 +1,7 @@
-vim.g.mapleader = " "
-
 for k, v in pairs({
   nu = true,
   relativenumber = true,
+  signcolumn = "yes",
 
   termguicolors = true,
 

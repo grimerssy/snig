@@ -1,15 +1,6 @@
-{ pkgs, ... }:
-with pkgs; {
-  programs.neovim = {
+{ pkgs, ... }: {
+  programs.neovim = with pkgs; {
     extraPackages = [ delve ];
-    plugins = with vimPlugins; [
-      nvim-dap-ui
-      nvim-dap-go
-      {
-        plugin = nvim-dap;
-        type = "lua";
-        config = builtins.readFile ./dap.lua;
-      }
-    ];
+    plugins = with vimPlugins; [ nvim-dap nvim-dap-ui nvim-dap-go ];
   };
 }

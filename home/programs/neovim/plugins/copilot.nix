@@ -1,11 +1,6 @@
-{ pkgs, ... }:
-with pkgs; {
-  programs.neovim = {
+{ pkgs, ... }: {
+  programs.neovim = with pkgs; {
     extraPackages = [ nodejs ];
-    plugins = with vimPlugins; [{
-      plugin = copilot-vim;
-      type = "lua";
-      config = builtins.readFile ./copilot.lua;
-    }];
+    plugins = with vimPlugins; [ copilot-vim ];
   };
 }

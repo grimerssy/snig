@@ -1,14 +1,6 @@
-{ pkgs, ... }:
-with pkgs; {
-  programs.neovim = {
+{ pkgs, ... }: {
+  programs.neovim = with pkgs; {
     extraPackages = [ ripgrep ];
-    plugins = with vimPlugins; [
-      plenary-nvim
-      {
-        plugin = telescope-nvim;
-        type = "lua";
-        config = builtins.readFile ./telescope.lua;
-      }
-    ];
+    plugins = with vimPlugins; [ plenary-nvim telescope-nvim ];
   };
 }

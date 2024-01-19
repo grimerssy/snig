@@ -1,14 +1,9 @@
-{ pkgs, ... }:
-with pkgs; {
-  programs.neovim = {
+{ pkgs, ... }: {
+  programs.neovim = with pkgs; {
     extraPackages = [ tree-sitter ];
     plugins = with vimPlugins; [
+      nvim-treesitter.withAllGrammars
       nvim-ts-context-commentstring
-      {
-        plugin = nvim-treesitter.withAllGrammars;
-        type = "lua";
-        config = builtins.readFile ./treesitter.lua;
-      }
     ];
   };
 }

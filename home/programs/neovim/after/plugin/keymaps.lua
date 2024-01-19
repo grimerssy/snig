@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local keymap = require("config.keymap")
 local n = keymap.nnoremap
 local i = keymap.inoremap

@@ -1,6 +1,7 @@
 local M = {}
 
 local keymap = require("config.keymap")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local n = keymap.nnoremap
 local i = keymap.inoremap
 
@@ -87,7 +88,6 @@ local function lsp_keymaps()
       apply = true,
     })
   end)
-  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
 M.on_attach = function(client, _)
@@ -104,8 +104,6 @@ M.on_attach = function(client, _)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 

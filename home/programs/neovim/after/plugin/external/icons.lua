@@ -1,4 +1,4 @@
-local webdev = require("nvim-web-devicons")
+local devicons = require("nvim-web-devicons")
 
 local icons = {
   ["astro"] = {
@@ -13,8 +13,8 @@ local icons = {
   },
 }
 
-if webdev.has_loaded then
-  webdev.set_icon(icons)
+if devicons.has_loaded then
+  devicons.set_icon(icons)
 else
-  webdev.setup({ strict = true, override_by_extension = icons })
+  devicons.setup({ strict = true, override_by_extension = icons })
 end
