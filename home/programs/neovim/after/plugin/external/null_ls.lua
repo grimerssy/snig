@@ -1,11 +1,11 @@
+local map = require("config.keymap")
 local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
-local n = require("config.keymap").nnoremap
-n("<leader>;", function()
+map.n("<leader>;", function()
   vim.lsp.buf.format({
     filter = function(client)
       return client.supports_method("textDocument/formatting")

@@ -1,8 +1,8 @@
-local n = require("config.keymap").nnoremap
+local map = require("config.keymap")
 local harpoon, harpoon_ui = require("harpoon.mark"), require("harpoon.ui")
 
-n("<leader>m", harpoon.add_file)
-n("<leader>e", harpoon_ui.toggle_quick_menu)
+map.n("<leader>m", harpoon.add_file)
+map.n("<leader>e", harpoon_ui.toggle_quick_menu)
 
 local function nav_file(file)
   return function()
@@ -10,7 +10,7 @@ local function nav_file(file)
   end
 end
 
-n("<S-h>", nav_file(1))
-n("<S-j>", nav_file(2))
-n("<S-k>", nav_file(3))
-n("<S-l>", nav_file(4))
+map.n("<S-h>", nav_file(1))
+map.n("<S-j>", nav_file(2))
+map.n("<S-k>", nav_file(3))
+map.n("<S-l>", nav_file(4))

@@ -1,6 +1,6 @@
-local n = require("config.keymap").nnoremap
+local map = require("config.keymap")
 
-n("-", ":Oil<CR>")
+map.n("-", ":Oil<CR>")
 
 require("oil").setup({
   skip_confirm_for_simple_edits = true,

@@ -1,9 +1,7 @@
 local M = {}
 
-local keymap = require("config.keymap")
+local map = require("config.keymap")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local n = keymap.nnoremap
-local i = keymap.inoremap
 
 M.setup = function()
   local signs = {
@@ -65,17 +63,17 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps()
-  i("<C-h>", vim.lsp.buf.signature_help)
-  n("<C-h>", vim.lsp.buf.hover)
-  n("<leader>d", vim.lsp.buf.definition)
-  n("<leader>r", ":Telescope lsp_references theme=dropdown<CR>")
-  n("<leader>ca", vim.lsp.buf.code_action)
-  n("<leader>n", vim.lsp.buf.rename)
-  n("<leader>vws", vim.lsp.buf.workspace_symbol)
-  n("<leader>vd", vim.diagnostic.open_float)
-  n("[d", vim.diagnostic.goto_next)
-  n("]d", vim.diagnostic.goto_prev)
-  n("<leader>co", function()
+  map.i("<C-h>", vim.lsp.buf.signature_help)
+  map.n("<C-h>", vim.lsp.buf.hover)
+  map.n("<leader>d", vim.lsp.buf.definition)
+  map.n("<leader>r", ":Telescope lsp_references theme=dropdown<CR>")
+  map.n("<leader>ca", vim.lsp.buf.code_action)
+  map.n("<leader>n", vim.lsp.buf.rename)
+  map.n("<leader>vws", vim.lsp.buf.workspace_symbol)
+  map.n("<leader>vd", vim.diagnostic.open_float)
+  map.n("[d", vim.diagnostic.goto_next)
+  map.n("]d", vim.diagnostic.goto_prev)
+  map.n("<leader>co", function()
     vim.lsp.buf.code_action({
       filter = function(code_action)
         if not code_action or not code_action.data then

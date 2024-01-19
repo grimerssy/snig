@@ -3,7 +3,7 @@ local extension_path = vim.env.HOME
 local codelldb_path = extension_path .. "/adapter/codelldb"
 local liblldb_path = extension_path .. "/lldb/lib/liblldb.dylib"
 local lsp_handlers = require("config.lsp.handlers")
-local n = require("config.keymap").nnoremap
+local map = require("config.keymap")
 local rt = require("rust-tools")
 local rt_dap = require("rust-tools.dap")
 
@@ -31,7 +31,7 @@ return {
       for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
         vim.api.nvim_set_hl(0, group, {})
       end
-      n("<C-h>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      map.n("<C-h>", rt.hover_actions.hover_actions, { buffer = bufnr })
       lsp_handlers.on_attach(client, bufnr)
     end,
     capabilities = lsp_handlers.capabilities,

@@ -1,11 +1,11 @@
-local n = require("config.keymap").nnoremap
+local map = require("config.keymap")
 
-n("<leader>ce", function()
+map.n("<leader>ce", function()
   vim.cmd("Copilot enable")
   vim.notify("Copilot enabled")
 end)
 
-n("<leader>cd", function()
+map.n("<leader>cd", function()
   vim.cmd("Copilot disable")
   vim.notify("Copilot disabled")
 end)
