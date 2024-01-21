@@ -8,15 +8,10 @@
       clippy
       go
       gopls
-      sourcekit-lsp
-      elixir_ls
-      pyright
       clang-tools
-      # lua-language-server
-      jdt-language-server
-      omnisharp-roslyn
+      lua-language-server
+      vscode-langservers-extracted
       nodePackages.bash-language-server
-      nodePackages.svelte-language-server
       nodePackages.typescript-language-server
       nodePackages."@tailwindcss/language-server"
     ];
@@ -35,8 +30,6 @@
 
       luasnip
       friendly-snippets
-
-      # rust-tools-nvim
     ];
   };
 }

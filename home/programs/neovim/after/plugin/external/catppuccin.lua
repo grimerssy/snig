@@ -16,6 +16,7 @@ require("catppuccin").setup({
       CmpItemKindEnum = { fg = colors.yellow },
       CmpItemKindEnumMember = { fg = colors.peach },
       CmpItemKindInterface = { fg = colors.green },
+      ["@function.builtin"] = { link = "Function" },
     }
   end,
   integrations = {

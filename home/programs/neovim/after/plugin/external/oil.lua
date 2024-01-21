@@ -1,5 +1,3 @@
-local map = vim.keymap.set
-
 vim.keymap.set("n", "-", vim.cmd.Oil)
 
 require("oil").setup({

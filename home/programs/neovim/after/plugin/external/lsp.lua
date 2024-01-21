@@ -1,4 +1,5 @@
 local lsp_zero = require("lsp-zero")
+local lsp_config = require("lspconfig")
 
 local map = vim.keymap.set
 
@@ -8,7 +9,7 @@ local function telescope(command)
   end
 end
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr }
   lsp_zero.default_keymaps(opts)
   map("n", "<C-h>", vim.lsp.buf.hover, opts)
@@ -19,9 +20,40 @@ lsp_zero.on_attach(function(client, bufnr)
   map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+lsp_zero.setup_servers({
+  "ltex",
+  "nil_ls",
+  "gopls",
+  "tsserver",
+  "tailwindcss",
+  "clangd",
+  "bashls",
+  "jsonls",
+})
+
+lsp_config.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
+lsp_config.rust_analyzer.setup({
+  on_init = function(client, _)
     client.server_capabilities.semanticTokensProvider = nil
   end,
+  settings = {
+    ["rust-analyzer"] = {
+      -- TODO
+      -- lens = {
+      --   enable = false,
+      -- },
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
 })
