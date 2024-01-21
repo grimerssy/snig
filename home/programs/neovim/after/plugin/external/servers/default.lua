@@ -1,11 +1,13 @@
-return {
+-- TODO: jsonls
+
+require("lsp-zero").setup_servers({
   "nil_ls",
   "ltex",
-  "rust_analyzer",
-  "gopls",
+  "rust_analyzer", -- TODO: probably custom config
+  -- "gopls",
   "sourcekit",
   "elixirls",
-  "pyright",
+  -- "pyright",
   "clangd",
   -- "lua_ls",
   "jdtls",
@@ -14,4 +16,4 @@ return {
   "svelte",
   "tsserver",
   "tailwindcss",
-}
+})

@@ -1,19 +1,20 @@
-local map = require("config.keymap")
 local dap, dapui = require("dap"), require("dapui")
 
-map.n("<leader>dc", dap.continue)
-map.n("<leader>ds", dap.step_over)
-map.n("<leader>di", dap.step_into)
-map.n("<leader>do", dap.step_out)
-map.n("<leader>b", dap.toggle_breakpoint)
-map.n("<leader>B", function()
+local map = vim.keymap.set
+
+map("n", "<leader>dc", dap.continue)
+map("n", "<leader>ds", dap.step_over)
+map("n", "<leader>di", dap.step_into)
+map("n", "<leader>do", dap.step_out)
+map("n", "<leader>b", dap.toggle_breakpoint)
+map("n", "<leader>B", function()
   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)
-map.n("<leader>lp", function()
+map("n", "<leader>lp", function()
   dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 end)
-map.n("<leader>dr", dap.repl.open)
-map.n("<leader>dd", dap.disconnect)
+map("n", "<leader>dr", dap.repl.open)
+map("n", "<leader>dd", dap.disconnect)
 
 require("dap-go").setup()
 

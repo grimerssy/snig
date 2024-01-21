@@ -1,30 +1,27 @@
-local servers = require("config.lsp.servers")
-local lspconfig = require("lspconfig")
+local lsp_zero = require("lsp-zero")
 
-local opts = {}
-local handlers = require("config.lsp.handlers")
+local map = vim.keymap.set
 
-for _, server in pairs(servers) do
-  local settings = string.format("config.lsp.settings.%s", server)
-
-  if server == "rust_analyzer" then
-    local rust_opts = require(settings)
-    local rust_tools = require("rust-tools")
-    rust_tools.setup(rust_opts)
-    goto continue
+local function telescope(command)
+  return function()
+    vim.cmd.Telescope("lsp_" .. command)
   end
-
-  opts = {
-    on_attach = handlers.on_attach,
-    capabilities = handlers.capabilities,
-  }
-  local found, srv_opts = pcall(require, settings)
-  if found then
-    opts = vim.tbl_deep_extend("force", opts, srv_opts)
-  end
-
-  lspconfig[server].setup(opts)
-  ::continue::
 end
 
-handlers.setup()
+lsp_zero.on_attach(function(client, bufnr)
+  local opts = { buffer = bufnr }
+  lsp_zero.default_keymaps(opts)
+  map("n", "<C-h>", vim.lsp.buf.hover, opts)
+  map("n", "<leader>n", vim.lsp.buf.rename, opts)
+  map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  map("n", "gr", telescope("references"), opts)
+  map("n", "gi", telescope("implementations"), opts)
+  map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+end)
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+})

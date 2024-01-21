@@ -21,15 +21,22 @@
       nodePackages."@tailwindcss/language-server"
     ];
     plugins = with vimPlugins; [
+      lsp-zero-nvim
       nvim-lspconfig
+
       nvim-cmp
       cmp-buffer
       cmp-path
-      cmp-cmdline
       cmp_luasnip
       cmp-nvim-lsp
       cmp-nvim-lua
-      rust-tools-nvim
+
+      lspkind-nvim
+
+      luasnip
+      friendly-snippets
+
+      # rust-tools-nvim
     ];
   };
 }

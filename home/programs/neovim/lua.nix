@@ -2,9 +2,9 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    extraConfig = ''
+      let mapleader = " "
+    '';
   };
-  home.file = {
-    ".config/nvim/after".source = ./after;
-    ".config/nvim/lua/config".source = ./config; # TODO: remove /config
-  };
+  home.file = { ".config/nvim/after".source = ./after; };
 }

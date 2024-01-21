@@ -1,90 +1,43 @@
-local map = require("config.keymap")
-map.n("<leader>f", ":Telescope find_files<CR>")
-map.n("<leader>g", ":Telescope live_grep<CR>")
-map.n("<leader>h", ":Telescope diagnostics<CR>")
-
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local themes = require("telescope.themes")
+local builtin = require("telescope.builtin")
+
+local map = vim.keymap.set
+
+map("n", "<leader>f", builtin.find_files)
+map("n", "<leader>g", builtin.live_grep)
+map("n", "<leader>h", builtin.diagnostics)
 
 telescope.setup({
-  defaults = {
-    prompt_prefix = " ",
-    selection_caret = " ",
+  defaults = vim.tbl_extend("force", themes.get_dropdown(), {
     path_display = { "truncate" },
-    file_ignore_patterns = {
-      ".git/",
-      "target/",
-      "vendor/*",
-      "%.lock",
-      "%.sqlite3",
-      "node_modules/*",
-      "%.svg",
-      "%.otf",
-      "%.ttf",
-      "%.webp",
-      ".dart_tool/",
-      ".gradle/",
-      ".idea/",
-      ".vscode/",
-      "build/",
-      "env/",
-      "gradle/",
-      "node_modules/",
-      "%.pdb",
-      "%.dll",
-      "%.class",
-      "%.exe",
-      "%.cache",
-      "%.ico",
-      "%.pdf",
-      "%.dylib",
-      "%.jar",
-      "%.docx",
-      "%.met",
-      "smalljre_*/*",
-      ".vale/",
-      "%.burp",
-      "%.mp4",
-      "%.mkv",
-      "%.rar",
-      "%.zip",
-      "%.7z",
-      "%.tar",
-      "%.bz2",
-      "%.epub",
-      "%.flac",
-      "%.tar.gz",
-    },
-
     mappings = {
       n = {
         ["jk"] = actions.close,
       },
       i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
-
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-
         ["<C-s>"] = actions.select_horizontal,
       },
     },
-  },
+    file_ignore_patterns = {
+      ".git/",
+      ".vs/",
+      ".idea/",
+      ".vscode/",
+      "build/",
+      "target/",
+      "node_modules/",
+    },
+  }),
   pickers = {
     find_files = {
-      theme = "dropdown",
       hidden = true,
       previewer = false,
     },
-    live_grep = {
-      theme = "dropdown",
-    },
-    diagnostics = {
-      theme = "dropdown",
-    },
   },
-  extensions = {},
 })
 
 telescope.load_extension("notify")

@@ -1,6 +1,6 @@
-local map = require("config.keymap")
+local map = vim.keymap.set
 
-map.n("-", ":Oil<CR>")
+vim.keymap.set("n", "-", vim.cmd.Oil)
 
 require("oil").setup({
   skip_confirm_for_simple_edits = true,

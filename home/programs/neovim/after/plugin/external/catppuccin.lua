@@ -11,33 +11,17 @@ require("catppuccin").setup({
     return {
       CursorLine = { bg = colors.none },
       ColorColumn = { bg = colors.none },
-      NvimTreeGitNew = { fg = colors.green },
-      NvimTreeSpecialFile = { fg = colors.sapphire },
+      StorageClass = { fg = colors.mauve },
+      CmpItemKindStruct = { fg = colors.yellow },
+      CmpItemKindEnum = { fg = colors.yellow },
+      CmpItemKindEnumMember = { fg = colors.peach },
+      CmpItemKindInterface = { fg = colors.green },
     }
   end,
   integrations = {
-    cmp = true,
-    gitsigns = true,
-    nvimtree = true,
-    telescope = true,
     notify = true,
-    treesitter = true,
-  },
-  integration = {
-    dap = {
-      enabled = true,
-      enable_ui = true,
-    },
-  },
-  native_lsp = {
-    enabled = true,
-    underlines = {
-      errors = { "underline" },
-      hints = { "underline" },
-      warnings = { "underline" },
-      information = { "underline" },
-    },
+    harpoon = true,
   },
 })
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd.colorscheme("catppuccin")

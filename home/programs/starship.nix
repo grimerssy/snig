@@ -4,8 +4,7 @@
     settings = {
       palette = "catppuccin_frappe";
       add_newline = false;
-      format =
-        "$nix_shell$directory$git_branch$package$character";
+      format = "$nix_shell$directory$git_branch$package$character";
       character = {
         success_symbol = ''
 
