@@ -30,6 +30,8 @@
 
       luasnip
       friendly-snippets
+
+      crates-nvim
     ];
   };
 }

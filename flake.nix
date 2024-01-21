@@ -1,6 +1,3 @@
-# TODO
-# lldb debugger https://github.com/NixOS/nixpkgs/pull/211321
-
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";

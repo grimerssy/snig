@@ -47,13 +47,10 @@ lsp_config.rust_analyzer.setup({
   end,
   settings = {
     ["rust-analyzer"] = {
-      -- TODO
-      -- lens = {
-      --   enable = false,
-      -- },
       checkOnSave = {
         command = "clippy",
       },
     },
   },
 })
+require("crates").setup()
