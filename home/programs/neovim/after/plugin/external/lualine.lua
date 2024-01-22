@@ -1,97 +1,56 @@
-local colors = require("catppuccin.palettes.macchiato")
-local theme = {
-  normal = {
-    a = { bg = colors.none, fg = colors.green },
-    b = { bg = colors.green, fg = colors.mantle },
-    c = { bg = colors.none, fg = colors.green },
-  },
-  insert = {
-    a = { bg = colors.none, fg = colors.blue },
-    b = { bg = colors.blue, fg = colors.mantle },
-    c = { bg = colors.none, fg = colors.blue },
-  },
-  command = {
-    a = { bg = colors.none, fg = colors.mauve },
-    b = { bg = colors.mauve, fg = colors.mantle },
-    c = { bg = colors.none, fg = colors.mauve },
-  },
-  visual = {
-    a = { bg = colors.none, fg = colors.peach },
-    b = { bg = colors.peach, fg = colors.mantle },
-    c = { bg = colors.none, fg = colors.peach },
-  },
-  replace = {
-    a = { bg = colors.none, fg = colors.red },
-    b = { bg = colors.red, fg = colors.mantle },
-    c = { bg = colors.none, fg = colors.red },
-  },
-  inactive = {
-    a = { bg = colors.none, fg = colors.none },
-    b = { bg = colors.none, fg = colors.none },
-    c = { bg = colors.none, fg = colors.none },
-  },
-}
+local lualine = require("lualine")
+local git = require("lualine.components.branch.git_branch")
+local utils = require("lualine.utils.utils")
 
-local x_icon = vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null")
-      == ""
-    and ""
-  or ""
-local z_icon = vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null")
-      == ""
-    and ""
-  or ""
+local foreground = "#333333"
 
-require("lualine").setup({
+local function color(higroup)
+  return utils.extract_color_from_hllist("fg", { higroup }, nil)
+end
+
+local function theme(fg, bg)
+  return {
+    a = { bg = nil, fg = bg },
+    b = { bg = bg, fg = fg },
+    c = { bg = nil, fg = bg },
+  }
+end
+
+local function literal(str)
+  return function()
+    return str
+  end
+end
+
+local left = literal("")
+local right = literal("")
+
+local function has_git_context()
+  return not (git.get_branch() == "")
+end
+
+lualine.setup({
   options = {
-    theme = theme,
-    icons_enabled = true,
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
-
-    always_divide_middle = false,
+    theme = {
+      normal = theme(foreground, color("String")),
+      insert = theme(foreground, color("Function")),
+      command = theme(foreground, color("Keyword")),
+      visual = theme(foreground, color("Constant")),
+      replace = theme(foreground, color("Error")),
+      inactive = theme(nil, nil),
+    },
     globalstatus = true,
-    disabled_filetypes = { "NvimTree" },
+    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
   },
   sections = {
-    lualine_a = {
-      {
-        function()
-          return ""
-        end,
-        padding = 0,
-      },
-    },
-    lualine_b = {
-      {
-        "mode",
-        padding = 0,
-      },
-    },
-    lualine_c = {
-      {
-        function()
-          return ""
-        end,
-        padding = 0,
-      },
-      {
-        "diagnostics",
-        sources = { "nvim_diagnostic" },
-        sections = { "error", "warn", "info", "hint" },
-        padding = 2,
-      },
-    },
-    lualine_x = {
-      {
-        function()
-          return x_icon
-        end,
-        padding = 0,
-      },
-    },
+    lualine_a = { { left, padding = 0 } },
+    lualine_b = { { "mode", padding = 0 } },
+    lualine_c = { { right, padding = 0 } },
+    lualine_x = { { left, padding = 0, cond = has_git_context } },
     lualine_y = {
       {
-        "b:gitsigns_head",
+        "branch",
         icon = {
           "",
           align = "right",
@@ -99,16 +58,6 @@ require("lualine").setup({
         padding = 0,
       },
     },
-    lualine_z = {
-      {
-        function()
-          return z_icon
-        end,
-        padding = 0,
-      },
-    },
+    lualine_z = { { right, padding = 0, cond = has_git_context } },
   },
-  inactive_sections = {},
-  tabline = {},
-  extensions = {},
 })

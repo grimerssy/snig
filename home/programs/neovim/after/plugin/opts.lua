@@ -18,9 +18,9 @@ for k, v in pairs({
   cursorline = true,
   conceallevel = 0,
 
-  tabstop = 2,
-  softtabstop = 2,
-  shiftwidth = 2,
+  tabstop = 4,
+  softtabstop = 4,
+  shiftwidth = 4,
   expandtab = true,
   hlsearch = false,
   incsearch = true,

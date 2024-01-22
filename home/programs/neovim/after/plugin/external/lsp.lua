@@ -37,6 +37,9 @@ lsp_config.lua_ls.setup({
       diagnostics = {
         globals = { "vim" },
       },
+      format = {
+        enable = false,
+      },
     },
   },
 })

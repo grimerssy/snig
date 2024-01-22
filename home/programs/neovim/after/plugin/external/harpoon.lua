@@ -1,4 +1,5 @@
-local harpoon, harpoon_ui = require("harpoon.mark"), require("harpoon.ui")
+local harpoon = require("harpoon.mark")
+local harpoon_ui = require("harpoon.ui")
 
 local map = vim.keymap.set
 
