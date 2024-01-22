@@ -11,7 +11,7 @@ end
 
 local opts = { buffer = true }
 
-map("n", "<leader>rs", [[:s/{.*version.*=.*\(".*"\).*}/\1<CR>]], opts)
+map("n", "<leader>rs", [[:s/{.*version.*=.*\("[0-9\.]\+"\).*}/\1<CR>]], opts)
 
 map("n", "<leader>rt", crates.toggle, opts)
 map("n", "<leader>rr", crates.reload, opts)

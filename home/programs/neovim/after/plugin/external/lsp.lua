@@ -3,6 +3,11 @@ local lsp_config = require("lspconfig")
 
 local map = vim.keymap.set
 
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+})
+
 local function telescope(command)
   return function()
     vim.cmd.Telescope("lsp_" .. command)
