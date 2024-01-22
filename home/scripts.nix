@@ -13,6 +13,9 @@ let
   zoxide = "${pkgs.zoxide}/bin/zoxide";
   sha256sum = "${pkgs.coreutils}/bin/sha256sum";
 
+  template = ''
+    nix flake $1 --template github:grimerssy/flakes#$2 ''${@:3}
+  '';
   restart-de = ''
     launchctl unload "$HOME/Library/LaunchAgents/org.nixos.skhd.plist"
     launchctl unload "$HOME/Library/LaunchAgents/org.nixos.yabai.plist"
@@ -64,6 +67,7 @@ let
   '';
 in {
   home.packages = [
+    (pkgs.writeScriptBin "template" template)
     (pkgs.writeScriptBin "restart-de" restart-de)
     (pkgs.writeScriptBin "tmux-session" tmux-session)
     (pkgs.writeScriptBin "destroy-empty-spaces" destroy-empty-spaces)
