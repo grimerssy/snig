@@ -5,7 +5,6 @@
     eza = "${pkgs.eza}/bin/eza";
     tldr = "${pkgs.tldr}/bin/tldr";
     tmux = "${pkgs.tmux}/bin/tmux";
-    basename = "${pkgs.uutils-coreutils}/bin/uutils-basename";
   in {
     enable = true;
     shellAliases = rec {
@@ -18,9 +17,6 @@
         "${eza} -F --group-directories-first --no-user --no-time --color-scale --icons";
       ll = "${ls} -l";
       nix-shell = "nix-shell --command fish";
-      dev =
-        "docker compose -f .devcontainer/docker-compose.yaml -p $(${basename} $PWD)";
-      devx = "dev exec -w /app app";
     };
     shellInit = ''
       set fish_greeting
