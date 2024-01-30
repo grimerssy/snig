@@ -3,9 +3,9 @@
     extraPackages = [
       nil
       ltex-ls
-      rust-bin.stable.latest.default
-      rust-analyzer
-      clippy
+      (rust-bin.stable.latest.default.override {
+        extensions = [ "rust-src" "clippy" "rust-analyzer" ];
+      })
       go
       gopls
       clang-tools
