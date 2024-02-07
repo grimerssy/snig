@@ -24,9 +24,6 @@ telescope.setup({
     },
     file_ignore_patterns = {
       ".git/",
-      ".vs/",
-      ".idea/",
-      ".vscode/",
       "build/",
       "target/",
       "node_modules/",
