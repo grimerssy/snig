@@ -9,8 +9,6 @@ require("catppuccin").setup({
   },
   custom_highlights = function(colors)
     return {
-      CursorLine = { bg = colors.none },
-      ColorColumn = { bg = colors.none },
       StorageClass = { fg = colors.mauve },
       CmpItemKindStruct = { fg = colors.yellow },
       CmpItemKindEnum = { fg = colors.yellow },
