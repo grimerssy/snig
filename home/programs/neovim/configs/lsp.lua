@@ -46,6 +46,9 @@ local servers = {
         format = {
           enable = false,
         },
+        diagnostics = {
+          globals = { "vim" },
+        },
       },
     },
   },
@@ -56,29 +59,6 @@ local servers = {
   },
 }
 
-local function read_local_settings()
-  local path = vim.fn.getcwd() .. "/.lsp-settings.json"
-  local file = io.open(path, "r")
-  if not file then
-    return nil
-  end
-  local content = file:read("*all")
-  file:close()
-  local success, settings = pcall(vim.fn.json_decode, content)
-  if not success or type(settings) ~= "table" then
-    vim.notify("Failed to parse local settings", vim.log.levels.WARN)
-    return nil
-  end
-  return settings
-end
-
-local local_settings = read_local_settings() or {}
-
 for server, config in pairs(servers) do
-  config.settings =
-    vim.tbl_extend("force", config.settings or {}, local_settings)
-  if server == "rust_analyzer" then
-    RAC = config
-  end
   lsp_config[server].setup(config)
 end
