@@ -53,6 +53,13 @@ local servers = {
     },
   },
   rust_analyzer = {
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          command = "clippy",
+        },
+      },
+    },
     on_init = function(client, _)
       client.server_capabilities.semanticTokensProvider = nil
     end,
