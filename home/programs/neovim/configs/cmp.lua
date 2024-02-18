@@ -17,13 +17,21 @@ cmp.setup({
       scrolloff = 4,
       col_offset = -2,
     },
+    documentation = {
+      max_height = 15,
+      max_width = 60,
+    },
   },
   formatting = {
     fields = { "kind", "abbr" },
     format = lspkind.cmp_format({
       mode = "symbol",
-      maxwidth = 50,
+      maxwidth = 30,
       ellipsis_char = "...",
+      before = function(_, item)
+        item.menu = ""
+        return item
+      end,
     }),
   },
   mapping = cmp.mapping.preset.insert({

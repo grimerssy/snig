@@ -13,6 +13,7 @@ local options = {
 
   wrap = false,
   cmdheight = 1,
+  pumheight = 15,
   showmode = false,
   number = true,
   relativenumber = true,
