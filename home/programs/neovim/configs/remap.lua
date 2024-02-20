@@ -1,8 +1,6 @@
 local map = vim.keymap.set
 
-map({ "i", "s", "v", "x" }, "jk", [[<ESC>]])
-map({ "v", "s", "x" }, "<C-j>", [[j]])
-map({ "v", "s", "x" }, "<C-k>", [[k]])
+map({ "i" }, "jk", [[<ESC>]])
 
 map("n", "<C-r>", [[:redo<CR>]])
 map("n", "<C-d>", [[<C-d>zzzv]])
