@@ -2,18 +2,12 @@
   programs.neovim = with pkgs; {
     extraPackages = [
       nil
-      ltex-ls
-      (rust-bin.stable.latest.default.override {
-        extensions = [ "rust-src" "clippy" "rust-analyzer" ];
-      })
-      go
-      gopls
-      clang-tools
       lua-language-server
-      vscode-langservers-extracted
+      go
+      cargo
+      ltex-ls
+      vscode-langservers-extracted # jsonls
       nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      nodePackages."@tailwindcss/language-server"
     ];
     plugins = with vimPlugins; [
       lsp-zero-nvim

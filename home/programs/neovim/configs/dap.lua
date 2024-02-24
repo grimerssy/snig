@@ -31,6 +31,7 @@ dap.listeners.before.event_exited.dapui_config = function()
   dapui.close()
 end
 
+-- TODO: handle setup with docker cmd
 require("dap-go").setup()
 
 -- TODO: rust debugger when codelldb builds on aarch64-darwin
