@@ -6,6 +6,7 @@
     skhdConfig = let
       skhd = "${package}/bin/skhd";
       yabai = "${pkgs.yabai}/bin/yabai";
+      jq = "${pkgs.jq}/bin/jq";
     in ''
       rctrl - space : ${skhd} --key escape
 
@@ -16,7 +17,9 @@
 
       rctrl - return : open -n $HOME/Applications/Home\ Manager\ Apps/Alacritty.app
 
-      rctrl - n : ${yabai} -m space --create && \
+      rctrl - n : ${yabai} -m query --spaces --display | \
+                  ${jq} -re 'all(."is-native-fullscreen" | not)' && \
+                  ${yabai} -m space --create && \
                   ${yabai} -m window --space last && \
                   ${yabai} -m space --focus last
 

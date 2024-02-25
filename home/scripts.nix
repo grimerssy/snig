@@ -23,19 +23,19 @@ let
     launchctl load "$HOME/Library/LaunchAgents/org.nixos.yabai.plist"
   '';
   tmux-session = ''
-    ZOXIDE_RESULT=$(${zoxide} query "$1")
+    DIR_PATH=$(${zoxide} query "$1")
 
-    if [ $# -eq 0 ] || [ -z "$ZOXIDE_RESULT" ]; then
-      ZOXIDE_RESULT=$(${zoxide} query -l | ${fzf} --reverse)
+    if [ $# -eq 0 ] || [ -z "$DIR_PATH" ]; then
+      DIR_PATH=$(${zoxide} query -l | ${fzf} --reverse)
     fi
 
-    if [ -z "$ZOXIDE_RESULT" ]; then
+    if [ -z "$DIR_PATH" ]; then
       exit 0
     fi
 
     SESSION=$(\
-      basename "$ZOXIDE_RESULT" | ${tr} "." "-" \
-      )-$(echo "$ZOXIDE_RESULT" | ${sha256sum} | ${cut} -c-8)
+      basename "$DIR_PATH" | ${tr} "." "-" \
+      )-$(echo "$DIR_PATH" | ${sha256sum} | ${cut} -c-8)
 
     EXISTING_SESSION=$(${tmux} list-sessions \
       | ${rg} "$SESSION" \
@@ -43,7 +43,7 @@ let
     EXISTING_SESSION=''${EXISTING_SESSION//:/}
 
     if [ -z "$EXISTING_SESSION" ]; then
-        cd "$ZOXIDE_RESULT" || exit 
+        cd "$DIR_PATH" || exit
         ${tmux} new-session -d -s "$SESSION"
         ${tmux} send-keys -t "$SESSION:1" "${nvim} ." Enter
     fi
@@ -57,7 +57,7 @@ let
   '';
   destroy-empty-spaces = ''
     ${yabai} -m query --spaces --display | \
-      ${jq} -re 'all(."is-native-fullscreen" | not)' &> /dev/null || exit; \
+      ${jq} -re 'all(."is-native-fullscreen" | not)' || exit; \
     hidden_windows=$(${yabai} -m query --windows | ${jq} 'map(select(."is-hidden")) | map(."id")'); \
     ${yabai} -m query --spaces --display | \
       ${jq} -re "map(select((.\"has-focus\" | not) and (\
