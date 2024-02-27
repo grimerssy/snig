@@ -17,8 +17,6 @@
         "${eza} -F --group-directories-first --no-user --no-time --color-scale --icons";
       ll = "${ls} -l";
       nix-shell = "nix-shell --command fish";
-      dcu = "docker compose up --build";
-      dcr = "docker compose run --build --rm";
     };
     shellInit = ''
       set fish_greeting
