@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   nvim = "nvim";
   xargs = "xargs";
   jq = "${pkgs.jq}/bin/jq";

@@ -1,5 +1,4 @@
-{ ... }:
-self: super: {
+{...}: self: super: {
   gitui = super.gitui.overrideAttrs (old: rec {
     src = super.fetchFromGitHub {
       owner = "hendrikmaus";

@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  services.yabai = let package = pkgs.yabai;
+{pkgs, ...}: {
+  services.yabai = let
+    package = pkgs.yabai;
   in {
     inherit package;
     enable = true;
@@ -29,7 +30,8 @@
       mouse_action1 = "move";
       mouse_action2 = "resize";
     };
-    extraConfig = let yabai = "${package}/bin/yabai";
+    extraConfig = let
+      yabai = "${package}/bin/yabai";
     in ''
       ${yabai} -m signal --add event=space_changed action="~/.nix-profile/bin/destroy-empty-spaces"
       ${yabai} -m signal --add event=window_destroyed action="yabai -m window --focus mouse"

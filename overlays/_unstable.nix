@@ -1,4 +1,3 @@
-{ unstable, ... }:
-self: super: {
-  unstable = import unstable { system = super.system; };
+{unstable, ...}: self: super: {
+  unstable = import unstable {system = super.system;};
 }

@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.neovim = with pkgs; {
     extraPackages = [
       shellcheck
-      nixfmt
+      alejandra
       stylua
       nodePackages.prettier
       rustfmt
@@ -17,6 +17,6 @@
       rustywind
       codespell
     ];
-    plugins = with vimPlugins; [ none-ls-nvim ];
+    plugins = with vimPlugins; [none-ls-nvim];
   };
 }

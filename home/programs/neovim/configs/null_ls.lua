@@ -15,7 +15,7 @@ end)
 null_ls.setup({
   sources = {
     code_actions.shellcheck,
-    formatting.nixfmt,
+    formatting.alejandra,
     formatting.stylua,
     formatting.prettier,
     formatting.rustfmt,

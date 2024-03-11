@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     comma
     fd
@@ -19,6 +19,6 @@
     flyctl
     tectonic
     nix-index
-    (uutils-coreutils.override { prefix = ""; })
+    (uutils-coreutils.override {prefix = "";})
   ];
 }

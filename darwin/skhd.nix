@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  services.skhd = let package = pkgs.skhd;
+{pkgs, ...}: {
+  services.skhd = let
+    package = pkgs.skhd;
   in {
     inherit package;
     enable = true;

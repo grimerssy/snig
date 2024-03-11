@@ -1,1 +1,5 @@
-{ ... }: { home = { sessionVariables = { GOPATH = "$HOME/.go"; }; }; }
+{...}: {
+  home.sessionVariables = {
+    GOPATH = "$HOME/.go";
+  };
+}
