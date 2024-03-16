@@ -15,11 +15,15 @@
   template = ''
     nix flake $1 --template github:grimerssy/flakes#$2 ''${@:3}
   '';
-  restart-de = ''
-    launchctl unload "$HOME/Library/LaunchAgents/org.nixos.skhd.plist"
-    launchctl unload "$HOME/Library/LaunchAgents/org.nixos.yabai.plist"
-    launchctl load "$HOME/Library/LaunchAgents/org.nixos.skhd.plist"
-    launchctl load "$HOME/Library/LaunchAgents/org.nixos.yabai.plist"
+  restart-de = let
+    launchAgent = service: "$HOME/Library/LaunchAgents/org.nixos.${service}.plist";
+    yabai = launchAgent "yabai";
+    skhd = launchAgent "skhd";
+  in ''
+    launchctl unload "${skhd}"
+    launchctl unload "${yabai}"
+    launchctl load "${skhd}"
+    launchctl load "${yabai}"
   '';
   tmux-session = ''
     DIR_PATH=$(${zoxide} query "$1")
