@@ -41,7 +41,7 @@
           ''
         ]
 
-        [hyper "e" "${yabai} -m space --balance"]
+        [hyper "b" "${yabai} -m space --balance"]
 
         [hyper "v" "${yabai} -m window --toggle split"]
 
@@ -90,7 +90,13 @@
             })
             (builtins.genList (x: x + 1) 10)
           );
-        focus = key: space: [
+        windows = {
+          u = "north";
+          d = "south";
+          w = "west";
+          e = "east";
+        };
+        focusSpace = key: space: [
           hyper
           key
           "${yabai} -m space --focus ${space}"
@@ -100,11 +106,25 @@
           key
           "${yabai} -m window --space ${space}"
         ];
+        focusWindow = key: window: [
+          hyper
+          key
+          "${yabai} -m window --focus ${window}"
+        ];
+        swapWindow = key: window: [
+          (hyper ++ ["cmd"])
+          key
+          "${yabai} -m window --swap ${window}"
+        ];
+        applyHotkeys = keymap: builtins.concatMap (hotkey: mapSet hotkey keymap);
       in
-        builtins.concatMap (hotkey: mapSet hotkey spaces) [focus sendWindow];
+        builtins.concatMap (bind applyHotkeys) [
+          [spaces [focusSpace sendWindow]]
+          [windows [focusWindow swapWindow]]
+        ];
 
       mod = x: y: x - x / y * y;
-      mapSet = f: set: map (name: f name set.${name}) (builtins.attrNames set);
+      mapSet = f: set: map (field: f field set.${field}) (builtins.attrNames set);
       keysym = mods: key:
         builtins.concatStringsSep " - " (
           if builtins.length mods != 0
