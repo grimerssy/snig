@@ -6,7 +6,6 @@ local configs = {
   "cmp",
   "lsp",
   "dap",
-  "null_ls",
   "luasnip",
   "copilot",
 

@@ -25,27 +25,38 @@ lsp_zero.on_attach(function(_, bufnr)
   map("n", "gr", telescope("references"), opts)
   map("n", "gi", telescope("implementations"), opts)
   map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+  map("n", "<leader>;", function()
+    vim.lsp.buf.format({
+      filter = function(client)
+        return client.supports_method("textDocument/formatting")
+      end,
+    })
+  end, opts)
 end)
 
 local servers = {
-  ltex = {},
-  nil_ls = {},
+  typos_lsp = {},
+  jsonls = {},
+  tailwindcss = {},
+  dockerls = {},
+  bashls = {},
+  ccls = {},
   gopls = {},
   tsserver = {},
-  tailwindcss = {},
-  clangd = {},
-  bashls = {},
-  jsonls = {
-    init_options = {
-      provideFormatter = false,
+  nil_ls = {
+    settings = {
+      ["nil"] = {
+        formatting = {
+          command = {
+            "nixpkgs-fmt"
+          }
+        }
+      },
     },
   },
   lua_ls = {
     settings = {
       Lua = {
-        format = {
-          enable = false,
-        },
         diagnostics = {
           globals = { "vim" },
         },

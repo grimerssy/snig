@@ -1,13 +1,18 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.neovim = with pkgs; {
     extraPackages = [
+      typos-lsp
+      vscode-langservers-extracted # jsonls
+      tailwindcss-language-server
+      dockerfile-language-server-nodejs
+      nodePackages.bash-language-server
+      ccls
       nil
+      nixpkgs-fmt
       lua-language-server
       go
+      nodePackages.typescript-language-server
       cargo
-      ltex-ls
-      vscode-langservers-extracted # jsonls
-      nodePackages.bash-language-server
     ];
     plugins = with vimPlugins; [
       lsp-zero-nvim
