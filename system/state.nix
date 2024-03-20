@@ -1,3 +1,3 @@
-{...}: {
+{ ... }: {
   system.stateVersion = 4;
 }

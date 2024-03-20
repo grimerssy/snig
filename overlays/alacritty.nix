@@ -1,4 +1,4 @@
-{...}: self: super: {
+{ ... }: self: super: {
   alacritty = super.alacritty.overrideAttrs (old: rec {
     src = super.fetchFromGitHub {
       owner = "grimerssy";

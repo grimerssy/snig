@@ -1,8 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   sudoFile = "/etc/pam.d/sudo";
   sudoTouchIdOption = "security.pam.enableSudoTouchIdAuth";
   sed = "${pkgs.gnused}/bin/sed";
@@ -21,7 +21,8 @@
       ${sed} -i '/${sudoTouchIdOption}/d' ${sudoFile}
     fi
   '';
-in {
+in
+{
   config = {
     system.activationScripts.extraActivation.text = ''
       echo >&2 "setting up pam..."

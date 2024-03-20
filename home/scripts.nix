@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   nvim = "nvim";
   xargs = "xargs";
   jq = "${pkgs.jq}/bin/jq";
@@ -15,16 +16,18 @@
   template = ''
     nix flake $1 --template github:grimerssy/flakes#$2 ''${@:3}
   '';
-  restart-de = let
-    launchAgent = service: "$HOME/Library/LaunchAgents/org.nixos.${service}.plist";
-    yabai = launchAgent "yabai";
-    skhd = launchAgent "skhd";
-  in ''
-    launchctl unload "${skhd}"
-    launchctl unload "${yabai}"
-    launchctl load "${skhd}"
-    launchctl load "${yabai}"
-  '';
+  restart-de =
+    let
+      launchAgent = service: "$HOME/Library/LaunchAgents/org.nixos.${service}.plist";
+      yabai = launchAgent "yabai";
+      skhd = launchAgent "skhd";
+    in
+    ''
+      launchctl unload "${skhd}"
+      launchctl unload "${yabai}"
+      launchctl load "${skhd}"
+      launchctl load "${yabai}"
+    '';
   tmux-session = ''
     DIR_PATH=$(${zoxide} query "$1")
 
@@ -68,7 +71,8 @@
         ) == []).index) | reverse | .[]" | \
       ${xargs} -I % sh -c '${yabai} -m space % --destroy'
   '';
-in {
+in
+{
   home.packages = [
     (pkgs.writeScriptBin "template" template)
     (pkgs.writeScriptBin "restart-de" restart-de)

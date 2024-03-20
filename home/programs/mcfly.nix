@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.mcfly = {
     enable = true;
     enableFishIntegration = false;

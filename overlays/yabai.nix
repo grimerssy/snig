@@ -1,3 +1,3 @@
-{...}: self: super: {
+{ ... }: self: super: {
   yabai = super.unstable.yabai;
 }
