@@ -72,6 +72,11 @@ local servers = {
         checkOnSave = {
           command = "clippy",
         },
+        files = {
+          excludeDirs = {
+            ".direnv",
+          },
+        },
       },
     },
   },
