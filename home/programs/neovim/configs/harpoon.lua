@@ -1,14 +1,14 @@
-local harpoon = require("harpoon.mark")
-local harpoon_ui = require("harpoon.ui")
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
 
 local map = vim.keymap.set
 
-map("n", "<leader>m", harpoon.add_file)
-map("n", "<leader>e", harpoon_ui.toggle_quick_menu)
+map("n", "<leader>m", mark.add_file)
+map("n", "<leader>e", ui.toggle_quick_menu)
 
 local function nav_file(file)
   return function()
-    harpoon_ui.nav_file(file)
+    ui.nav_file(file)
   end
 end
 

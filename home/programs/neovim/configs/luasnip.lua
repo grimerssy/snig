@@ -1,16 +1,16 @@
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local ls = require("luasnip")
+local luasnip = require("luasnip")
 
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
+local s = luasnip.snippet
+local t = luasnip.text_node
+local i = luasnip.insert_node
 
 vim.keymap.set({ "i", "s" }, "<C-l>", function()
-  ls.jump(1)
+  luasnip.jump(1)
 end)
 
-ls.add_snippets("rust", {
+luasnip.add_snippets("rust", {
   s("tests", {
     t({ "#[cfg(test)]", "mod tests {", "    " }),
     i(1),

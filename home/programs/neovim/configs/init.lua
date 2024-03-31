@@ -22,7 +22,7 @@ local configs = {
   "scrollbar",
 
   "remap",
-  "yank_highlight",
+  "yankhl",
 }
 
 for _, name in ipairs(configs) do

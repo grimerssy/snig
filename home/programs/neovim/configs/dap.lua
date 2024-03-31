@@ -1,5 +1,5 @@
 local dap = require("dap")
-local dapui = require("dapui")
+local ui = require("dapui")
 
 local map = vim.keymap.set
 
@@ -16,19 +16,19 @@ map("n", "<leader>do", dap.step_out)
 map("n", "<leader>dr", dap.repl.open)
 map("n", "<leader>dd", dap.disconnect)
 
-dapui.setup({})
+ui.setup({})
 
 dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
+  ui.open()
 end
 dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
+  ui.open()
 end
 dap.listeners.before.event_terminated.dapui_config = function()
-  dapui.close()
+  ui.close()
 end
 dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
+  ui.close()
 end
 
 -- TODO: handle setup with docker cmd

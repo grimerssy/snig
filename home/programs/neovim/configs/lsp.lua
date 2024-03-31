@@ -1,5 +1,5 @@
-local lsp_zero = require("lsp-zero")
-local lsp_config = require("lspconfig")
+local lspzero = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 local map = vim.keymap.set
 
@@ -16,9 +16,9 @@ local function telescope(command)
   end
 end
 
-lsp_zero.on_attach(function(_, bufnr)
+lspzero.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr }
-  lsp_zero.default_keymaps(opts)
+  lspzero.default_keymaps(opts)
   map("n", "<C-h>", vim.lsp.buf.hover, opts)
   map("n", "<leader>n", vim.lsp.buf.rename, opts)
   map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -88,5 +88,5 @@ local servers = {
 }
 
 for server, config in pairs(servers) do
-  lsp_config[server].setup(config)
+  lspconfig[server].setup(config)
 end
