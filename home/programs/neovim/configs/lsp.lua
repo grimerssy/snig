@@ -69,6 +69,11 @@ local servers = {
     end,
     settings = {
       ["rust-analyzer"] = {
+        completion = {
+          postfix = {
+            enable = false,
+          },
+        },
         checkOnSave = {
           command = "clippy",
         },
