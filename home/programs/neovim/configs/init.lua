@@ -7,7 +7,6 @@ local configs = {
   "lsp",
   "dap",
   "luasnip",
-  "copilot",
 
   "telescope",
   "treesitter",
