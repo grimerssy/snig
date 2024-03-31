@@ -4,7 +4,10 @@
     userName = "Stanislav Stoyanov";
     userEmail = "grimerssy@gmail.com";
     delta.enable = true;
-    ignores = [ "**/.direnv/" "**/.DS_Store" ];
+    ignores = [
+      "**/.direnv/"
+      "**/.DS_Store"
+    ];
     signing = {
       key = null;
       signByDefault = true;
