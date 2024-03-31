@@ -7,6 +7,7 @@ local configs = {
   "lsp",
   "dap",
   "luasnip",
+  "crates",
 
   "telescope",
   "treesitter",

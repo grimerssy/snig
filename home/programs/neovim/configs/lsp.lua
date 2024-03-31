@@ -3,8 +3,6 @@ local lspconfig = require("lspconfig")
 
 local map = vim.keymap.set
 
-require("crates").setup()
-
 vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
