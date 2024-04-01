@@ -1,5 +1,13 @@
 local cmp = require("cmp")
+local luasnip = require("luasnip")
 local lspkind = require("lspkind")
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+local map = vim.keymap.set
+
+map({ "i", "s" }, "<TAB>", function() luasnip.jump(1) end)
+map({ "i", "s" }, "<S-TAB>", function() luasnip.jump(-1) end)
 
 cmp.setup({
   preselect = cmp.PreselectMode.None,
@@ -11,6 +19,11 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
   }),
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
   window = {
     completion = {
       scrollbar = false,
@@ -40,5 +53,38 @@ cmp.setup({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+  }),
+})
+
+local s = luasnip.snippet
+local t = luasnip.text_node
+local i = luasnip.insert_node
+
+luasnip.add_snippets("rust", {
+  s("tests", {
+    t({ "#[cfg(test)]", "mod tests {", "    use super::*;", "", "    " }),
+    i(1),
+    t({ "", "}" }),
+  }),
+  s("tokio-main", {
+    t({ "#[tokio::main]", "async fn main() {", "    " }),
+    i(1, "unimplemented!();"),
+    t({ "", "}" }),
+  }),
+  s("tokio-test", {
+    t({ "#[tokio::test]", "async fn " }),
+    i(1, "it_works"),
+    t({ "() {", "    " }),
+    i(2, "unimplemented!();"),
+    t({ "", "}" }),
+  }),
+  s("sqlx-test", {
+    t({ "#[sqlx::test]", "async fn " }),
+    i(1, "it_works"),
+    t("("),
+    i(2, "param: Type"),
+    t({ ") {", "    " }),
+    i(3, "unimplemented!();"),
+    t({ "", "}" }),
   }),
 })
