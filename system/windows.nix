@@ -9,8 +9,6 @@
       enable = true;
       enableScriptingAddition = true;
       config = {
-        mouse_follows_focus = "on";
-        focus_follows_mouse = "autoraise";
         layout = "bsp";
         split_ratio = "0.5";
         split_type = "auto";

@@ -3,25 +3,25 @@
     enable = true;
     keyConfig =
       let
-        justChar = char: "( code: Char('${char}'), modifiers: ( bits: 0,),)";
+        key = char: "Some(( code: Char('${char}'), modifiers: ( bits: 0,),))";
       in
       ''
         (
-          move_left: Some(${justChar "h"}),
-          move_down: Some(${justChar "j"}),
-          move_up: Some(${justChar "k"}),
-          move_right: Some(${justChar "l"}),
+          move_left: ${key "h"},
+          move_down: ${key "j"},
+          move_up: ${key "k"},
+          move_right: ${key "l"},
         )
       '';
     theme =
       let
-        terminalBg = "Rgb(48, 52, 70)";
+        terminalBg = "Some(Rgb(48, 52, 70))";
       in
       ''
         (
-          push_gauge_fg: Some(${terminalBg}),
-          command_fg: Some(${terminalBg}),
-          selection_fg: Some(${terminalBg}),
+          push_gauge_fg: ${terminalBg},
+          command_fg: ${terminalBg},
+          selection_fg: ${terminalBg},
         )
       '';
   };
