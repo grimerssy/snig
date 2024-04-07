@@ -32,6 +32,8 @@
       nodePackages.typescript-language-server
 
       cargo
+      texlab
+      tectonic
     ];
     plugins = with pkgs.vimPlugins; [
       oil-nvim

@@ -30,6 +30,7 @@ lspzero.on_attach(function(_, bufnr)
       end,
     })
   end, opts)
+  map("n", "<leader>b", vim.cmd.TexlabBuild, opts)
 end)
 
 local servers = {
@@ -76,6 +77,21 @@ local servers = {
           excludeDirs = {
             ".direnv",
           },
+        },
+      },
+    },
+  },
+  texlab = {
+    settings = {
+      texlab = {
+        build = {
+          executable = "tectonic",
+          args = { "%f" },
+          forwardSearchAfter = true,
+        },
+        forwardSearch = {
+          executable = "open",
+          args = { "%p" },
         },
       },
     },
