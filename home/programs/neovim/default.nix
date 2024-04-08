@@ -9,7 +9,7 @@
 
       tree-sitter
 
-      typos-lsp
+      ltex-ls
 
       vscode-langservers-extracted # jsonls
 
@@ -32,6 +32,7 @@
       nodePackages.typescript-language-server
 
       cargo
+
       texlab
       tectonic
     ];

@@ -34,7 +34,7 @@ lspzero.on_attach(function(_, bufnr)
 end)
 
 local servers = {
-  typos_lsp = {},
+  ltex = {},
   jsonls = {},
   tailwindcss = {},
   dockerls = {},
