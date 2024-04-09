@@ -1,5 +1,6 @@
 local lspzero = require("lsp-zero")
 local lspconfig = require("lspconfig")
+local null_ls = require("null-ls")
 
 local map = vim.keymap.set
 
@@ -13,6 +14,12 @@ local function telescope(command)
     vim.cmd.Telescope("lsp_" .. command)
   end
 end
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettierd,
+  },
+})
 
 lspzero.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr }

@@ -35,6 +35,8 @@
 
       texlab
       tectonic
+
+      prettierd
     ];
     plugins = with pkgs.vimPlugins; [
       oil-nvim
@@ -61,6 +63,7 @@
 
       lsp-zero-nvim
       nvim-lspconfig
+      none-ls-nvim
 
       crates-nvim
 
