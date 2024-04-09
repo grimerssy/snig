@@ -15,96 +15,97 @@ local function telescope(command)
   end
 end
 
+local function format()
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.supports_method("textDocument/formatting")
+          and client.name ~= "tsserver"
+    end,
+  })
+end
+
+lspzero.on_attach(function(client, bufnr)
+  local opts = { buffer = bufnr }
+  lspzero.default_keymaps(opts)
+  map("n", "<leader>;", format, opts)
+  map("n", "<leader>n", vim.lsp.buf.rename, opts)
+  map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  map("n", "gr", telescope("references"), opts)
+  map("n", "gi", telescope("implementations"), opts)
+  map("n", "<C-h>", vim.lsp.buf.hover, opts)
+  map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+  if client.name == "texlab" then
+    map("n", "<leader>b", vim.cmd.TexlabBuild, opts)
+    map("n", "<leader>o", vim.cmd.TexlabForward, opts)
+  end
+end)
+
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettierd,
   },
 })
 
-lspzero.on_attach(function(_, bufnr)
-  local opts = { buffer = bufnr }
-  lspzero.default_keymaps(opts)
-  map("n", "<C-h>", vim.lsp.buf.hover, opts)
-  map("n", "<leader>n", vim.lsp.buf.rename, opts)
-  map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-  map("n", "gr", telescope("references"), opts)
-  map("n", "gi", telescope("implementations"), opts)
-  map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-  map("n", "<leader>;", function()
-    vim.lsp.buf.format({
-      filter = function(client)
-        return client.supports_method("textDocument/formatting")
-      end,
-    })
-  end, opts)
-  map("n", "<leader>b", vim.cmd.TexlabBuild, opts)
-end)
+lspconfig.ltex.setup({})
+lspconfig.jsonls.setup({})
+lspconfig.tailwindcss.setup({})
+lspconfig.dockerls.setup({})
+lspconfig.bashls.setup({})
+lspconfig.ccls.setup({})
+lspconfig.gopls.setup({})
+lspconfig.tsserver.setup({})
 
-local servers = {
-  ltex = {},
-  jsonls = {},
-  tailwindcss = {},
-  dockerls = {},
-  bashls = {},
-  ccls = {},
-  gopls = {},
-  tsserver = {},
-  nil_ls = {
-    settings = {
-      ["nil"] = {
-        formatting = {
-          command = {
-            "nixpkgs-fmt"
-          }
-        }
+lspconfig.nil_ls.setup({
+  settings = {
+    ["nil"] = {
+      formatting = {
+        command = { "nixpkgs-fmt" },
       },
     },
   },
-  lua_ls = {
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-      },
-    },
-  },
-  rust_analyzer = {
-    settings = {
-      ["rust-analyzer"] = {
-        completion = {
-          postfix = {
-            enable = false,
-          },
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
-        files = {
-          excludeDirs = {
-            ".direnv",
-          },
-        },
-      },
-    },
-  },
-  texlab = {
-    settings = {
-      texlab = {
-        build = {
-          executable = "tectonic",
-          args = { "%f" },
-          forwardSearchAfter = true,
-        },
-        forwardSearch = {
-          executable = "open",
-          args = { "%p" },
-        },
-      },
-    },
-  },
-}
+})
 
-for server, config in pairs(servers) do
-  lspconfig[server].setup(config)
-end
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
+lspconfig.rust_analyzer.setup({
+  settings = {
+    ["rust-analyzer"] = {
+      completion = {
+        postfix = {
+          enable = false,
+        },
+      },
+      checkOnSave = {
+        command = "clippy",
+      },
+      files = {
+        excludeDirs = {
+          ".direnv",
+        },
+      },
+    },
+  },
+})
+
+lspconfig.texlab.setup({
+  settings = {
+    texlab = {
+      build = {
+        executable = "tectonic",
+        args = { "%f" },
+      },
+      forwardSearch = {
+        executable = "open",
+        args = { "%p" },
+      },
+    },
+  },
+})

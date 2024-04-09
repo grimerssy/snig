@@ -26,7 +26,7 @@ local left = literal("")
 local right = literal("")
 
 local function has_git_context()
-  return not (git.get_branch() == "")
+  return git.get_branch() ~= ""
 end
 
 lualine.setup({
@@ -56,7 +56,7 @@ lualine.setup({
           align = "right",
         },
         padding = 0,
-      },
+      }
     },
     lualine_z = { { right, padding = 0, cond = has_git_context } },
   },
