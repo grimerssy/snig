@@ -3,7 +3,7 @@
     enable = true;
     keyConfig =
       let
-        key = char: "Some(( code: Char('${char}'), modifiers: ( bits: 0,),))";
+        key = char: ''Some(( code: Char('${char}'), modifiers: ""))'';
       in
       ''
         (
