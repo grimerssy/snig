@@ -39,37 +39,39 @@ let
     fi
 
     SESSION=$(\
-      basename "$DIR_PATH" | ${tr} "." "-" \
+      basename "$DIR_PATH" | ${tr} "." "-"\
     )-$(\
-      echo "$DIR_PATH" | ${sha256sum} | ${cut} -c-8 \
+      echo "$DIR_PATH" | ${sha256sum} | ${cut} -c-8\
     )
 
-    EXISTING_SESSION=$(${tmux} list-sessions \
-      | ${rg} "$SESSION" \
-      | ${awk} '{print $1}')
+    EXISTING_SESSION=$(\
+      ${tmux} list-sessions\
+      | ${rg} "$SESSION"\
+      | ${awk} '{print $1}'\
+    )
     EXISTING_SESSION=''${EXISTING_SESSION//:/}
 
     if [ -z "$EXISTING_SESSION" ]; then
-        cd "$DIR_PATH" || exit
-        ${tmux} new-session -d -s "$SESSION"
+      cd "$DIR_PATH" || exit
+      ${tmux} new-session -d -s "$SESSION"
     fi
 
     if [ -z "$TMUX" ]; then
-        ${tmux} attach -t "$EXISTING_SESSION"
-        exit 0
+      ${tmux} attach -t "$EXISTING_SESSION"
+      exit 0
     fi
 
     ${tmux} switch-client -t "$SESSION"
   '';
   destroy-empty-spaces = ''
-    ${yabai} -m query --spaces --display | \
-      ${jq} -re 'all(."is-native-fullscreen" | not)' || exit; \
-    hidden_windows=$(${yabai} -m query --windows | ${jq} 'map(select(."is-hidden")) | map(."id")'); \
-    ${yabai} -m query --spaces --display | \
-      ${jq} -re "map(select((.\"has-focus\" | not) and (\
+    ${yabai} -m query --spaces --display |\
+      ${jq} -re 'all(."is-native-fullscreen" | not)' || exit;\
+    hidden_windows=$(${yabai} -m query --windows | ${jq} 'map(select(."is-hidden")) | map(."id")');\
+    ${yabai} -m query --spaces --display\
+      | ${jq} -re "map(select((.\"has-focus\" | not) and (\
         .\"windows\" | map(select(. as \$window | $hidden_windows | index(\$window) | not))\
-        ) == []).index) | reverse | .[]" | \
-      ${xargs} -I % sh -c '${yabai} -m space % --destroy'
+      ) == []).index) | reverse | .[]"\
+      | ${xargs} -I % sh -c '${yabai} -m space % --destroy'
   '';
 in
 {
