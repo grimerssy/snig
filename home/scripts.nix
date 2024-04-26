@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-  nvim = "nvim";
   xargs = "xargs";
   jq = "${pkgs.jq}/bin/jq";
   fzf = "${pkgs.fzf}/bin/fzf";
@@ -41,7 +40,9 @@ let
 
     SESSION=$(\
       basename "$DIR_PATH" | ${tr} "." "-" \
-      )-$(echo "$DIR_PATH" | ${sha256sum} | ${cut} -c-8)
+    )-$(\
+      echo "$DIR_PATH" | ${sha256sum} | ${cut} -c-8 \
+    )
 
     EXISTING_SESSION=$(${tmux} list-sessions \
       | ${rg} "$SESSION" \
@@ -51,7 +52,6 @@ let
     if [ -z "$EXISTING_SESSION" ]; then
         cd "$DIR_PATH" || exit
         ${tmux} new-session -d -s "$SESSION"
-        ${tmux} send-keys -t "$SESSION:1" "${nvim} ." Enter
     fi
 
     if [ -z "$TMUX" ]; then
