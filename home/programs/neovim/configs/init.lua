@@ -6,6 +6,7 @@ local configs = {
   "cmp",
   "lsp",
   "dap",
+  "luasnip",
   "crates",
 
   "telescope",
