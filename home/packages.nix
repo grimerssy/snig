@@ -4,7 +4,6 @@
     fd
     xcp
     bottom
-    curlie
     ffmpeg
     du-dust
     ripgrep
