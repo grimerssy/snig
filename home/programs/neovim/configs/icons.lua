@@ -16,10 +16,22 @@ require("nvim-web-devicons").setup({
       color = "#7345b6",
       name = "Terraform",
     },
+    http = {
+      icon = "",
+      color = "#255998",
+      name = "HTTP",
+    },
     tape = {
       icon = "󰨜",
       color = "#6948f6",
       name = "VHS",
     },
   },
+  override_by_filename = {
+    [".envrc"] = {
+      icon = "",
+      color = "#414395",
+      name = "Direnv",
+    }
+  }
 })
