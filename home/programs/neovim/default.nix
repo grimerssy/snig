@@ -9,8 +9,6 @@
 
       tree-sitter
 
-      ltex-ls
-
       vscode-langservers-extracted # jsonls
 
       tailwindcss-language-server

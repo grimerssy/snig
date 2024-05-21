@@ -46,7 +46,6 @@ null_ls.setup({
   },
 })
 
-lspconfig.ltex.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.tailwindcss.setup({})
 lspconfig.dockerls.setup({})
