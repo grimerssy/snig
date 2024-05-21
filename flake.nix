@@ -52,7 +52,6 @@
         inherit system;
         specialArgs = { inherit user; };
         modules = builtins.concatLists [
-          (nixFiles ./modules)
           (nixFiles ./system)
           [
             home-manager.darwinModules.home-manager
