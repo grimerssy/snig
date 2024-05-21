@@ -1,22 +1,17 @@
 { pkgs, ... }: {
   programs.fish =
     let
-      nvim = "nvim";
-      bat = "${pkgs.bat}/bin/bat";
+      nvim = "${pkgs.neovim}/bin/nvim";
       eza = "${pkgs.eza}/bin/eza";
-      tldr = "${pkgs.tldr}/bin/tldr";
       tmux = "${pkgs.tmux}/bin/tmux";
     in
     {
       enable = true;
-      shellAliases = rec {
+      shellAliases = {
         v = nvim;
+        ls = "${eza} --group-directories-first --no-user --no-time";
         s = "tmux-session";
         a = "${tmux} attach";
-        boy = tldr;
-        cat = "${bat} --paging=never";
-        ls = "${eza} -F --group-directories-first --no-user --no-time --color-scale --icons";
-        ll = "${ls} -l";
         apply = "template init";
         nix-shell = "nix-shell --command fish";
       };
