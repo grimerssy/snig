@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.fish =
     let
-      nvim = "${pkgs.neovim}/bin/nvim";
+      nvim = "nvim";
       eza = "${pkgs.eza}/bin/eza";
       tmux = "${pkgs.tmux}/bin/tmux";
     in
