@@ -4,6 +4,7 @@
     jq
     fd
     xcp
+    tldr
     bottom
     httpie
     ffmpeg
