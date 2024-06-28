@@ -11,6 +11,5 @@
     du-dust
     ripgrep
     nix-index
-    (uutils-coreutils.override { prefix = ""; })
   ];
 }

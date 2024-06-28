@@ -2,14 +2,12 @@
   programs.fish =
     let
       nvim = "nvim";
-      eza = "${pkgs.eza}/bin/eza";
       tmux = "${pkgs.tmux}/bin/tmux";
     in
     {
       enable = true;
       shellAliases = {
         v = nvim;
-        ls = "${eza} --group-directories-first --no-user --no-time";
         s = "tmux-session";
         a = "${tmux} attach";
         apply = "template init";

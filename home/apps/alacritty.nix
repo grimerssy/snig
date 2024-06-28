@@ -5,7 +5,6 @@
       cursor.style.blinking = "Never";
       font = {
         size = 17;
-        ligatures = true;
         normal = {
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
@@ -37,40 +36,38 @@
           x = 15;
           y = 15;
         };
-        history = 10000;
         decorations = "buttonless";
-        semantic_escape_chars = "',│`|:\"'' ()[]{}<>'";
-        save_to_clipboard = true;
-        live_config_reload = true;
       };
 
-      key_bindings = [
-        {
-          key = "V";
-          mods = "Control|Shift";
-          action = "Paste";
-        }
-        {
-          key = "C";
-          mods = "Control|Shift";
-          action = "Copy";
-        }
-        {
-          key = "Return";
-          mods = "Control";
-          action = "ResetFontSize";
-        }
-        {
-          key = "Equals";
-          mods = "Control";
-          action = "IncreaseFontSize";
-        }
-        {
-          key = "Minus";
-          mods = "Control";
-          action = "DecreaseFontSize";
-        }
-      ];
+      keyboard = {
+        bindings = [
+          {
+            key = "V";
+            mods = "Control|Shift";
+            action = "Paste";
+          }
+          {
+            key = "C";
+            mods = "Control|Shift";
+            action = "Copy";
+          }
+          {
+            key = "Return";
+            mods = "Control";
+            action = "ResetFontSize";
+          }
+          {
+            key = "Equals";
+            mods = "Control";
+            action = "IncreaseFontSize";
+          }
+          {
+            key = "Minus";
+            mods = "Control";
+            action = "DecreaseFontSize";
+          }
+        ];
+      };
       colors = {
         primary = {
           background = "#303446";
@@ -94,10 +91,6 @@
           focused_match = {
             foreground = "#303446";
             background = "#A6D189";
-          };
-          footer_bar = {
-            foreground = "#303446";
-            background = "#A5ADCE";
           };
         };
         hints = {

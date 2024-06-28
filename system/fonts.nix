@@ -4,8 +4,7 @@ let
 in
 {
   fonts = {
-    fontDir.enable = true;
-    fonts = [
+    packages = [
       (pkgs.nerdfonts.override { inherit fonts; })
     ];
   };
