@@ -50,7 +50,7 @@
     {
       darwinConfigurations.${host} = darwin.lib.darwinSystem {
         inherit system;
-        specialArgs = { inherit user; };
+        specialArgs = { inherit user host; };
         modules = builtins.concatLists [
           (nixFiles ./system)
           [
