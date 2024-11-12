@@ -39,6 +39,8 @@
 
       bind C-s display-popup -E "tmux-session"
 
+      bind-key . run-shell 'open -R "$(tmux display-message -p "#{pane_current_path}")"'
+
       set -g pane-border-style fg=brightblack
       set -g pane-active-border-style fg=brightblack
 
