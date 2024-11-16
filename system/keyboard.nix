@@ -108,8 +108,13 @@
                 key
                 "${yabai} -m space --focus ${space}"
               ];
-              sendWindow = key: space: [
+              moveSpace = key: space: [
                 (hyper ++ [ "cmd" ])
+                key
+                "${yabai} -m space --move ${space}"
+              ];
+              sendWindow = key: space: [
+                (hyper ++ [ "alt" ])
                 key
                 "${yabai} -m window --space ${space}"
               ];
@@ -126,7 +131,7 @@
               applyHotkeys = keymap: builtins.concatMap (hotkey: mapSet hotkey keymap);
             in
             builtins.concatMap (bind applyHotkeys) [
-              [ spaces [ focusSpace sendWindow ] ]
+              [ spaces [ focusSpace moveSpace sendWindow ] ]
               [ windows [ focusWindow swapWindow ] ]
             ];
 
