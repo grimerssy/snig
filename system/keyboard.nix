@@ -25,16 +25,20 @@
           hyper = [ "rctrl" ];
 
           skhd = "${package}/bin/skhd";
-          yabai = "${pkgs.yabai}/bin/yabai";
+          xargs = "xargs";
+          sh = "${pkgs.bash}/bin/sh";
           jq = "${pkgs.jq}/bin/jq";
+          yabai = "${pkgs.yabai}/bin/yabai";
           alacritty = "$HOME/Applications/Home\\ Manager\\ Apps/Alacritty.app";
 
           newSpaceForWindow = ''
-            ${yabai} -m query --spaces --display | \
-            ${jq} -re 'all(."is-native-fullscreen" | not)' && \
             ${yabai} -m space --create && \
-            ${yabai} -m window --space last && \
-            ${yabai} -m space --focus last \
+            ${yabai} -m query --spaces --display | \
+            ${jq} -re '[.[] | select(."is-native-fullscreen" | not)][-1].index' | \
+            ${xargs} ${sh} -c '\
+            ${yabai} -m window --space $1 && \
+            ${yabai} -m space --focus $1 \
+            ' _ \
           '';
 
           hotkeys = [
