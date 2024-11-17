@@ -31,10 +31,14 @@
           yabai = "${pkgs.yabai}/bin/yabai";
           alacritty = "$HOME/Applications/Home\\ Manager\\ Apps/Alacritty.app";
 
+          lastNonFullscreenSpace = ''
+            ${yabai} -m query --spaces --display | \
+            ${jq} -re '[.[] | select(."is-native-fullscreen" | not)][-1].index' \
+          '';
           newSpaceForWindow = ''
             ${yabai} -m space --create && \
             ${yabai} -m query --spaces --display | \
-            ${jq} -re '[.[] | select(."is-native-fullscreen" | not)][-1].index' | \
+            ${lastNonFullscreenSpace} | \
             ${xargs} ${sh} -c '\
             ${yabai} -m window --space $1 && \
             ${yabai} -m space --focus $1 \
@@ -83,6 +87,7 @@
                   n = "next";
                   p = "prev";
                   r = "recent";
+                  q = "$(${lastNonFullscreenSpace})";
                 }
                 // builtins.listToAttrs (
                   map
