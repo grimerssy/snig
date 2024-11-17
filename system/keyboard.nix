@@ -29,31 +29,22 @@
           jq = "${pkgs.jq}/bin/jq";
           alacritty = "$HOME/Applications/Home\\ Manager\\ Apps/Alacritty.app";
 
+          newSpaceForWindow = ''
+            ${yabai} -m query --spaces --display | \
+            ${jq} -re 'all(."is-native-fullscreen" | not)' && \
+            ${yabai} -m space --create && \
+            ${yabai} -m window --space last && \
+            ${yabai} -m space --focus last \
+          '';
+
           hotkeys = [
             [ hyper "space" "${skhd} --key escape" ]
-
             [ hyper "return" "open -n ${alacritty}" ]
-
-            [
-              hyper
-              "c"
-              ''
-                ${yabai} -m query --spaces --display | \
-                ${jq} -re 'all(."is-native-fullscreen" | not)' && \
-                ${yabai} -m space --create && \
-                ${yabai} -m window --space last && \
-                ${yabai} -m space --focus last
-              ''
-            ]
-
+            [ hyper "c" newSpaceForWindow ]
             [ hyper "b" "${yabai} -m space --balance" ]
-
             [ hyper "v" "${yabai} -m window --toggle split" ]
-
             [ hyper "s" "${yabai} -m window --toggle sticky" ]
-
             [ hyper "f" "${yabai} -m window --toggle zoom-fullscreen" ]
-
             [ hyper "m" "${yabai} -m space --toggle mission-control" ]
           ];
 
@@ -108,15 +99,20 @@
                 key
                 "${yabai} -m space --focus ${space}"
               ];
-              moveSpace = key: space: [
+              insertNewSpace = key: space: [
                 (hyper ++ [ "cmd" ])
                 key
-                "${yabai} -m space --move ${space}"
+                "${newSpaceForWindow} && ${yabai} -m space --move ${space}"
               ];
               sendWindow = key: space: [
                 (hyper ++ [ "alt" ])
                 key
                 "${yabai} -m window --space ${space}"
+              ];
+              moveSpace = key: space: [
+                (hyper ++ [ "ctrl" ])
+                key
+                "${yabai} -m space --move ${space}"
               ];
               focusWindow = key: window: [
                 hyper
@@ -131,7 +127,7 @@
               applyHotkeys = keymap: builtins.concatMap (hotkey: mapSet hotkey keymap);
             in
             builtins.concatMap (bind applyHotkeys) [
-              [ spaces [ focusSpace moveSpace sendWindow ] ]
+              [ spaces [ focusSpace insertNewSpace sendWindow moveSpace ] ]
               [ windows [ focusWindow swapWindow ] ]
             ];
 
