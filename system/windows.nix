@@ -14,7 +14,6 @@
         split_type = "auto";
         auto_balance = "off";
         window_zoom_persist = "on";
-        window_topmost = "on";
         window_placement = "second_child";
         top_padding = "15";
         bottom_padding = "15";
