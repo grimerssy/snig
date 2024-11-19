@@ -119,7 +119,7 @@
                 "${yabai} -m window --space ${space}"
               ];
               moveSpace = key: space: [
-                (hyper ++ [ "ctrl" ])
+                (hyper ++ [ "lctrl" ])
                 key
                 "${yabai} -m space --move ${space}"
               ];
