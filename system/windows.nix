@@ -3,6 +3,8 @@
     let
       package = pkgs.yabai;
       yabai = "${package}/bin/yabai";
+      xargs = "xargs";
+      jq = "${pkgs.jq}/bin/jq";
     in
     {
       inherit package;
@@ -31,8 +33,6 @@
         mouse_action2 = "resize";
       };
       extraConfig = ''
-        ${yabai} -m signal --add event=space_changed action="~/.nix-profile/bin/destroy-empty-spaces"
-        ${yabai} -m signal --add event=window_destroyed action="yabai -m window --focus mouse"
         ${yabai} -m rule --add app="^Pika$" manage=off
         ${yabai} -m rule --add app="^Stats$" manage=off
         ${yabai} -m rule --add app="^Calculator$" manage=off
@@ -40,6 +40,30 @@
         ${yabai} -m rule --add app="^Archive Utility$" manage=off
         ${yabai} -m rule --add app="^Software Update$" manage=off
         ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Copy|Connect|Move|Info|Pref)" manage=off
+
+        ${yabai} -m signal --add event=space_created action='
+          prev_space=$(${yabai} -m query --spaces --space)
+          new_space=$(${yabai} -m query --spaces --space "$YABAI_SPACE_INDEX")
+          space_id=$(${jq} -e "select(.\"is-native-fullscreen\") | .id" <<< "$new_space") || exit
+          json_space=$(${jq} "{ id: $space_id, homeSpace: .id } | tojson" <<< "$prev_space")
+          label=$(${jq} -Rr "ltrimstr(\"\\\"\") | rtrimstr(\"\\\"\")" <<< "$json_space")
+          ${yabai} -m space "$YABAI_SPACE_INDEX" --label "$label"
+        '
+
+        ${yabai} -m signal --add event=space_changed action='
+          home_spaces=$(${yabai} -m query --spaces | ${jq} "map(.label | try fromjson | .homeSpace // empty)")
+          ${yabai} -m query --spaces \
+          | ${jq} "
+              map(
+                select(.windows | length == 0)
+                | select(.id as \$x | $home_spaces | index(\$x) | not)
+              )
+              | reverse
+              | .[]
+              | .index
+          " \
+          | ${xargs} -I{} ${yabai} -m space --destroy {}
+        '
       '';
     };
 }
