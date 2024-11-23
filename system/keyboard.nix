@@ -33,7 +33,7 @@
 
           lastNonFullscreenSpace = ''
             ${yabai} -m query --spaces --display | \
-            ${jq} -re '[.[] | select(."is-native-fullscreen" | not)][-1].index' \
+            ${jq} -re 'map(select(."is-native-fullscreen" | not))[-1].index' \
           '';
           newSpaceForWindow = ''
             ${yabai} -m space --create && \
@@ -116,7 +116,7 @@
               sendWindow = key: space: [
                 (hyper ++ [ "alt" ])
                 key
-                "${yabai} -m window --space ${space}"
+                "${yabai} -m window --space ${space} --focus"
               ];
               moveSpace = key: space: [
                 (hyper ++ [ "lctrl" ])
