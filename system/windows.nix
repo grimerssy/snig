@@ -56,6 +56,7 @@
           | ${jq} "
               map(
                 select(.windows | length == 0)
+                | select(.\"has-focus\" | not)
                 | select(.id as \$x | $home_spaces | index(\$x) | not)
               )
               | reverse
