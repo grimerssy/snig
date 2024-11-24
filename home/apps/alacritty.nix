@@ -52,7 +52,7 @@
             action = "Copy";
           }
           {
-            key = "Return";
+            key = "0";
             mods = "Control";
             action = "ResetFontSize";
           }
