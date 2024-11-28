@@ -37,7 +37,6 @@
           '';
           newSpaceForWindow = ''
             ${yabai} -m space --create && \
-            ${yabai} -m query --spaces --display | \
             ${lastNonFullscreenSpace} | \
             ${xargs} ${sh} -c '\
             ${yabai} -m window --space $1 && \
