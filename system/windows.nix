@@ -52,10 +52,15 @@
 
         ${yabai} -m signal --add event=space_changed action='
           home_spaces=$(${yabai} -m query --spaces | ${jq} "map(.label | try fromjson | .homeSpace // empty)")
+          hidden_windows=$(${yabai} -m query --windows | ${jq} "map(select(.\"is-hidden\") | .id)")
           ${yabai} -m query --spaces \
           | ${jq} "
               map(
-                select(.windows | length == 0)
+                select(
+                  .windows
+                  | map(select(. as \$x | $hidden_windows | index(\$x) | not))
+                  | length == 0
+                )
                 | select(.\"has-focus\" | not)
                 | select(.id as \$x | $home_spaces | index(\$x) | not)
               )
