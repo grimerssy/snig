@@ -25,8 +25,6 @@
           hyper = [ "rctrl" ];
 
           skhd = "${package}/bin/skhd";
-          xargs = "xargs";
-          sh = "${pkgs.bash}/bin/sh";
           jq = "${pkgs.jq}/bin/jq";
           yabai = "${pkgs.yabai}/bin/yabai";
           alacritty = "$HOME/Applications/Home\\ Manager\\ Apps/Alacritty.app";
@@ -35,24 +33,23 @@
             ${yabai} -m query --spaces --display | \
             ${jq} -re 'map(select(."is-native-fullscreen" | not))[-1].index' \
           '';
-          newSpaceForWindow = ''
-            ${yabai} -m space --create && \
-            ${lastNonFullscreenSpace} | \
-            ${xargs} ${sh} -c '\
-            ${yabai} -m window --space $1 && \
-            ${yabai} -m space --focus $1 \
-            ' _ \
-          '';
 
           hotkeys = [
             [ hyper "space" "${skhd} --key escape" ]
             [ hyper "return" "open -n ${alacritty}" ]
-            [ hyper "c" newSpaceForWindow ]
             [ hyper "b" "${yabai} -m space --balance" ]
             [ hyper "v" "${yabai} -m window --toggle split" ]
             [ hyper "s" "${yabai} -m window --toggle sticky" ]
             [ hyper "f" "${yabai} -m window --toggle zoom-fullscreen" ]
             [ hyper "m" "${yabai} -m space --toggle mission-control" ]
+            [
+              hyper
+              "c"
+              ''
+                ${yabai} -m space --create && \
+                ${yabai} -m window --space $(${lastNonFullscreenSpace}) --focus
+              ''
+            ]
           ];
 
           vimMode =
@@ -110,7 +107,11 @@
               insertNewSpace = key: space: [
                 (hyper ++ [ "cmd" ])
                 key
-                "${newSpaceForWindow} && ${yabai} -m space --move ${space}"
+                ''
+                  ${yabai} -m space --create && \
+                  ${yabai} -m space $(${lastNonFullscreenSpace}) --move ${space} && \
+                  ${yabai} -m window --space ${space} --focus
+                ''
               ];
               sendWindow = key: space: [
                 (hyper ++ [ "alt" ])
