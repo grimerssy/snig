@@ -19,7 +19,7 @@ local function format()
   vim.lsp.buf.format({
     filter = function(client)
       return client.supports_method("textDocument/formatting")
-          and client.name ~= "tsserver"
+          and client.name ~= "ts_ls"
     end,
   })
 end
@@ -52,7 +52,7 @@ lspconfig.dockerls.setup({})
 lspconfig.bashls.setup({})
 lspconfig.ccls.setup({})
 lspconfig.gopls.setup({})
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 
 lspconfig.nil_ls.setup({
   settings = {
