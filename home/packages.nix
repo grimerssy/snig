@@ -4,6 +4,7 @@
     jq
     fd
     xcp
+    fzf
     tldr
     bottom
     httpie
