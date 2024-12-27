@@ -39,4 +39,3 @@ luasnip.add_snippets("rust", {
     t({ "", "}" }),
   }),
 })
-
