@@ -12,5 +12,6 @@
     du-dust
     ripgrep
     nix-index
+    yt-dlp
   ];
 }
