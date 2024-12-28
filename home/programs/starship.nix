@@ -17,6 +17,8 @@
         format = "[$state]($style) ";
         symbol = "";
         style = "bold #7eb6e1";
+        heuristic = true;
+        unknown_msg = "impure";
       };
       directory = {
         style = "bold directory";
