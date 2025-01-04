@@ -50,6 +50,11 @@
           ${yabai} -m space "$YABAI_SPACE_INDEX" --label "$label"
         '
 
+        ${yabai} -m signal --add event=window_destroyed action='
+          recent_window=$(${yabai} -m query --spaces --space | ${jq} -e .windows[0]) || exit
+          ${yabai} -m window --focus "$recent_window" || exit
+        '
+
         ${yabai} -m signal --add event=space_changed action='
           home_spaces=$(${yabai} -m query --spaces | ${jq} "map(.label | try fromjson | .homeSpace // empty)")
           hidden_windows=$(${yabai} -m query --windows | ${jq} "map(select(.\"is-hidden\") | .id)")
