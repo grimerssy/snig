@@ -51,7 +51,17 @@
         '
 
         ${yabai} -m signal --add event=window_destroyed action='
-          recent_window=$(${yabai} -m query --spaces --space | ${jq} -e .windows[0]) || exit
+          current_space=$(${yabai} -m query --spaces --space | ${jq} .index)
+          recent_window=$( \
+            ${yabai} -m query --windows | ${jq} -e "
+              map(
+                select(.space == $current_space)
+                | select(.\"is-hidden\" | not)
+                | .id
+              )
+              | .[0]
+            " \
+          ) || exit
           ${yabai} -m window --focus "$recent_window" || exit
         '
 
