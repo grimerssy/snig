@@ -24,7 +24,7 @@ telescope.setup({
     },
     file_ignore_patterns = {
       ".git/",
-      ".direnv",
+      ".direnv/",
       "build/",
       "target/",
       "node_modules/",
