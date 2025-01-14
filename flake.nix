@@ -2,19 +2,21 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    darwin.url = "github:lnl7/nix-darwin";
+    mac-app-util.url = "github:hraban/mac-app-util";
+
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
+
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
     inputs @ { nixpkgs
     , darwin
     , home-manager
+    , mac-app-util
     , ...
     }:
     let
@@ -61,6 +63,9 @@
                 home = "/Users/" + user;
               };
               home-manager = {
+                sharedModules = [
+                  mac-app-util.homeManagerModules.default
+                ];
                 useGlobalPkgs = true;
                 users.${user} = { imports = nixFiles ./home; };
               };

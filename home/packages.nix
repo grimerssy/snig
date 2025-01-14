@@ -13,5 +13,10 @@
     ripgrep
     nix-index
     yt-dlp
+
+    pika
+    telegram-desktop
+    discord
+    google-chrome
   ];
 }
