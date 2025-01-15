@@ -2,17 +2,15 @@
   system.defaults = {
     dock = {
       autohide = true;
-      orientation = "right";
-      launchanim = false;
+      autohide-delay = 60.0;
+      mru-spaces = false;
+      wvous-bl-corner = 10;
       static-only = true;
-      tilesize = 1;
     };
     finder = {
       AppleShowAllExtensions = true;
       CreateDesktop = false;
       FXPreferredViewStyle = "clmv";
-      QuitMenuItem = true;
-      ShowPathbar = true;
       ShowStatusBar = true;
     };
     loginwindow = {
@@ -28,6 +26,7 @@
       FirstClickThreshold = 0;
       SecondClickThreshold = 0;
     };
+    universalaccess.reduceMotion = true;
     NSGlobalDomain = {
       AppleEnableSwipeNavigateWithScrolls = false;
       AppleICUForce24HourTime = false;
@@ -46,6 +45,16 @@
       NSDocumentSaveNewDocumentsToCloud = false;
       NSUseAnimatedFocusRing = false;
       _HIHideMenuBar = true;
+    };
+    CustomUserPreferences = {
+      "com.apple.desktopservices" = {
+        DSDontWriteNetworkStores = true;
+        DSDontWriteUSBStores = true;
+      };
+      "com.apple.AdLib". allowApplePersonalizedAdvertising = false;
+    };
+    CustomSystemPreferences = {
+      "/Library/Preferences/FeatureFlags/Domain/UIKit".redesigned_text_cursor.Enabled = false;
     };
   };
 }
