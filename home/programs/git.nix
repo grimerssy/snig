@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.git = {
     enable = true;
     userName = "Stanislav Stoyanov";
@@ -10,7 +11,9 @@
     };
     extraConfig = {
       core.editor = "nvim";
-      pull = { ff = "only"; };
+      pull = {
+        ff = "only";
+      };
       init.defaultBranch = "main";
       format.pretty = "oneline";
     };

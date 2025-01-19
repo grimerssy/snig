@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   system.defaults = {
     dock = {
       autohide = true;
@@ -51,7 +52,7 @@
         DSDontWriteNetworkStores = true;
         DSDontWriteUSBStores = true;
       };
-      "com.apple.AdLib". allowApplePersonalizedAdvertising = false;
+      "com.apple.AdLib".allowApplePersonalizedAdvertising = false;
     };
     CustomSystemPreferences = {
       "/Library/Preferences/FeatureFlags/Domain/UIKit".redesigned_text_cursor.Enabled = false;

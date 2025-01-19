@@ -4,8 +4,6 @@ let
 in
 {
   fonts = {
-    packages = [
-      (pkgs.nerdfonts.override { inherit fonts; })
-    ];
+    packages = [ (pkgs.nerdfonts.override { inherit fonts; }) ];
   };
 }

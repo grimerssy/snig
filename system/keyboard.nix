@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   system.keyboard =
     let
       capsLock = 30064771129;
@@ -35,13 +36,41 @@
           '';
 
           hotkeys = [
-            [ hyper "space" "${skhd} --key escape" ]
-            [ hyper "return" "open -n ${alacritty}" ]
-            [ hyper "b" "${yabai} -m space --balance" ]
-            [ hyper "v" "${yabai} -m window --toggle split" ]
-            [ hyper "s" "${yabai} -m window --toggle sticky" ]
-            [ hyper "f" "${yabai} -m window --toggle zoom-fullscreen" ]
-            [ hyper "m" "${yabai} -m space --toggle mission-control" ]
+            [
+              hyper
+              "space"
+              "${skhd} --key escape"
+            ]
+            [
+              hyper
+              "return"
+              "open -n ${alacritty}"
+            ]
+            [
+              hyper
+              "b"
+              "${yabai} -m space --balance"
+            ]
+            [
+              hyper
+              "v"
+              "${yabai} -m window --toggle split"
+            ]
+            [
+              hyper
+              "s"
+              "${yabai} -m window --toggle sticky"
+            ]
+            [
+              hyper
+              "f"
+              "${yabai} -m window --toggle zoom-fullscreen"
+            ]
+            [
+              hyper
+              "m"
+              "${yabai} -m space --toggle mission-control"
+            ]
             [
               hyper
               "c"
@@ -65,8 +94,14 @@
                 [ "alt" ]
                 [ "cmd" ]
                 [ "shift" ]
-                [ "shift" "alt" ]
-                [ "shift" "cmd" ]
+                [
+                  "shift"
+                  "alt"
+                ]
+                [
+                  "shift"
+                  "cmd"
+                ]
               ];
               hotkey = mods: from: to: [
                 (hyper ++ mods)
@@ -86,12 +121,10 @@
                   q = "$(${lastNonFullscreenSpace})";
                 }
                 // builtins.listToAttrs (
-                  map
-                    (space: {
-                      name = toString (mod space 10);
-                      value = toString space;
-                    })
-                    (builtins.genList (x: x + 1) 10)
+                  map (space: {
+                    name = toString (mod space 10);
+                    value = toString space;
+                  }) (builtins.genList (x: x + 1) 10)
                 );
               windows = {
                 u = "north";
@@ -136,30 +169,54 @@
               applyHotkeys = keymap: builtins.concatMap (hotkey: mapSet hotkey keymap);
             in
             builtins.concatMap (bind applyHotkeys) [
-              [ spaces [ focusSpace insertNewSpace sendWindow moveSpace ] ]
-              [ windows [ focusWindow swapWindow ] ]
+              [
+                spaces
+                [
+                  focusSpace
+                  insertNewSpace
+                  sendWindow
+                  moveSpace
+                ]
+              ]
+              [
+                windows
+                [
+                  focusWindow
+                  swapWindow
+                ]
+              ]
             ];
 
           mod = x: y: x - x / y * y;
           mapSet = f: set: map (field: f field set.${field}) (builtins.attrNames set);
-          keysym = mods: key:
+          keysym =
+            mods: key:
             builtins.concatStringsSep " - " (
-              if builtins.length mods != 0
-              then [ (builtins.concatStringsSep " + " mods) key ]
-              else [ key ]
+              if builtins.length mods != 0 then
+                [
+                  (builtins.concatStringsSep " + " mods)
+                  key
+                ]
+              else
+                [ key ]
             );
-          action = mods: key: command: (keysym mods key) + " : " + command;
-          bind = f: args:
+          action =
+            mods: key: command:
+            (keysym mods key) + " : " + command;
+          bind =
+            f: args:
             let
               x = f (builtins.head args);
               rest = builtins.tail args;
             in
-            if builtins.length rest == 0
-            then x
-            else bind x rest;
+            if builtins.length rest == 0 then x else bind x rest;
         in
         builtins.concatStringsSep "\n" (
-          builtins.concatMap (map (bind action)) [ hotkeys vimMode windowManagement ]
+          builtins.concatMap (map (bind action)) [
+            hotkeys
+            vimMode
+            windowManagement
+          ]
         );
     };
 }

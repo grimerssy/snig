@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.file.".config/nvim/lua/configs".source = ./configs;
   programs.neovim = {
     enable = true;
@@ -20,7 +21,7 @@
       ccls
 
       nil
-      nixpkgs-fmt
+      nixfmt-rfc-style
 
       lua-language-server
 
