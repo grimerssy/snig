@@ -15,6 +15,10 @@
     nix-index
     yt-dlp
 
+    docker
+    # TODO https://github.com/LnL7/nix-darwin/pull/1275
+    colima
+
     pika
     telegram-desktop
     discord
