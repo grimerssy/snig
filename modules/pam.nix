@@ -1,3 +1,4 @@
+# https://github.com/LnL7/nix-darwin/pull/1020
 # https://github.com/LnL7/nix-darwin/blob/64cf0b71502fa3983f268bb5c3d52189e7ed9671/modules/security/pam.nix
 {
   config,
