@@ -34,7 +34,8 @@
         mouse_action2 = "resize";
       };
       extraConfig = ''
-        ${yabai} -m rule --add app="^Pika$" manage=off
+        ${yabai} -m rule --add app="^Digital Colou?r Meter$" sticky=on
+
         ${yabai} -m rule --add app="^Stats$" manage=off
         ${yabai} -m rule --add app="^Calculator$" manage=off
         ${yabai} -m rule --add app="^System Settings$" manage=off
