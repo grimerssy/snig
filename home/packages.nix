@@ -18,9 +18,5 @@
     docker
     # TODO https://github.com/LnL7/nix-darwin/pull/1275
     colima
-
-    telegram-desktop
-    discord
-    google-chrome
   ];
 }
