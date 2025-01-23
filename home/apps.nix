@@ -5,5 +5,6 @@
     telegram-desktop
     discord
     google-chrome
+    stats
   ];
 }
