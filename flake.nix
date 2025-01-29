@@ -57,9 +57,6 @@
                 };
               };
             }
-            {
-              nixpkgs.overlays = map (overlay: import overlay inputs) (nixFiles ./overlays);
-            }
           ]
         ];
       };
