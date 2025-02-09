@@ -7,6 +7,7 @@
       add_newline = false;
       format = "$nix_shell$directory$git_branch$package$character";
       character = {
+        # TODO must have a cleaner approach
         success_symbol = ''
 
           [](green)'';

@@ -1,0 +1,4 @@
+{ ... }:
+{
+  programs.httpie.enable = true;
+}

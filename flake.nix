@@ -51,10 +51,12 @@
                 home = "/Users/" + user;
               };
               home-manager = {
+                sharedModules = [
+                  ./modules/home/linkapps.nix
+                  ./modules/home/extraPrograms.nix
+                ];
                 useGlobalPkgs = true;
-                users.${user} = {
-                  imports = nixFiles ./home;
-                };
+                users.${user}.imports = [ ./home/${user}.nix ];
               };
             }
           ]

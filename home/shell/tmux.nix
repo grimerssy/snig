@@ -2,7 +2,7 @@
 {
   programs.tmux = {
     enable = true;
-    sensibleOnTop = false;
+    sensibleOnTop = false; # TODO
     baseIndex = 1;
     disableConfirmationPrompt = true;
     escapeTime = 0;
@@ -10,6 +10,7 @@
     prefix = "C-a";
     terminal = "tmux-256color";
     shell = "${pkgs.fish}/bin/fish";
+    # TODO revisit nix options
     extraConfig = ''
       set -g detach-on-destroy off
       set -g allow-rename off
@@ -59,6 +60,7 @@
 
       set -g window-status-separator '   '
 
+      # TODO fix in unconfigured terminals
       set -g window-status-format "#[fg=white]#[fg=black]#[bg=white]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
       set -g window-status-current-format "#[fg=blue]#[fg=black]#[bg=blue]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
     '';

@@ -1,0 +1,4 @@
+{ ... }:
+{
+  programs.stats.enable = true;
+}

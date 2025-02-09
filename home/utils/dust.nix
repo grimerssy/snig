@@ -1,0 +1,4 @@
+{ ... }:
+{
+  programs.dust.enable = true;
+}

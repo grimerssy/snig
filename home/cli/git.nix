@@ -2,8 +2,6 @@
 {
   programs.git = {
     enable = true;
-    userName = "Stanislav Stoyanov";
-    userEmail = "grimerssy@gmail.com";
     delta.enable = true;
     signing = {
       key = null;
