@@ -2,7 +2,10 @@
 {
   programs.bat = {
     enable = true;
-    config.theme = "catppuccin";
+    config = {
+      style = "changes,header";
+      theme = "catppuccin";
+    };
     themes = {
       catppuccin.src =
         pkgs.fetchFromGitHub {
