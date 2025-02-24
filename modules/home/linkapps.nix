@@ -5,6 +5,7 @@
   ...
 }:
 {
+  # TODO make an option
   disabledModules = [ "targets/darwin/linkapps.nix" ];
   home.activation = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     copyApplications =

@@ -11,7 +11,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
-    inputs@{
+    _inputs@{
       nixpkgs,
       darwin,
       home-manager,
@@ -21,45 +21,26 @@
       user = "grimerssy";
       host = "mbpssy";
       system = "aarch64-darwin";
-      getDir =
-        dir:
-        builtins.mapAttrs (file: type: if type == "directory" then getDir "${dir}/${file}" else type) (
-          builtins.readDir dir
-        );
-      getFiles =
-        dir:
-        nixpkgs.lib.collect builtins.isString (
-          nixpkgs.lib.mapAttrsRecursive (path: type: builtins.concatStringsSep "/" path) (getDir dir)
-        );
-      nixFiles =
-        dir:
-        map (file: dir + "/${file}") (
-          builtins.filter (file: nixpkgs.lib.hasSuffix ".nix" file) (getFiles dir)
-        );
     in
     {
       darwinConfigurations.${host} = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = { inherit user host; };
-        modules = builtins.concatLists [
-          (nixFiles ./system)
-          [
-            home-manager.darwinModules.home-manager
-            {
-              users.users.${user} = {
-                name = user;
-                home = "/Users/" + user;
-              };
-              home-manager = {
-                sharedModules = [
-                  ./modules/home/linkapps.nix
-                  ./modules/home/extraPrograms.nix
-                ];
-                useGlobalPkgs = true;
-                users.${user}.imports = [ ./home/${user}.nix ];
-              };
-            }
-          ]
+        modules = [
+          ./modules/darwin
+          ./system/mbpssy.nix
+          home-manager.darwinModules.home-manager
+          {
+            users.users.${user} = {
+              name = user;
+              home = "/Users/" + user;
+            };
+            home-manager = {
+              sharedModules = [ ./modules/home ];
+              useGlobalPkgs = true;
+              users.${user}.imports = [ ./home/${user}.nix ];
+            };
+          }
         ];
       };
     };

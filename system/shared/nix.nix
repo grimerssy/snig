@@ -1,6 +1,5 @@
 { ... }:
 {
-  services.nix-daemon.enable = true;
   nix = {
     optimise.automatic = true;
     gc = {
