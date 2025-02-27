@@ -25,12 +25,15 @@
     {
       darwinConfigurations.${host} = darwin.lib.darwinSystem {
         inherit system;
-        specialArgs = { inherit user host; };
         modules = [
+          home-manager.darwinModules.home-manager
           ./modules/darwin
           ./system/mbpssy.nix
-          home-manager.darwinModules.home-manager
           {
+            networking = {
+              hostName = host;
+              computerName = host;
+            };
             users.users.${user} = {
               name = user;
               home = "/Users/" + user;

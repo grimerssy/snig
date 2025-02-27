@@ -2,7 +2,6 @@
 {
   imports = [
     ./fonts.nix
-    ./host.nix
     ./settings.nix
     ./shell.nix
     ./skhd.nix

@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # TODO make an option
   system.keyboard =
     let
       capsLock = 30064771129;
