@@ -1,17 +1,17 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    stable.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     darwin.url = "github:lnl7/nix-darwin";
-
     home-manager.url = "github:nix-community/home-manager/release-24.11";
 
+    nixpkgs.follows = "stable";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
-    _inputs@{
+    inputs@{
       nixpkgs,
       darwin,
       home-manager,
@@ -24,7 +24,7 @@
     in
     {
       darwinConfigurations.${host} = darwin.lib.darwinSystem {
-        inherit system;
+        inherit system inputs;
         modules = [
           home-manager.darwinModules.home-manager
           ./modules/darwin
