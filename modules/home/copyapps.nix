@@ -1,5 +1,6 @@
 {
   config,
+  options,
   lib,
   pkgs,
   ...
@@ -9,6 +10,7 @@ with lib;
 
 let
   cfg = config.targets.darwin;
+  opt = options.targets.darwin;
 in
 {
   options.targets.darwin.copyApps = {
@@ -34,15 +36,15 @@ in
 
               You can fix this error by setting either
 
-                targets.darwin.copyApps.enable = false;
+                ${opt.copyApps.enable} = false;
                 or
-                targets.darwin.linkApps.enable = false;
+                ${opt.linkApps.enable} = false;
 
               Alternatively you can set
 
-                targets.darwin.copyApps.directory
+                ${opt.copyApps.directory}
                 and
-                targets.darwin.linkApps.directory
+                ${opt.linkApps.directory}
 
               to different values to avoid conflicts.
             '';
