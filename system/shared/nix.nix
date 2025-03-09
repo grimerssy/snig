@@ -2,7 +2,6 @@
 {
   nix = {
     optimise.automatic = true;
-    # TODO remove self
     registry = lib.mapAttrs (_: flake: { inherit flake; }) inputs;
     # TODO
     # nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;

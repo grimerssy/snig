@@ -60,7 +60,7 @@
 
       set -g window-status-separator '   '
 
-      # TODO fix in unconfigured terminals
+      # TODO when move to stylix fix in unconfigured terminals
       set -g window-status-format "#[fg=white]#[fg=black]#[bg=white]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
       set -g window-status-current-format "#[fg=blue]#[fg=black]#[bg=blue]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
     '';
