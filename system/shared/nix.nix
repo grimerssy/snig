@@ -18,6 +18,4 @@
       options = "--delete-older-than 30d";
     };
   };
-  # TODO share between branches
-  nixpkgs.config.allowUnfree = true;
 }
