@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 {
   home.file.".config/nvim/lua/configs".source = ./configs;
   programs.neovim = {
@@ -64,7 +64,8 @@
       nvim-lspconfig
       none-ls-nvim
 
-      crates-nvim
+      # TODO remove in 25.05
+      nixpkgs-unstable.vimPlugins.crates-nvim
 
       nvim-dap
       nvim-dap-ui
