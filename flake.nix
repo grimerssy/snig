@@ -10,44 +10,13 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs =
-    inputs@{
-      nixpkgs,
-      nix-darwin,
-      home-manager,
-      ...
-    }:
-    let
-      user = "grimerssy";
-      host = "mbpssy";
-    in
-    {
-      darwinConfigurations.${host} = nix-darwin.lib.darwinSystem {
-        inherit inputs;
-        # TODO clean up this mess
-        modules = [
-          {
-            nixpkgs.hostPlatform = nixpkgs.lib.systems.examples.aarch64-darwin;
-          }
-          home-manager.darwinModules.home-manager
-          ./modules/darwin
-          ./system/mbpssy.nix
-          {
-            networking = {
-              hostName = host;
-              computerName = host;
-            };
-            users.users.${user} = {
-              name = user;
-              home = "/Users/" + user;
-            };
-            home-manager = {
-              sharedModules = [ ./modules/home ];
-              useGlobalPkgs = true;
-              users.${user}.imports = [ ./home/${user}.nix ];
-            };
-          }
-        ];
-      };
+  outputs = inputs: {
+    darwinConfigurations.mbpssy = inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./modules/darwin
+        ./system/mbpssy.nix
+      ];
     };
+  };
 }
