@@ -11,11 +11,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs: {
-    darwinConfigurations.mbpssy = inputs.nix-darwin.lib.darwinSystem {
+    darwinConfigurations.hrk = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./modules/darwin
-        ./system/mbpssy.nix
+        ./system/hrk.nix
       ];
     };
   };

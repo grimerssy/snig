@@ -1,6 +1,6 @@
 { lib, ... }:
 let
-  host = "mbpssy";
+  host = "hrk";
   user = "grimerssy";
 in
 {
