@@ -20,12 +20,15 @@
     let
       user = "grimerssy";
       host = "mbpssy";
-      system = "aarch64-darwin";
     in
     {
       darwinConfigurations.${host} = nix-darwin.lib.darwinSystem {
-        inherit system inputs;
+        inherit inputs;
+        # TODO clean up this mess
         modules = [
+          {
+            nixpkgs.hostPlatform = nixpkgs.lib.systems.examples.aarch64-darwin;
+          }
           home-manager.darwinModules.home-manager
           ./modules/darwin
           ./system/mbpssy.nix
