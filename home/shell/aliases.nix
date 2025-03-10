@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  programs.bash.enable = true;
+  programs.zsh.enable = pkgs.stdenv.hostPlatform.isDarwin;
   home.shellAliases =
     let
       nvim = "nvim";
