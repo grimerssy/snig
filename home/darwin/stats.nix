@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  programs.stats.enable = true;
+  programs.stats.enable = pkgs.stdenv.hostPlatform.isDarwin;
 }

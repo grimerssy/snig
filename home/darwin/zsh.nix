@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  programs.zsh.enable = true;
+  programs.zsh.enable = pkgs.stdenv.hostPlatform.isDarwin;
 }
