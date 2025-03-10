@@ -4,7 +4,6 @@
   # TODO man pages
   imports = [
     ./cli
-    ./darwin
     ./gui
     ./shell
     ./tui
