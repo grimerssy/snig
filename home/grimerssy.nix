@@ -1,5 +1,6 @@
 { ... }:
 {
+  home.stateVersion = "24.11";
   # TODO man pages
   imports = [
     ./cli
@@ -15,8 +16,6 @@
     ./todo/gpg.nix # darwin
     ./todo/scripts.nix # home/darwin program modules
   ];
-  home.stateVersion = "24.11";
-  # TODO?
   programs.git = {
     userName = "Stanislav Stoyanov";
     userEmail = "grimerssy@gmail.com";
