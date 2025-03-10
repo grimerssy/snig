@@ -7,7 +7,6 @@
     ./shell.nix
     ./skhd.nix
     ./sudo.nix
-    ./terminfo.nix
     ./yabai.nix
   ];
 }
