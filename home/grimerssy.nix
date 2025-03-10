@@ -13,7 +13,6 @@
     # TODO
     ./todo/docker.nix # darwin
     ./todo/env.nix # somewhere in home + tldr
-    ./todo/gpg.nix # darwin
     ./todo/scripts.nix # home/darwin program modules
   ];
   programs.git = {
