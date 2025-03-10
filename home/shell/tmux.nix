@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.tmux = {
     enable = true;
@@ -9,7 +9,6 @@
     keyMode = "vi";
     prefix = "C-a";
     terminal = "tmux-256color";
-    shell = "${pkgs.fish}/bin/fish";
     # TODO revisit nix options
     extraConfig = ''
       set -g detach-on-destroy off

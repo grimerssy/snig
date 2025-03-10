@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   host = "hrk";
   user = "grimerssy";
@@ -16,7 +16,18 @@ in
   users.users.${user} = {
     name = user;
     home = "/Users/" + user;
+
+    # TODO ##################
+    uid = 501;
+    shell = pkgs.fish;
+    #########################
+
   };
   # TODO move to shared/home-manager
   home-manager.users.${user}.imports = [ ../home/${user}.nix ];
+
+  # TODO ##################
+  programs.fish.enable = true;
+  users.knownUsers = [ user ];
+  #########################
 }
