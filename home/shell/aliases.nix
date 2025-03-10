@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  programs.bash.enable = true;
-  programs.zsh.enable = true;
   home.shellAliases =
     let
       nvim = "nvim";
