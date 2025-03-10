@@ -32,6 +32,6 @@ require("nvim-web-devicons").setup({
       icon = "",
       color = "#414395",
       name = "Direnv",
-    }
-  }
+    },
+  },
 })

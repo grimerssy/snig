@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 let
   host = "hrk";
   user = "grimerssy";

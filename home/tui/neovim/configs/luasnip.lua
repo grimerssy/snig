@@ -4,8 +4,12 @@ local luasnip = require("luasnip")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-map({ "i", "s" }, "<TAB>", function() luasnip.jump(1) end)
-map({ "i", "s" }, "<S-TAB>", function() luasnip.jump(-1) end)
+map({ "i", "s" }, "<TAB>", function()
+  luasnip.jump(1)
+end)
+map({ "i", "s" }, "<S-TAB>", function()
+  luasnip.jump(-1)
+end)
 
 local s = luasnip.snippet
 local t = luasnip.text_node

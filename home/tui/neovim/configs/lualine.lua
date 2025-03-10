@@ -56,7 +56,7 @@ lualine.setup({
           align = "right",
         },
         padding = 0,
-      }
+      },
     },
     lualine_z = { { right, padding = 0, cond = has_git_context } },
   },

@@ -19,7 +19,7 @@ local function format()
   vim.lsp.buf.format({
     filter = function(client)
       return client.supports_method("textDocument/formatting")
-          and client.name ~= "ts_ls"
+        and client.name ~= "ts_ls"
     end,
   })
 end
