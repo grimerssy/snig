@@ -23,30 +23,6 @@
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      imports = [ inputs.treefmt-nix.flakeModule ];
-      perSystem =
-        { pkgs, ... }:
-        {
-          treefmt = {
-            projectRootFile = "flake.nix";
-            programs.nixfmt.enable = true;
-            programs.stylua.enable = true;
-          };
-        };
-      flake = {
-        darwinConfigurations.hrk = inputs.nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./modules/darwin
-            ./system/hrk.nix
-          ];
-        };
-      };
+      imports = [ ./flake ];
     };
 }
