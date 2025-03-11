@@ -6,10 +6,7 @@ in
 {
   system.stateVersion = 4;
   nixpkgs.hostPlatform = lib.systems.examples.aarch64-darwin;
-  imports = [
-    ./shared
-    ./darwin
-  ];
+  imports = [ ./darwin ];
   # TODO move to lib wrapper
   networking.hostName = host;
   # TODO module for users (shared + darwin for home)

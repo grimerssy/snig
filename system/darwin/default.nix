@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ../shared
     ./fonts.nix
     ./networking.nix
     ./settings.nix
