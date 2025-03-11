@@ -18,8 +18,7 @@ end
 local function format()
   vim.lsp.buf.format({
     filter = function(client)
-      return client.supports_method("textDocument/formatting")
-        and client.name ~= "ts_ls"
+      return client.name == "null-ls"
     end,
   })
 end
@@ -41,9 +40,7 @@ lspzero.on_attach(function(client, bufnr)
 end)
 
 null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.prettierd,
-  },
+  sources = { null_ls.builtins.formatting.nix_flake_fmt },
 })
 
 lspconfig.jsonls.setup({})
@@ -51,18 +48,9 @@ lspconfig.tailwindcss.setup({})
 lspconfig.dockerls.setup({})
 lspconfig.bashls.setup({})
 lspconfig.ccls.setup({})
+lspconfig.nil_ls.setup({})
 lspconfig.gopls.setup({})
 lspconfig.ts_ls.setup({})
-
-lspconfig.nil_ls.setup({
-  settings = {
-    ["nil"] = {
-      formatting = {
-        command = { "nixfmt" },
-      },
-    },
-  },
-})
 
 lspconfig.lua_ls.setup({
   settings = {

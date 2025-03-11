@@ -21,21 +21,18 @@
       ccls
 
       nil
-      nixfmt-rfc-style
-
-      lua-language-server
 
       go
       delve
 
       nodePackages.typescript-language-server
 
+      lua-language-server
+
       cargo
 
       texlab
       tectonic
-
-      prettierd
     ];
     plugins = with pkgs.vimPlugins; [
       oil-nvim
@@ -62,7 +59,8 @@
 
       lsp-zero-nvim
       nvim-lspconfig
-      none-ls-nvim
+      # TODO remove in 25.05
+      nixpkgs-unstable.vimPlugins.none-ls-nvim
 
       # TODO remove in 25.05
       nixpkgs-unstable.vimPlugins.crates-nvim
