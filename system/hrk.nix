@@ -1,14 +1,11 @@
 { lib, pkgs, ... }:
 let
-  host = "hrk";
   user = "grimerssy";
 in
 {
   system.stateVersion = 4;
   nixpkgs.hostPlatform = lib.systems.examples.aarch64-darwin;
   imports = [ ./darwin ];
-  # TODO move to lib wrapper
-  networking.hostName = host;
   # TODO module for users (shared + darwin for home)
   users.users.${user} = {
     name = user;
