@@ -3,6 +3,8 @@
   home.file.".config/nvim/lua/configs".source = ./configs;
   programs.neovim = {
     enable = true;
+    # TODO remove in 25.05
+    package = nixpkgs-unstable.neovim-unwrapped;
     defaultEditor = true;
     extraConfig = "lua require('configs')";
     extraPackages = with pkgs; [
