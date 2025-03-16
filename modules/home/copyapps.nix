@@ -81,7 +81,7 @@ in
             let
               warning = ''
                 Warning: The directory '${appDirectory}' still exists, but copyApps is disabled.
-                If you intend to use it, enable 'targets.darwin.copyApps.enable'.
+                If you intend to use it, enable '${opt.copyApps.enable}'.
                 If not, consider removing the directory to avoid confusion.'';
             in
             hm.dag.entryAfter [ "writeBoundary" ] ''
