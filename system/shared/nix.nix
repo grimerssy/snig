@@ -1,16 +1,29 @@
 { lib, inputs, ... }:
+
+with lib;
+
+let
+  mapInputs =
+    f:
+    mapAttrs f {
+      inherit (inputs)
+        nixpkgs
+        nixpkgs-stable
+        nixpkgs-unstable
+        ;
+      system = inputs.self;
+    };
+in
+
 {
   nix = {
+    enable = true;
     optimise.automatic = true;
-    registry = lib.mapAttrs (_: flake: { inherit flake; }) inputs;
-    # TODO
-    # nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    registry = mapInputs (_: flake: { inherit flake; });
+    nixPath = mapInputs (_: x: x);
     settings = {
       flake-registry = "";
       experimental-features = "nix-command flakes";
-      # TODO
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      # nix-path = config.nix.nixPath;
     };
     gc = {
       automatic = true;
