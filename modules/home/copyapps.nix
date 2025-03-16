@@ -12,6 +12,7 @@ let
   cfg = config.targets.darwin;
   opt = options.targets.darwin;
 in
+
 {
   options.targets.darwin.copyApps = {
     enable = mkEnableOption "copying macOS applications to the user environment";
@@ -22,6 +23,7 @@ in
       description = "Path relative to the home directory to copy apps to.";
     };
   };
+
   config = mkIf pkgs.stdenv.hostPlatform.isDarwin (
     let
       appDirectory = "${config.home.homeDirectory}/${cfg.copyApps.directory}";
@@ -50,6 +52,7 @@ in
             '';
           }
         ];
+
         home.activation.copyApplications =
           let
             apps = pkgs.buildEnv {
@@ -70,6 +73,7 @@ in
             done
           '';
       })
+
       (mkIf
         (!cfg.copyApps.enable && !(cfg.linkApps.enable && cfg.linkApps.directory == cfg.copyApps.directory))
         {

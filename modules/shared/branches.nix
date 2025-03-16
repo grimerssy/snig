@@ -3,6 +3,7 @@
   inputs,
   ...
 }:
+
 let
   branches = { inherit (inputs) nixpkg-stable nixpkgs-unstable; };
   cfg = with pkgs; {
@@ -11,6 +12,7 @@ let
     crossSystem = stdenv.hostPlatform.system;
   };
 in
+
 {
   _module.args = builtins.mapAttrs (_: branch: import branch cfg) branches;
 }

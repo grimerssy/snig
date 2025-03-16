@@ -9,6 +9,7 @@
 let
   cfg = config.targets.darwin;
 in
+
 {
   disabledModules = [ "targets/darwin/linkapps.nix" ];
   options.targets.darwin.linkApps = {

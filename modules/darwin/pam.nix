@@ -11,6 +11,7 @@ with lib;
 let
   cfg = config.security.pam;
 in
+
 {
   disabledModules = [ "security/pam.nix" ];
   options = {

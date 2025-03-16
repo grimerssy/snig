@@ -4,7 +4,9 @@
   pkgs,
   ...
 }:
+
 with lib;
+
 let
   programs = [
     "discord"
@@ -20,6 +22,7 @@ let
   };
   enabledPrograms = filter (program: config.programs.${program}.enable) programs;
 in
+
 {
   options = {
     programs = listToAttrs (
