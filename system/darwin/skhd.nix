@@ -1,20 +1,9 @@
 { pkgs, ... }:
 {
-  # TODO make an option
-  system.keyboard =
-    let
-      capsLock = 30064771129;
-      rctrl = 30064771300;
-    in
-    {
-      enableKeyMapping = true;
-      userKeyMapping = [
-        {
-          HIDKeyboardModifierMappingSrc = capsLock;
-          HIDKeyboardModifierMappingDst = rctrl;
-        }
-      ];
-    };
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToRightControl = true;
+  };
   services.skhd =
     let
       package = pkgs.skhd;
