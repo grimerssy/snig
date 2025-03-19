@@ -19,6 +19,12 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flakes = {
+      url = "github:grimerssy/flakes";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
   };
   outputs =
     inputs@{ nixpkgs, flake-parts, ... }:

@@ -10,6 +10,7 @@ let
         nixpkgs
         nixpkgs-stable
         nixpkgs-unstable
+        flakes
         ;
       system = inputs.self;
     };

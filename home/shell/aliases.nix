@@ -11,6 +11,5 @@
       v = nvim;
       s = "tmux-session";
       a = "${tmux} attach";
-      apply = "template init";
     };
 }
