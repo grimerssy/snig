@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 with lib;
 
@@ -10,6 +15,9 @@ let
 in
 
 {
+  imports = [
+    inputs.home-manager.darwinModules.home-manager
+  ];
   config.home-manager.users = mapUsers (
     _: user:
     let
