@@ -1,7 +1,6 @@
 { ... }:
 {
   home.stateVersion = "24.11";
-  # TODO man pages
   imports = [
     ./cli
     ./gui
