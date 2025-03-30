@@ -33,10 +33,6 @@ lspzero.on_attach(function(client, bufnr)
   map("n", "gi", telescope("implementations"), opts)
   map("n", "<C-h>", vim.lsp.buf.hover, opts)
   map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-  if client.name == "texlab" then
-    map("n", "<leader>b", vim.cmd.TexlabBuild, opts)
-    map("n", "<leader>o", vim.cmd.TexlabForward, opts)
-  end
 end)
 
 null_ls.setup({
@@ -77,21 +73,6 @@ lspconfig.rust_analyzer.setup({
         excludeDirs = {
           ".direnv",
         },
-      },
-    },
-  },
-})
-
-lspconfig.texlab.setup({
-  settings = {
-    texlab = {
-      build = {
-        executable = "tectonic",
-        args = { "%f" },
-      },
-      forwardSearch = {
-        executable = "open",
-        args = { "%p" },
       },
     },
   },
