@@ -23,12 +23,13 @@ local function format()
   })
 end
 
-lspzero.on_attach(function(client, bufnr)
+lspzero.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr }
   lspzero.default_keymaps(opts)
   map("n", "<leader>;", format, opts)
   map("n", "<leader>n", vim.lsp.buf.rename, opts)
   map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  map("v", "<leader>ca", vim.lsp.buf.code_action, opts)
   map("n", "gr", telescope("references"), opts)
   map("n", "gi", telescope("implementations"), opts)
   map("n", "<C-h>", vim.lsp.buf.hover, opts)
@@ -36,7 +37,10 @@ lspzero.on_attach(function(client, bufnr)
 end)
 
 null_ls.setup({
-  sources = { null_ls.builtins.formatting.nix_flake_fmt },
+  sources = {
+    null_ls.builtins.formatting.nix_flake_fmt,
+    null_ls.builtins.code_actions.gitsigns,
+  },
 })
 
 lspconfig.jsonls.setup({})
