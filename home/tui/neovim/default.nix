@@ -12,9 +12,11 @@
 
       tree-sitter
 
-      vscode-langservers-extracted # jsonls
+      # TODO remove in 25.05
+      nixpkgs-unstable.vscode-langservers-extracted # jsonls
 
-      tailwindcss-language-server
+      # TODO remove in 25.05
+      nixpkgs-unstable.tailwindcss-language-server
 
       dockerfile-language-server-nodejs
 
