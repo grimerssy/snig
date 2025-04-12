@@ -9,5 +9,7 @@
     ./pam.nix
     ./shell.nix
     ./users.nix
+    # TODO https://github.com/nix-darwin/nix-darwin/pull/1225
+    ./yabai.nix
   ];
 }
