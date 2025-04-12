@@ -10,7 +10,7 @@ with lib;
 let
   cfg = config.users;
   mapUsers = f: mapAttrs f cfg.users;
-  # https://github.com/LnL7/nix-darwin/blob/2fb6b09b678a1ab258cf88e3ea4a966edceec6a8/modules/system/shells.nix#L27
+  # https://github.com/nix-darwin/nix-darwin/blob/2fb6b09b678a1ab258cf88e3ea4a966edceec6a8/modules/system/shells.nix#L27
   shellPath = v: if types.shellPackage.check v then "/run/current-system/sw${v.shellPath}" else v;
 in
 
