@@ -18,14 +18,19 @@ in
   imports = [
     inputs.home-manager.darwinModules.home-manager
   ];
-  config.home-manager.users = mapUsers (
-    _: user:
-    let
-      shell = shellPath user.shell;
-    in
-    mkIf (user.shell != null) {
-      programs.tmux.shell = shell;
-      programs.alacritty.settings.terminal.shell.program = shell;
-    }
-  );
+  config.home-manager = {
+    sharedModules = [
+      inputs.mac-app-util.homeManagerModules.default
+    ];
+    users = mapUsers (
+      _: user:
+      let
+        shell = shellPath user.shell;
+      in
+      mkIf (user.shell != null) {
+        programs.tmux.shell = shell;
+        programs.alacritty.settings.terminal.shell.program = shell;
+      }
+    );
+  };
 }
