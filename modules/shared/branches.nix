@@ -5,7 +5,7 @@
 }:
 
 let
-  branches = { inherit (inputs) nixpkg-stable nixpkgs-unstable; };
+  branches = { inherit (inputs) nixpkg-stable nixpkgs-unstable nixpkgs-master; };
   cfg = with pkgs; {
     inherit config overlays;
     localSystem = stdenv.buildPlatform.system;

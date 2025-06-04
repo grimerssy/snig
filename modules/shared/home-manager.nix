@@ -5,6 +5,7 @@
   inputs,
   nixpkgs-stable,
   nixpkgs-unstable,
+  nixpkgs-master,
   ...
 }:
 
@@ -25,7 +26,14 @@ in
   };
 
   config.home-manager = {
-    extraSpecialArgs = { inherit inputs nixpkgs-stable nixpkgs-unstable; };
+    extraSpecialArgs = {
+      inherit
+        inputs
+        nixpkgs-stable
+        nixpkgs-unstable
+        nixpkgs-master
+        ;
+    };
     sharedModules = [ ../home ];
     useGlobalPkgs = true;
     users = genAttrs config.users.normalUsers (name: {
