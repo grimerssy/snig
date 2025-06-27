@@ -1,8 +1,8 @@
 { ... }:
 {
-  # TODO fix in 25.05
-  security.pam = {
-    enableSudoTouchIdAuth = true;
-    enablePamReattach = true;
+  security.pam.services.sudo_local = {
+    enable = true;
+    reattach = true;
+    touchIdAuth = true;
   };
 }

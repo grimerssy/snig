@@ -1,10 +1,8 @@
-{ pkgs, nixpkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   home.file.".config/nvim/lua/configs".source = ./configs;
   programs.neovim = {
     enable = true;
-    # TODO remove in 25.05
-    package = nixpkgs-unstable.neovim-unwrapped;
     defaultEditor = true;
     extraConfig = "lua require('configs')";
     extraPackages = with pkgs; [
@@ -12,11 +10,9 @@
 
       tree-sitter
 
-      # TODO remove in 25.05
-      nixpkgs-unstable.vscode-langservers-extracted # jsonls
+      vscode-langservers-extracted # jsonls
 
-      # TODO remove in 25.05
-      nixpkgs-unstable.tailwindcss-language-server
+      tailwindcss-language-server
 
       dockerfile-language-server-nodejs
 
@@ -60,11 +56,9 @@
 
       lsp-zero-nvim
       nvim-lspconfig
-      # TODO remove in 25.05
-      nixpkgs-unstable.vimPlugins.none-ls-nvim
+      none-ls-nvim
 
-      # TODO remove in 25.05
-      nixpkgs-unstable.vimPlugins.crates-nvim
+      crates-nvim
 
       nvim-dap
       nvim-dap-ui
