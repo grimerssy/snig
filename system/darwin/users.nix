@@ -1,0 +1,4 @@
+{ ... }:
+{
+  system.primaryUser = "grimerssy";
+}
