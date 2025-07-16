@@ -29,7 +29,16 @@
             inputs.mac-app-util.homeManagerModules.default
             ../home
           ];
-          users.grimerssy.imports = [ ../../users/grimerssy.nix ];
+          users.grimerssy = {
+            home.stateVersion = "24.11";
+            imports = [
+              ../home/configuration
+            ];
+            programs.git = {
+              userName = "Stanislav Stoyanov";
+              userEmail = "grimerssy@gmail.com";
+            };
+          };
         };
       }
 
