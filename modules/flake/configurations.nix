@@ -1,16 +1,29 @@
-{ lib, inputs, ... }:
+{
+  lib,
+  inputs,
+  self,
+  ...
+}:
 {
   flake.darwinConfigurations.hrk = inputs.nix-darwin.lib.darwinSystem {
     specialArgs = { inherit inputs; };
     modules = [
       inputs.mac-app-util.darwinModules.default
 
-      ../darwin
+      self.darwinModules.default
 
       {
         system.stateVersion = 4;
         nixpkgs.hostPlatform = lib.systems.examples.aarch64-darwin;
-        imports = [ ../darwin/configuration ];
+        imports = with self.darwinModules.configurations; [
+          fonts
+          networking
+          settings
+          skhd
+          sudo
+          users
+          yabai
+        ];
         networking.hostName = lib.mkDefault "hrk";
       }
 
