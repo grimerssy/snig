@@ -12,4 +12,3 @@
     ./todo/scripts.nix # home/darwin program modules
   ];
 }
-
