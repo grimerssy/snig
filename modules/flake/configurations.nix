@@ -41,12 +41,44 @@
           useGlobalPkgs = true;
           sharedModules = [
             inputs.mac-app-util.homeManagerModules.default
-            ../home
+            self.homeManagerModules.default
           ];
           users.grimerssy = {
             home.stateVersion = "24.11";
-            imports = [
-              ../home/configuration
+            imports = with self.homeManagerModules.configurations; [
+              alacritty
+              bash
+              bat
+              bottom
+              chrome
+              direnv
+              discord
+              docker
+              dust
+              eza
+              fd
+              ffmpeg
+              fish
+              fzf
+              git
+              gitui
+              gopath
+              gpg
+              httpie
+              jq
+              neovim
+              nix-index
+              ripgrep
+              scripts
+              shell-aliases
+              starship
+              stats
+              telegram
+              tldr
+              tmux
+              yt-dlp
+              zoxide
+              zsh
             ];
             programs.git = {
               userName = "Stanislav Stoyanov";
