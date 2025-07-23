@@ -2,7 +2,7 @@
 {
   imports = [
     ./configurations.nix
-    ./darwinModules.nix
+    ./exports.nix
     ./formatter.nix
   ];
 }
