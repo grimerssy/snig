@@ -16,6 +16,7 @@
         system.stateVersion = 4;
         nixpkgs.hostPlatform = lib.systems.examples.aarch64-darwin;
         imports = with self.darwinModules.configurations; [
+          fish
           fonts
           networking
           settings
