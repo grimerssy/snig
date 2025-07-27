@@ -20,6 +20,7 @@
   gpg = ./gpg.nix;
   httpie = ./httpie.nix;
   jq = ./jq.nix;
+  jujutsu = ./jujutsu.nix;
   neovim = ./neovim;
   nix-index = ./nix-index.nix;
   ripgrep = ./ripgrep.nix;
