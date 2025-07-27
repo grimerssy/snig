@@ -103,19 +103,18 @@
 
           windowManagement =
             let
-              spaces =
-                {
-                  n = "next";
-                  p = "prev";
-                  r = "recent";
-                  q = "$(${lastNonFullscreenSpace})";
-                }
-                // builtins.listToAttrs (
-                  map (space: {
-                    name = toString (mod space 10);
-                    value = toString space;
-                  }) (builtins.genList (x: x + 1) 10)
-                );
+              spaces = {
+                n = "next";
+                p = "prev";
+                r = "recent";
+                q = "$(${lastNonFullscreenSpace})";
+              }
+              // builtins.listToAttrs (
+                map (space: {
+                  name = toString (mod space 10);
+                  value = toString space;
+                }) (builtins.genList (x: x + 1) 10)
+              );
               windows = {
                 u = "north";
                 d = "south";
