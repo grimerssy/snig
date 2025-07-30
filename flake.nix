@@ -1,4 +1,5 @@
 {
+  description = "Opinionated building blocks for a personalized development environment";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-parts = {
