@@ -2,7 +2,13 @@
 
 # Snig
 
-[<img src="https://raw.githubusercontent.com/grimerssy/snig/docs/fix/assets/logo.svg" width="100%" alt="logo">](https://github.com/grimerssy/snig)
+<a href="https://github.com/grimerssy/snig" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/grimerssy/snig/docs/fix/assets/logo.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/grimerssy/snig/docs/fix/assets/logo-white.svg">
+    <img src="https://raw.githubusercontent.com/grimerssy/snig/docs/fix/assets/logo.svg" width="100%" alt="logo">
+  </picture>
+</a>
 
 **Snig** _/snʲiɦ/_, Ukrainian for "snow" – a great find while looking for flakes.
 
