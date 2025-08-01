@@ -40,7 +40,7 @@ module.
 ```nix
 { inputs, ... }:
 {
-  imports = [ inputs.snig.homeManagerModules.default ];
+  imports = [ inputs.snig.homeModules.default ];
 }
 ```
 
@@ -65,7 +65,7 @@ highlighting, your Home Manager module would look like this:
 ```nix
 { lib, inputs, ... }:
 {
-  imports = [ inputs.snig.homeManagerModules.configurations.git ];
+  imports = [ inputs.snig.homeModules.configurations.git ];
   programs.git.delta.enable = lib.mkForce false;
 }
 ```
