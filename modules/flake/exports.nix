@@ -5,7 +5,7 @@
       default.imports = import ../darwin/module-list.nix;
       configurations = import ../darwin/configurations/modules.nix;
     };
-    homeManagerModules = {
+    homeModules = {
       default.imports = import ../home/module-list.nix;
       configurations = import ../home/configurations/modules.nix;
     };
