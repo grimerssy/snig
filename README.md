@@ -10,7 +10,8 @@
   </picture>
 </a>
 
-**Snig** _/snʲiɦ/_, Ukrainian for "snow" – a great find while looking for flakes.
+**Snig** _/snʲiɦ/_, Ukrainian for "snow" – a great find while looking for
+flakes.
 
 </div>
 
@@ -24,8 +25,10 @@ different machines.
 
 This flake exposes the following types of modules:
 
-- [nix-darwin](https://github.com/nix-darwin/nix-darwin) options and configurations
-- [Home Manager](https://github.com/nix-community/home-manager) options and configurations
+- [nix-darwin](https://github.com/nix-darwin/nix-darwin) options and
+  configurations
+- [Home Manager](https://github.com/nix-community/home-manager) options and
+  configurations
 
 ### Options
 
@@ -47,15 +50,15 @@ module.
 ### Configurations
 
 This flake also exports _Configuration modules_, which provide opinionated
-configurations for available options.
-Configuration is subject to change in newer revisions.
+configurations for available options. Configuration is subject to change in
+newer revisions.
 
 > [!IMPORTANT]
-> Configurations may set options defined in this flake.
-> Make sure to also import options before using configuration.
+> Configurations may set options defined in this flake. Make sure to also import
+> options before using configuration.
 
-It's encouraged _not_ to bulk import available configurations.
-Instead, you should import them in your own dedicated modules.
+It's encouraged _not_ to bulk import available configurations. Instead, you
+should import them in your own dedicated modules.
 
 Configuration can also be selectively overridden with `lib.mkForce`.
 
