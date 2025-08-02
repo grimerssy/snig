@@ -10,7 +10,7 @@
     programs.keep-sorted.enable = true;
     settings.global.excludes = [
       ".editorconfig"
-      "*.png"
+      "assets/*"
     ];
   };
 }
