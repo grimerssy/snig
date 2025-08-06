@@ -18,6 +18,8 @@
       set -g renumber-windows on
       set -g mouse on
 
+      set -sg terminal-overrides ",*:RGB"
+
       unbind %
       unbind '"'
       bind \\ split-window -h -c "#{pane_current_path}"
