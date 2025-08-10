@@ -1,12 +1,5 @@
 require("catppuccin").setup({
-  flavour = "macchiato",
   transparent_background = true,
-  term_colors = true,
-  styles = {
-    comments = { "italic" },
-    functions = { "italic" },
-    keywords = { "italic" },
-  },
   custom_highlights = function(colors)
     return {
       Macro = { fg = colors.sky },
@@ -25,5 +18,3 @@ require("catppuccin").setup({
     harpoon = true,
   },
 })
-
-vim.cmd.colorscheme("catppuccin")
