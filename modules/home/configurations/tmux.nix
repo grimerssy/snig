@@ -2,23 +2,32 @@
 {
   programs.tmux = {
     enable = true;
+    escapeTime = 0;
+    historyLimit = 50000;
+    focusEvents = true;
+    aggressiveResize = true;
     shell = "${pkgs.fish}/bin/fish";
-    sensibleOnTop = false; # TODO
     baseIndex = 1;
     disableConfirmationPrompt = true;
-    escapeTime = 0;
     keyMode = "vi";
-    prefix = "C-a";
+    shortcut = "a";
     terminal = "tmux-256color";
     # TODO revisit nix options
     extraConfig = ''
-      set -g detach-on-destroy off
-      set -g allow-rename off
+      set -ogq @snig_session "#{session_name}"
 
       set -g renumber-windows on
-      set -g mouse on
+      set -g detach-on-destroy off
+      set -g terminal-overrides ",*:RGB"
 
-      set -sg terminal-overrides ",*:RGB"
+      set -g status-style 'bg=default'
+      set -g status-position top
+      set -g status-justify left
+      set -g status-left-length 100
+      set -g status-right-length 100
+
+      set -g status-left ""
+      set -g status-right "#{E:@snig_session}"
 
       unbind %
       unbind '"'
@@ -44,27 +53,6 @@
       bind C-s display-popup -E "tmux-session"
 
       bind-key . run-shell 'open -R "$(tmux display-message -p "#{pane_current_path}")"'
-
-      set -g pane-border-style fg=brightblack
-      set -g pane-active-border-style fg=brightblack
-
-      set -g status-position top
-
-      set -g status-justify centre
-
-      set -g status-style 'bg=default'
-
-      set -g status-left-length 32
-      set -g status-left '#[fg=blue]#[fg=black]#[bg=blue]#{session_name}#[fg=blue]#[bg=default]'
-
-      set -g status-right-length 32
-      set -g status-right '#[bg=default] #{s|.| |:session_name} '
-
-      set -g window-status-separator '   '
-
-      # TODO when move to stylix fix in unconfigured terminals
-      set -g window-status-format "#[fg=white]#[fg=black]#[bg=white]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
-      set -g window-status-current-format "#[fg=blue]#[fg=black]#[bg=blue]#I #[fg=white]#[bg=black] #W #[fg=black]#[bg=default]"
     '';
   };
 }
