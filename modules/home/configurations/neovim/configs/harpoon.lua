@@ -1,4 +1,3 @@
--- TODO when move to stylix link HarpoonBorder to TelescopeBorder
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 

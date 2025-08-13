@@ -12,7 +12,6 @@
     keyMode = "vi";
     shortcut = "a";
     terminal = "tmux-256color";
-    # TODO revisit nix options
     extraConfig = ''
       set -ogq @snig_session "#{session_name}"
 
