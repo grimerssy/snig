@@ -70,7 +70,7 @@ lspconfig.rust_analyzer.setup({
           enable = false,
         },
       },
-      checkOnSave = {
+      check = {
         command = "clippy",
       },
       files = {
