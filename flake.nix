@@ -12,9 +12,8 @@
     };
   };
   outputs =
-    inputs@{ nixpkgs, flake-parts, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = nixpkgs.lib.systems.flakeExposed;
-      imports = [ ./modules/flake ];
+      imports = [ ./flake ];
     };
 }

@@ -1,9 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 {
+  systems = inputs.nixpkgs.lib.systems.flakeExposed;
   imports = [
     # keep-sorted start case=no numeric=yes
-    ./exports.nix
     ./formatter.nix
+    ./modules.nix
     # keep-sorted end
   ];
 }
