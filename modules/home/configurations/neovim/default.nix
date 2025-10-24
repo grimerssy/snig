@@ -23,6 +23,7 @@
       nil
 
       go
+      gopls
       delve
 
       nodePackages.typescript-language-server
@@ -30,6 +31,7 @@
       lua-language-server
 
       cargo
+      rust-analyzer
     ];
     plugins = with pkgs.vimPlugins; [
       oil-nvim
